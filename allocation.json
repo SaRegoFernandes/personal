@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T05:14:29.585786+00:00",
+  "generatedAt": "2026-06-17T06:04:12.854686+00:00",
   "asof": "2026-06-16",
   "composite": 7.3,
   "confidence": "ALTA",
@@ -234,5 +234,5 @@
       "msg": "Sem alertas de capacity/decay nesta rodada."
     }
   ],
-  "aum_organon": null
+  "aum_organon": 227950166.03
 }
