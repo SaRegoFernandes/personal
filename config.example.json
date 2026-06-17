@@ -1,0 +1,15 @@
+{
+  "caixa": 90000,
+  "carteira_total": 600000,
+  "selic_override": 14.5,
+  "ipca_override": 5.3,
+  "pl_override": 10.87,
+  "dy_override": 5.7,
+  "fear_greed": 4,
+  "cape": 9.4,
+  "sleeves": {
+    "Organon": {"atual": 150000}, "Artica": {"atual": 144000},
+    "ROXO34": {"atual": 72000}, "ALOS3": {"atual": 30000},
+    "SPXR11": {"atual": 0}, "HASH11": {"atual": 9000}
+  }
+}
