@@ -102,3 +102,18 @@ E faça o job `deploy` depender de `alocador` (`needs: [..., alocador]`).
   aberta do Actions.
 - `^S5TW/^S5FI/^S5TH` no Yahoo e incerto — por isso o fallback de calculo proprio existe.
 - Single-names (Nu, ALOS) e cripto **nao** estao na ferramenta: sao discricionarios.
+
+## DD dos fundos — fonte (atualizado)
+
+O DD de Organon+Ártica que entra no composite Brasil vem **da sua planilha de cotas
+diárias** (`1PT-cC...`), lida via CSV do gviz:
+`https://docs.google.com/spreadsheets/d/<ID>/gviz/tq?tqx=out:csv&sheet=organon` (e `&sheet=artica`).
+Aplica a **mesma lógica do seu Apps Script**: ATH sobre `cota_cvm`; cota atual = `cota_cvm`,
+com **fallback para `cota_site`** quando a CVM ainda não publicou (e se o site fizer novo topo,
+o ATH acompanha). Fallback geral: `data.json` (só CVM, defasado 2-3 d.u.).
+
+**Dois requisitos para o fetch funcionar no Actions (sem login):**
+1. A planilha precisa estar **"qualquer pessoa com o link: leitor"** (ou Arquivo → Publicar na web).
+   Se ficar restrita, o gviz devolve HTML de login e o parser cai no `data.json`.
+2. **Agende o job do alocador depois da sua atualização das 11h–12h** (ex.: 12:30 BRT), para
+   ler a planilha já com a cota do dia. Não precisa reconstruir nada — só ler.
