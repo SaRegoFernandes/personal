@@ -8,6 +8,7 @@
   "caixa_max": 0.2,
   "lambda_deploy": 0.22,
   "municao_minima": 0.05,
-  "dy_br_override": 5,
+  "pl_br_override": 11.03,
+  "dy_br_override": 5.7,
   "email_to": "theo.fernandes10@gmail.com"
 }
