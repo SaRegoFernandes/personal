@@ -1,0 +1,97 @@
+name: Alocador rápido (sem fundos)
+
+# Disparo manual apenas — não tem schedule.
+# Útil para testar mudanças no alocador sem esperar o update completo
+# (que inclui fetch de fundos CVM, que demora vários minutos).
+# Roda: breadth IBOV + breadth S&P + allocation.json + deploy.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: main-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+
+  breadth-ibov:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pandas numpy yfinance pyarrow requests
+      - run: python scripts/fetch_breadth.py
+      - name: Commit breadth IBOV
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/breadth.json docs/ibov_price.json data/prices.parquet data/breadth.parquet data/ibov_price.parquet data/ibov_composition.py
+          git diff --cached --quiet || git commit -m "chore: breadth IBOV $(date -u +%Y-%m-%dT%H:%M)Z"
+          git pull --rebase origin main
+          git push
+
+  breadth-sp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pandas numpy yfinance pyarrow requests
+      - run: python scripts/fetch_breadth_us.py
+      - name: Commit breadth S&P
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/breadth_us.json
+          [ -f data/prices_us.parquet ] && git add data/prices_us.parquet
+          git diff --cached --quiet || git commit -m "chore: breadth US $(date -u +%Y-%m-%dT%H:%M)Z"
+          git pull --rebase origin main
+          git push
+
+  alocador:
+    runs-on: ubuntu-latest
+    needs: [breadth-ibov, breadth-sp]
+    if: always() &&
+      (needs.breadth-ibov.result == 'success' || needs.breadth-ibov.result == 'skipped') &&
+      (needs.breadth-sp.result == 'success' || needs.breadth-sp.result == 'skipped')
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install requests pandas numpy yfinance
+      - name: Calcula allocation.json
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+        run: |
+          git pull --rebase origin main
+          python scripts/allocator.py
+      - name: Commit allocation.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/allocation.json
+          [ -f docs/sp_ath.json ] && git add docs/sp_ath.json
+          git diff --cached --quiet || git commit -m "chore: allocation $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main && git push
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [alocador]
+    if: always() && (needs.alocador.result == 'success' || needs.alocador.result == 'skipped')
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0, ref: main }
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          force_orphan: false
