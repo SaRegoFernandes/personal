@@ -605,7 +605,7 @@ def build():
     carry = (selic - fed) if (selic is not None and fed is not None) else None
     src_us = {
         "pe": pe_src, "cape": cape_src, "dy": dy_us_src, "real_us": real_us_src,
-        "sp_dd": sp_dd_src, "fg": fg_us_src, "fed": fed_src, "us_cpi": us_cpi_src,
+        "sp_dd": sp_dd_src, "fg": fg_us_src, "fed": fed_src, "cpi": us_cpi_src,
     }
     scUS = {"erp": s_erp_us(ey_us, real_us), "pe": s_pe_us(pe), "cape": s_cape_us(cape),
             "sp_dd": s_dd_us(sp_dd), "fg": s_fg(fg_us)}
