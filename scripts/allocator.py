@@ -194,7 +194,7 @@ _US_SOURCES = {
     "cape":     ("shiller-pe",                None,       False),
     "dy":       ("s-p-500-dividend-yield",    None,       False),
     "real":     ("10-year-real-interest-rate", "DFII10",  False),
-    "fed":      ("fed-funds-rate",             "DFF",     False),
+    "fed":      (None,                         "DFF",     False),  # Fed Funds não existe no multpl — FRED direto
     "cpi":      ("inflation",                  "CPIAUCSL", True),  # multpl.com/inflation = YoY%
 }
 
@@ -203,11 +203,14 @@ def _fetch_us(key, cfg_override=None):
     Retorna (valor, fonte_label)."""
     if cfg_override is not None: return cfg_override, "manual (override)"
     slug, fred_series, fred_yoy = _US_SOURCES[key]
-    v = fetch_multpl(slug)
-    if v is not None: return v, "multpl.com"
+    if slug is not None:
+        v = fetch_multpl(slug)
+        if v is not None: return v, "multpl.com"
     if fred_series:
         v = (fetch_fred_yoy(fred_series) if fred_yoy else fetch_fred(fred_series))
-        if v is not None: return v, f"FRED {fred_series} (fallback)"
+        if v is not None:
+            label = f"FRED {fred_series}" if slug is None else f"FRED {fred_series} (fallback)"
+            return v, label
     return None, "indisponível"
 
 def fetch_cnn_fng(default=None):
@@ -256,14 +259,24 @@ def fetch_sp_ath_and_dd():
         try: ath_data = json.loads(SP_ATH_FILE.read_text())
         except Exception: pass
     saved_ath = ath_data.get("ath")
+    # descarta valores corrompidos (NaN, null, zero) que possam ter sido gravados anteriormente
+    import math
+    if saved_ath is not None and (not math.isfinite(float(saved_ath)) or float(saved_ath) <= 0):
+        log.warning(f"sp_ath.json contém ATH inválido ({saved_ath}) — descartando e reinicializando")
+        saved_ath = None
 
     # 2) se não há ATH salvo, inicializa com 6 meses de histórico
     if saved_ath is None:
         log.info("sp_ath.json não existe — inicializando ATH com 6 meses de histórico")
         try:
+            import math
             g = yf.download("^GSPC", period="6mo", auto_adjust=True, progress=False, threads=False)
             c = (g["Close"] if "Close" in g else g).dropna().squeeze()
-            saved_ath = round(float(c.max()), 2)
+            v = float(c.max())
+            if not math.isfinite(v) or v <= 0:
+                log.warning("ATH inicializado como NaN/0 — yfinance retornou dados inválidos; aguardando próxima execução")
+                return None, None, None, "indisponível"
+            saved_ath = round(v, 2)
             log.info(f"ATH inicializado: {saved_ath} (pico dos últimos 6 meses)")
         except Exception as e:
             log.warning(f"falha ao inicializar ATH ({e})"); return None, None, None, "indisponível"
