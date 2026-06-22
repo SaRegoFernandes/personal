@@ -16,7 +16,7 @@ Fontes:
   - CDI: API Banco Central (série 12)
 """
 
-import json, zipfile, io, math, datetime, urllib.request, calendar, socket
+import os, json, zipfile, io, math, datetime, urllib.request, calendar, socket
 from pathlib import Path
 from itertools import combinations
 
@@ -2360,9 +2360,79 @@ def reconstruct_max_quotas_from_history(hist_path: Path) -> dict:
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 
-def fetch_sp500(anchor: datetime.date, a12: datetime.date, a36: datetime.date, a60: datetime.date) -> dict:
-    """Busca S&P 500 (^GSPC) e câmbio USD/BRL (BRL=X) no Yahoo Finance.
-    Retorna CAGRs em BRL: converte preços do índice pela taxa de câmbio de cada data.
+def fetch_fed_dff(start: datetime.date, anchor: datetime.date) -> dict:
+    """Busca a Fed Funds Rate efetiva diária (FRED série DFF) e devolve um fator
+    ACUMULADO por data {iso: fator}, no mesmo formato do cdi_price_map.
+    DFF é taxa anual em %; convertemos para fator diário (base 360, convenção fed funds).
+    """
+    s = start.isoformat(); e = anchor.isoformat()
+    url = (f"https://api.stlouisfed.org/fred/series/observations"
+           f"?series_id=DFF&observation_start={s}&observation_end={e}"
+           f"&file_type=json&api_key={os.environ.get('FRED_API_KEY','')}")
+    # FRED aceita sem chave via fredgraph CSV; usamos o endpoint CSV como fallback robusto.
+    csv_url = (f"https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFF"
+               f"&cosd={s}&coed={e}")
+    def _parse_csv(text):
+        out = {}
+        for line in text.splitlines()[1:]:
+            parts = line.split(",")
+            if len(parts) < 2: continue
+            d, v = parts[0].strip(), parts[1].strip()
+            if v in ("", "."): continue
+            try: out[d] = float(v)
+            except ValueError: continue
+        return out
+    try:
+        req = urllib.request.Request(csv_url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            rates = _parse_csv(resp.read().decode("utf-8"))
+        if not rates:
+            raise ValueError("FRED DFF vazio")
+        # fator acumulado: cada dia compõe (1 + taxa_anual/100/360).
+        # DFF é taxa overnight anualizada; aplicamos por dia-calendário (forward-fill
+        # implícito: dias sem cotação herdam a última taxa via varredura contínua).
+        acc = 1.0; price_map = {}
+        all_days = sorted(rates.keys())
+        last_rate = rates[all_days[0]]
+        cur = datetime.date.fromisoformat(all_days[0])
+        end = anchor
+        rate_lookup = rates
+        while cur <= end:
+            iso = cur.isoformat()
+            if iso in rate_lookup: last_rate = rate_lookup[iso]
+            acc *= 1 + (last_rate / 100.0) / 360.0
+            price_map[iso] = acc
+            cur += datetime.timedelta(days=1)
+        print(f"  Fed DFF: {len(rates)} cotações, fator acumulado de {all_days[0]} a {anchor.isoformat()}")
+        return price_map
+    except Exception as ex:
+        print(f"  ✗ Fed DFF falhou ({ex}) — usando fallback de taxa Fed constante")
+        # Fallback: Fed constante (último nível conhecido ~ informado no config do alocador).
+        # Mantém o benchmark vivo mesmo sem FRED. FED_FALLBACK pode vir do ambiente.
+        try:
+            fed_const = float(os.environ.get("FED_FALLBACK", "3.6"))
+        except ValueError:
+            fed_const = 3.6
+        acc = 1.0; price_map = {}
+        cur = start; fed_daily = 1 + (fed_const / 100.0) / 360.0
+        while cur <= anchor:
+            acc *= fed_daily
+            price_map[cur.isoformat()] = acc
+            cur += datetime.timedelta(days=1)
+        print(f"  Fed fallback constante {fed_const}%/ano de {start.isoformat()} a {anchor.isoformat()}")
+        return price_map
+
+
+def fetch_sp500(anchor: datetime.date, a12: datetime.date, a36: datetime.date, a60: datetime.date,
+                cdi_price_map: dict | None = None) -> dict:
+    """S&P 500 em BRL na lógica SPXR11 (HEDGEADO): retorno do índice em USD MAIS o
+    carry do diferencial de juros (CDI − Fed), SEM exposição cambial.
+
+        SPXR11_BRL(t) = S&P_USD(t) × CDI_acumulado(t) / Fed_acumulado(t)
+
+    O câmbio NÃO entra. A Selic (via CDI, BCB série 12) e a Fed funds (FRED DFF)
+    formam o carry. Isto corrige o cálculo antigo (S&P_USD × câmbio), que era o
+    S&P NÃO-hedgeado, exposto ao dólar — não corresponde ao SPXR11.
     """
     def _yahoo(ticker, period1, period2):
         url = (f"https://query1.finance.yahoo.com/v8/finance/chart/{ticker}"
@@ -2387,24 +2457,25 @@ def fetch_sp500(anchor: datetime.date, a12: datetime.date, a36: datetime.date, a
 
     try:
         sp_map  = _yahoo("%5EGSPC", period1, period2)
-        fx_map  = _yahoo("BRL%3DX", period1, period2)  # USD/BRL
+        if not cdi_price_map:
+            raise ValueError("cdi_price_map ausente — necessário para o carry")
+        fed_map = fetch_fed_dff(a60 - datetime.timedelta(days=10), anchor)
+        if not fed_map:
+            raise ValueError("Fed DFF ausente — necessário para o carry")
 
-        # S&P em BRL = preço_SP500 × câmbio_USD/BRL
+        def _nearest(m, date_str):
+            if date_str in m: return m[date_str]
+            ds = [d for d in sorted(m.keys()) if d <= date_str]
+            return m[ds[-1]] if ds else None
+
+        # S&P em BRL hedgeado = S&P_USD × (CDI_acc / Fed_acc)
         def sp_brl(date_str):
-            sp  = sp_map.get(date_str)
-            fx  = fx_map.get(date_str)
-            if sp and fx and fx > 0:
-                return sp * fx
-            # Fallback: busca data mais próxima disponível nos dois
-            sp_dates = sorted(sp_map.keys())
-            fx_dates = sorted(fx_map.keys())
-            sp_cands = [d for d in sp_dates if d <= date_str]
-            fx_cands = [d for d in fx_dates if d <= date_str]
-            if not sp_cands or not fx_cands:
-                return None
-            sp_v = sp_map[sp_cands[-1]]
-            fx_v = fx_map[fx_cands[-1]]
-            return sp_v * fx_v if sp_v and fx_v and fx_v > 0 else None
+            sp  = _nearest(sp_map, date_str)
+            cdi = _nearest(cdi_price_map, date_str)
+            fed = _nearest(fed_map, date_str)
+            if sp and cdi and fed and fed > 0:
+                return sp * (cdi / fed)
+            return None
 
         p_anchor = sp_brl(anchor.isoformat())
         p12      = sp_brl(a12.isoformat())
@@ -2421,7 +2492,7 @@ def fetch_sp500(anchor: datetime.date, a12: datetime.date, a36: datetime.date, a
             "cagr60": sp_cagr(p60,  p_anchor, a60.isoformat(),  anchor.isoformat()),
         }
         vals = {k: f"{v:.2f}%" if v is not None else "N/D" for k, v in result_sp.items()}
-        print(f"  S&P500 BRL 12M={vals['cagr12']} 36M={vals['cagr36']} 60M={vals['cagr60']}")
+        print(f"  S&P500 BRL (SPXR11/hedge) 12M={vals['cagr12']} 36M={vals['cagr36']} 60M={vals['cagr60']}")
         return result_sp
     except Exception as e:
         print(f"  ✗ S&P500 falhou: {e}")
@@ -2687,8 +2758,8 @@ def main() -> None:
 
     # CDI já buscado antes de update_history (pré-fetch acima).
 
-    print(f"\n── S&P 500")
-    sp500 = fetch_sp500(anchor, a12, a36, a60)
+    print(f"\n── S&P 500 (SPXR11 / hedge cambial — carry CDI−Fed, sem câmbio)")
+    sp500 = fetch_sp500(anchor, a12, a36, a60, cdi_price_map)
 
     print(f"\n── NTN-B (Tesouro IPCA+ — âncora de juro real)")
     ntnb = fetch_ntnb()
