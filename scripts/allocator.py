@@ -68,7 +68,8 @@ DEFAULT_CONFIG = {
     # banda de caixa desejada
     "caixa_max": 0.20,             # quando tudo caro
     "caixa_min": 0.05,             # quando algo barato
-    "lambda_deploy": 0.22,
+    "k_barateza": 1.5,             # sensibilidade do piso à barateza (alinhado ao HTML)
+    "k_reserva": 0.5,              # reserva por mercado caro+sub-alocado (alinhado ao HTML)
     "municao_minima": 0.05,
 
     # monitor de decay (só Brasil — S&P é passivo)
@@ -483,48 +484,66 @@ def composite(scores, weights):
     return round(num/den, 2), missing, conf
 
 
-# ── DEPLOY + SPLIT ────────────────────────────────────────────────────────────
+# ── CAIXA-ALVO + DEPLOY ───────────────────────────────────────────────────────
+# Lógica IDÊNTICA ao alocador.html (cashTarget): piso por barateza com k_barateza,
+# mais reserva por mercado caro+sub-alocado com k_reserva. Sem tranches: o deploy
+# leva o caixa direto ao alvo, roteado ao mercado mais barato e abaixo do alvo.
 def cheap_gate(score):
-    """f(score): peso de barateza no split. Zera mercado caro (<~neutro), 1.0 quando barato.
-    Honra a sua regra: 'S&P caro leva pouco mesmo se sub-alocado'."""
+    """peso de barateza no split: zera mercado caro (<4.5), 1.0 quando barato (>=10).
+    Honra a regra: 'S&P caro leva pouco mesmo se sub-alocado'."""
     if score is None: return 0.0
     return max(0.0, min(1.0, (score - 4.5) / 5.5))
+
+def cash_target(cfg, sBR, sUS, cur_br, cur_sp):
+    """Réplica fiel de cashTarget() do HTML."""
+    cMin, cMax, k = cfg["caixa_min"], cfg["caixa_max"], cfg["k_barateza"]
+    best = max(0.0 if sBR is None else sBR, 0.0 if sUS is None else sUS) / 10.0
+    base = cMax - (cMax - cMin) * min(1.0, best * k)
+    def reserva(score, cur, tgt):
+        if score is None: return 0.0
+        gap = max(0.0, tgt - cur)                 # sub-alocado neste mercado
+        caro = max(0.0, (4.5 - score) / 4.5)      # 0 se score>=4.5; →1 se caríssimo
+        return cfg["k_reserva"] * gap * caro
+    resB = reserva(sBR, cur_br, cfg["alvo_brasil"])
+    resS = reserva(sUS, cur_sp, cfg["alvo_sp"])
+    alvo = base + resB + resS
+    alvo = max(cfg["municao_minima"], min(cMax + 0.15, alvo))
+    return alvo, base, resB, resS
 
 def decide(cfg, sBR, sUS):
     T = max(1.0, cfg["carteira_total"]); C = cfg["caixa"]
     B = cfg["brasil"]; S = cfg["sp"]; cashpct = C/T
+    cur_br = B/T; cur_sp = S/T
     if cfg.get("override_sinal") == "HOLD":
         return dict(tranche=0, piso=cashpct, cashpct=cashpct, gap=0, aloc_brasil=0, aloc_sp=0,
-                    tgt_brasil=cfg["alvo_brasil"], tgt_sp=cfg["alvo_sp"], cur_brasil=B/T, cur_sp=S/T,
+                    tgt_brasil=cfg["alvo_brasil"], tgt_sp=cfg["alvo_sp"], cur_brasil=cur_br, cur_sp=cur_sp,
                     desc="override manual: HOLD")
-    chBest = (max([x for x in [sBR, sUS] if x is not None] or [0]))/10.0
-    piso = cfg["caixa_max"] - (cfg["caixa_max"]-cfg["caixa_min"])*chBest
-    piso = max(cfg["municao_minima"], piso)
-    gap = cashpct - piso
-    # quanto o caixa "quer" desplegar nesta rodada
-    want = max(0.0, cfg["lambda_deploy"]*gap*T)
-    want = min(want, max(0.0, C - cfg["municao_minima"]*T))
-    # alvos em R$ do risco e atratividade COM gate de barateza
-    risk_at_target = T*(1-piso)
+    alvo, base, resB, resS = cash_target(cfg, sBR, sUS, cur_br, cur_sp)
+    gap = cashpct - alvo
+    # deploy = leva o caixa direto ao alvo (sem tranches), respeitando munição mínima
+    deployable = max(0.0, (cashpct - alvo) * T)
+    deployable = min(deployable, max(0.0, C - cfg["municao_minima"]*T))
+    # roteia ao mercado barato E abaixo do alvo (mesma disciplina do HTML)
+    risk_at_target = T * (1 - alvo)
     tgtB = cfg["alvo_brasil"]*risk_at_target; tgtS = cfg["alvo_sp"]*risk_at_target
     underB = max(0.0, tgtB - B); underS = max(0.0, tgtS - S)
     attrB = underB*cheap_gate(sBR); attrS = underS*cheap_gate(sUS)
     tot = attrB + attrS
     aB = aS = 0.0
-    if want > 0 and tot > 0:
-        aB = min(want*attrB/tot, underB)   # nunca passa do alvo (disciplina)
-        aS = min(want*attrS/tot, underS)
+    if deployable > 0 and tot > 0:
+        aB = min(deployable*attrB/tot, underB)
+        aS = min(deployable*attrS/tot, underS)
         aB = round(aB, -2); aS = round(aS, -2)
-    tranche = aB + aS  # deploy efetivo = só o que tem destino barato+sub-alocado
-    rodadas = round(1/cfg["lambda_deploy"]) if cfg["lambda_deploy"] > 0 else None
-    if tranche == 0 and want > 0:
-        desc = "caixa acima do piso, mas nada barato E abaixo do alvo agora — segura munição"
+    tranche = aB + aS
+    if tranche == 0 and deployable > 0:
+        desc = "caixa acima do alvo, mas nada barato E abaixo do alvo agora — segura munição"
     else:
-        desc = (f"piso-alvo de caixa {piso*100:.0f}% · deploy roteado p/ o mercado barato e "
+        desc = (f"caixa-alvo {alvo*100:.0f}% · deploy roteado p/ o mercado barato e "
                 f"abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)")
-    return dict(tranche=round(tranche, -2), piso=piso, cashpct=cashpct, gap=gap,
-                want=round(want, -2), aloc_brasil=aB, aloc_sp=aS, rodadas=rodadas,
-                tgt_brasil=tgtB/T, tgt_sp=tgtS/T, cur_brasil=B/T, cur_sp=S/T, desc=desc)
+    return dict(tranche=round(tranche, -2), piso=alvo, cashpct=cashpct, gap=gap,
+                want=round(deployable, -2), aloc_brasil=aB, aloc_sp=aS, rodadas=1,
+                base=base, res_brasil=resB, res_sp=resS,
+                tgt_brasil=tgtB/T, tgt_sp=tgtS/T, cur_brasil=cur_br, cur_sp=cur_sp, desc=desc)
 
 def signal_label(score):
     if score is None: return "INCOMPLETO", "#7a7870"
@@ -626,7 +645,8 @@ def build():
         "carteira_total": cfg["carteira_total"], "caixa": cfg["caixa"],
         "brasil": cfg["brasil"], "sp": cfg["sp"],
         "banda": {"caixa_min": cfg["caixa_min"], "caixa_max": cfg["caixa_max"],
-                  "lambda": cfg["lambda_deploy"], "municao_minima": cfg["municao_minima"],
+                  "k_barateza": cfg["k_barateza"], "k_reserva": cfg["k_reserva"],
+                  "municao_minima": cfg["municao_minima"],
                   "alvo_brasil": cfg["alvo_brasil"], "alvo_sp": cfg["alvo_sp"]},
         "brasil_signal": {"score": score_br, "conf": conf_br, "label": sigBR[0], "cor": sigBR[1],
                           "regime": bBR.get("regime"), "groups": grp(GROUPS_BR, scBR, WEIGHTS_BR)},
