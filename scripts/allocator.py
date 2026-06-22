@@ -80,6 +80,7 @@ DEFAULT_CONFIG = {
     # overrides (em branco = usa o fetch)
     "pl_br_override": None, "dy_br_override": None,
     "selic_override": None, "ipca_override": None, "fg_br": None, "cape_br": None,
+    "buf_ratio_br_override": None, "buf_ratio_us_override": None,
     "pe_us_override": None, "dy_us_override": None, "real_us_override": None,
     "fg_us_override": None, "cape_us_override": None, "fed_override": None,
     "us_cpi_override": None, "override_sinal": None,
@@ -468,10 +469,25 @@ def s_fg(fg):
                      (80,3,"ganância"),(90,2,"ganância alta"),(1e9,.5,"ganância extrema")])
     return s, f"{fg:.0f}/100 — {l}", fg
 
-WEIGHTS_BR = {"erp":.22,"pl":.12,"dy":.06,"ibov_dd":.16,"fund_dd":.16,"breadth":.12,"mm200":.06,"fg":.10}
-WEIGHTS_US = {"erp":.22,"pe":.14,"cape":.16,"sp_dd":.22,"fg":.26}
-GROUPS_BR = {"Valuation":["erp","pl","dy"],"Drawdown":["ibov_dd","fund_dd"],"Breadth":["breadth","mm200"],"Sentimento":["fg"]}
-GROUPS_US = {"Valuation":["erp","pe","cape"],"Drawdown":["sp_dd"],"Sentimento":["fg"]}
+def s_buf_us(r):
+    # Buffett Indicator S&P (TMC/PIB). Zonas GuruFocus: ≤90 barato … >167 caro.
+    if r is None: return None, "Buffett n/d", None
+    s, l = tier(r, [(90,9.5,"subvalorizado"),(116,7.5,"levem. barato"),(142,5.5,"justo"),
+                    (167,3.5,"levem. caro"),(200,2,"caro"),(1e9,.5,"extremo")])
+    return s, f"{round(r)}% TMC/PIB — {l}", r
+
+def s_buf_br(r):
+    # Buffett Indicator Brasil (TMC/PIB). Zonas GuruFocus: ≤34 barato … >63 caro.
+    if r is None: return None, "Buffett n/d", None
+    s, l = tier(r, [(34,10,"subvalorizado"),(44,7.5,"modest. barato"),(53,5.5,"justo"),
+                    (63,3.5,"modest. caro"),(1e9,1.5,"sobrevalorizado")])
+    return s, f"{round(r)}% TMC/PIB — {l}", r
+
+# Pesos e grupos — IDÊNTICOS ao alocador.html (Buffett entra na nota de VALUATION)
+WEIGHTS_BR = {"erp":.19,"pl":.10,"dy":.06,"buf":.05,"ibov_dd":.16,"fund_dd":.16,"breadth":.12,"mm200":.06,"fg":.10}
+WEIGHTS_US = {"erp":.18,"pe":.12,"cape":.16,"buf":.06,"sp_dd":.22,"fg":.26}
+GROUPS_BR = {"Valuation":["erp","pl","dy","buf"],"Drawdown":["ibov_dd","fund_dd"],"Breadth":["breadth","mm200"],"Sentimento":["fg"]}
+GROUPS_US = {"Valuation":["erp","pe","cape","buf"],"Drawdown":["sp_dd"],"Sentimento":["fg"]}
 
 def composite(scores, weights):
     num = den = 0.0; missing = []
@@ -600,7 +616,9 @@ def build():
         "mm200": "breadth.json" if bBR.get("breadth_200") is not None else "SEED — revisar",
         "fg": fg_br_src,
     }
+    buf_ratio_br = cfg.get("buf_ratio_br_override")
     scBR = {"erp": s_erp(ey_br, real_cdi), "pl": s_pl_br(pl), "dy": s_dy(dy_br),
+            "buf": s_buf_br(buf_ratio_br),
             "ibov_dd": s_dd(dd_ibov), "fund_dd": s_fund_dd(fdd),
             "breadth": s_breadth(bBR.get("composite")), "mm200": s_mm200(bBR.get("breadth_200")),
             "fg": s_fg(fg_br)}
@@ -626,7 +644,9 @@ def build():
         "pe": pe_src, "cape": cape_src, "dy": dy_us_src, "real_us": real_us_src,
         "sp_dd": sp_dd_src, "fg": fg_us_src, "fed": fed_src, "cpi": us_cpi_src,
     }
+    buf_ratio_us = cfg.get("buf_ratio_us_override")
     scUS = {"erp": s_erp_us(ey_us, real_us), "pe": s_pe_us(pe), "cape": s_cape_us(cape),
+            "buf": s_buf_us(buf_ratio_us),
             "sp_dd": s_dd_us(sp_dd), "fg": s_fg(fg_us)}
     score_us, miss_us, conf_us = composite(scUS, WEIGHTS_US)
 
@@ -699,6 +719,7 @@ def send_email(out, cfg):
 
 if __name__ == "__main__":
     out, cfg = build()
-    if "--email" in sys.argv:
-        try: send_email(out, cfg)
-        except Exception as e: log.warning(f"e-mail falhou: {e}")
+    # NOTA: o envio de e-mail foi removido. O e-mail agora sai do site (botão
+    # "copiar email"), usando os dados que VOCÊ preenche no HTML — não os do
+    # fetch automático, que podem divergir. Este script só gera o allocation.json
+    # que popula o site. (O flag --email foi desativado; remova-o do workflow.)
