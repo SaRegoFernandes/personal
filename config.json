@@ -1,8 +1,8 @@
 {
   "alvo_brasil": 0.75,
   "alvo_sp": 0.25,
-  "caixa_min": 0.1,
-  "caixa_max": 0.25,
+  "caixa_min": 0.05,
+  "caixa_max": 0.20,
   "municao_minima": 0.1,
   "k_barateza": 1.5,
   "k_reserva": 0.5,
