@@ -4,21 +4,23 @@ on:
   push:
     branches: [main]
   schedule:
-    # ── Fundos (CVM) — duas vezes por dia ────────────────────────────────────
-    - cron: "0 15 * * 1-5"   # 12:00 BRT
-    - cron: "0 21 * * 1-5"   # 18:00 BRT
-    # ── Breadth (Yahoo Finance) — de hora em hora durante o pregão ──────────
-    # Pregão B3: 10:00–18:55 BRT = 13:00–21:55 UTC
-    - cron: "30 13-21 * * 1-5"
-    - cron: "30 22 * * 1-5"
+    # ── Tudo (fundos CVM + breadth + alocador) 5x/dia, dias úteis ──────────────
+    # Minutos quebrados (:07, :23…) evitam o descarte de crons no topo da hora,
+    # que o GitHub trata como best-effort e pula quando a fila está cheia.
+    # Horários em UTC; pregão B3 10:00–19:00 BRT = 13:00–22:00 UTC.
+    - cron: "7 13 * * 1-5"    # ~10:07 BRT (abertura)
+    - cron: "23 15 * * 1-5"   # ~12:23 BRT
+    - cron: "7 17 * * 1-5"    # ~14:07 BRT
+    - cron: "37 19 * * 1-5"   # ~16:37 BRT
+    - cron: "23 21 * * 1-5"   # ~18:23 BRT (perto do fechamento)
   workflow_dispatch:
 
-# Garante que apenas um workflow roda por vez no branch main.
-# Se um segundo disparo chegar enquanto o anterior ainda está rodando,
-# o anterior é cancelado e o novo assume — sem conflitos de push.
+# Enfileira runs sobrepostos em vez de cancelar o que está no meio. Como o job da
+# CVM pode levar ~30min, cancel-in-progress matava runs antes de terminar — agora
+# eles esperam a vez (cancel-in-progress: false).
 concurrency:
   group: main-deploy
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -27,15 +29,13 @@ permissions:
 
 jobs:
   # ════════════════════════════════════════════════════════════════════════════
-  # JOB 1 — Fundos CVM (roda só nos horários 15:00 e 21:00 UTC, ou dispatch)
+  # JOB 1 — Fundos CVM (roda em todos os 5 horários agendados, ou dispatch)
   # ════════════════════════════════════════════════════════════════════════════
   update-fundos:
     runs-on: ubuntu-latest
     if: |
       github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'schedule' &&
-       (contains(github.event.schedule, '0 15') ||
-        contains(github.event.schedule, '0 21')))
+      github.event_name == 'schedule'
 
     steps:
       - name: Checkout
