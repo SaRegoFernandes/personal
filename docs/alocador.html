@@ -332,6 +332,12 @@
         <div class="stepper"><input id="ibov_fwd" type="text" inputmode="decimal"><span class="unit">%</span></div></div>
     </div>
     <div class="solver-inputs buf-ret-row">
+      <div class="field"><div><label><span class="tip" data-tip="retorno real esperado do S&P pela valuation: earnings yield (1/CAPE). Fórmula: 100/CAPE. Editar aqui recalcula o CAPE lá embaixo, e vice-versa — são o mesmo dado.">via CAPE</span> <a class="src s-auto src-link" data-tip="fonte: multpl (Shiller CAPE) — clique para abrir" onclick="window.open('https://www.multpl.com/shiller-pe','_blank')">auto</a></label><span class="sub">entra no S&amp;P fwd · 70%</span></div>
+        <div class="stepper"><input id="sp_cape_ret" type="text" inputmode="decimal" oninput="cacheSig(this)" onchange="onCapeRetEdit()"><span class="unit">%</span></div></div>
+      <div class="field"><div><label><span class="tip" data-tip="retorno esperado do IBOV pelo earnings yield (lucro/preço): 100/(P/L). Editar aqui recalcula o P/L lá embaixo, e vice-versa — são o mesmo dado.">via earnings yield</span> <a class="src s-manual src-link" data-tip="fonte: Oceans14 (P/L Ibovespa) — clique para abrir" onclick="window.open('https://www.oceans14.com.br/acoes/historico-pl-bovespa','_blank')">manual</a></label><span class="sub">entra no IBOV fwd · 30%</span></div>
+        <div class="stepper"><input id="ibov_ey_ret" type="text" inputmode="decimal" oninput="cacheSig(this)" onchange="onEyRetEdit()"><span class="unit">%</span></div></div>
+    </div>
+    <div class="solver-inputs buf-ret-row">
       <div class="field"><div><label>Buffett ret. S&amp;P <a class="src s-manual src-link" data-tip="fonte: GuruFocus — clique para abrir" onclick="window.open('https://www.gurufocus.com/stock-market-valuations.php','_blank')">manual</a></label><span class="sub">entra no S&amp;P fwd</span></div>
         <div class="stepper"><input id="buf_sp" type="text" inputmode="decimal" oninput="cacheSig(this)" onchange="onSigEdit()"><span class="unit">%</span></div></div>
       <div class="field"><div><label>Buffett ret. IBOV <a class="src s-manual src-link" data-tip="fonte: GuruFocus — clique para abrir" onclick="window.open('https://www.gurufocus.com/global-market-valuation.php?country=BRA','_blank')">manual</a></label><span class="sub">entra no IBOV fwd</span></div>
@@ -522,7 +528,7 @@ let SOLVER_SLIDER=80; // 0=Sharpe-ótimo .. 100=CAGR-ótimo
 let _fwdDirty={};     // marca se o usuário sobrescreveu sp_fwd/ibov_fwd manualmente
 
 /* S&P forward implícito do CAPE: relação histórica 145 anos (ret ≈ 3,4% + 0,85/CAPE) */
-function spFwdFromCape(cape){ if(!cape||cape<=0) return null; return 3.4 + 0.85*100/cape; }
+function spFwdFromCape(cape){ if(!cape||cape<=0) return null; return 100/cape; }  // earnings yield (CAEY): retorno real esperado = 1/CAPE
 
 /* tangência long-only de 2 ativos (Sharpe-ótimo) */
 function sharpeOptBR(muBR,muSP){
@@ -541,12 +547,18 @@ function solveSplit(){
   const bufSp=gv('buf_sp'), bufIb=gv('buf_ibov');     // Buffett Indicator fwd (manual)
   // S&P fwd = média ponderada CAPE-implícito (70%) + Buffett (30%); só CAPE se Buffett ausente
   const spCape=spFwdFromCape(cape);
+  // espelha o componente CAPE no campo editável (sincronizado com o CAPE de baixo)
+  const spCapeEl=document.getElementById('sp_cape_ret');
+  if(spCapeEl && spCape!=null && document.activeElement!==spCapeEl){ spCapeEl.value=(Math.round(spCape*10)/10).toString().replace('.',','); }
   const spBlend=(bufSp!=null)? (W_SP_CAPE*spCape + (1-W_SP_CAPE)*bufSp) : spCape;
   const spEl=document.getElementById('sp_fwd');
   if(spEl && !_fwdDirty['sp_fwd']){ spEl.value=(Math.round(spBlend*10)/10).toString().replace('.',','); }
   let spFwd=gv('sp_fwd'); if(spFwd==null) spFwd=spBlend;
   // IBOV fwd = média ponderada earnings yield (30%) + Buffett (70%); só EY se Buffett ausente
   const ibEy=(plBr? 100/plBr : 10);
+  // espelha o componente EY no campo editável (sincronizado com o P/L de baixo)
+  const ibEyEl=document.getElementById('ibov_ey_ret');
+  if(ibEyEl && document.activeElement!==ibEyEl){ ibEyEl.value=(Math.round(ibEy*10)/10).toString().replace('.',','); }
   const ibBlend=(bufIb!=null)? (W_IB_EY*ibEy + (1-W_IB_EY)*bufIb) : ibEy;
   const ibEl=document.getElementById('ibov_fwd');
   if(ibEl && !_fwdDirty['ibov_fwd']){ ibEl.value=(Math.round(ibBlend*10)/10).toString().replace('.',','); }
@@ -791,6 +803,22 @@ function flagNeedsEdit(R){
 let _sigCache={};
 function cacheSig(el){ if(el&&el.id){ _sigCache[el.id]=el.value; } }   // só guarda; não re-renderiza
 function onSigEdit(){ SIG_FIELDS.forEach(id=>{const el=document.getElementById(id); if(el) _sigCache[id]=el.value;}); persist(); renderSolver(); render(compute(readCfg())); }
+
+/* Sincronização bidirecional: editar o retorno-via-CAPE recalcula o CAPE lá embaixo.
+   Earnings yield: fwd = 100/CAPE  →  CAPE = 100/fwd. */
+function onCapeRetEdit(){
+  const v=gv('sp_cape_ret');
+  if(v!=null && v>0){ const cape=100/v; setF('cape_us',cape); _sigCache['cape_us']=document.getElementById('cape_us').value; }
+  _sigCache['sp_cape_ret']=document.getElementById('sp_cape_ret').value;
+  persist(); renderSolver(); render(compute(readCfg()));
+}
+/* Editar o retorno-via-EY recalcula o P/L lá embaixo. Inverte fwd = 100/PL → PL = 100/fwd. */
+function onEyRetEdit(){
+  const v=gv('ibov_ey_ret');
+  if(v!=null && v>0){ const pl=100/v; setF('pl_br',pl); _sigCache['pl_br']=document.getElementById('pl_br').value; }
+  _sigCache['ibov_ey_ret']=document.getElementById('ibov_ey_ret').value;
+  persist(); renderSolver(); render(compute(readCfg()));
+}
 function restoreSigInputs(){ for(const id in _sigCache){ const el=document.getElementById(id); if(el && _sigCache[id]!=null) el.value=_sigCache[id]; } }
 
 function applyAll(){ renderSolver(); liveSum(); SIG_FIELDS.forEach(id=>{const el=document.getElementById(id); if(el) _sigCache[id]=el.value;}); persist(); render(compute(readCfg())); }
