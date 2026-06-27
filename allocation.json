@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T18:00:00.112248+00:00",
+  "generatedAt": "2026-06-27T19:11:26.711733+00:00",
   "asof": "2026-06-26",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,72 +15,72 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 4.92,
-    "conf": "MÉDIA",
+    "score": 4.95,
+    "conf": "BAIXA",
     "label": "CAUTELOSO",
     "cor": "#c2541f",
     "regime": "bear",
     "groups": {
       "Valuation": {
-        "weight": 0.4,
+        "weight": 0.52,
         "items": [
           {
             "key": "erp",
             "score": null,
             "read": "ERP n/d",
-            "weight": 0.19
+            "weight": 0.22
           },
           {
             "key": "pl",
             "score": null,
             "read": "P/L n/d",
-            "weight": 0.1
+            "weight": 0.14
           },
           {
             "key": "dy",
             "score": null,
             "read": "DY n/d",
-            "weight": 0.06
+            "weight": 0.1
           },
           {
             "key": "buf",
             "score": null,
             "read": "Buffett n/d",
-            "weight": 0.05
+            "weight": 0.06
           }
         ]
       },
       "Drawdown": {
-        "weight": 0.32,
+        "weight": 0.24,
         "items": [
           {
             "key": "ibov_dd",
             "score": 4.5,
             "read": "-12.8% — correção leve",
-            "weight": 0.16
+            "weight": 0.12
           },
           {
             "key": "fund_dd",
             "score": 4.5,
             "read": "DD médio -10.8% — correção leve",
-            "weight": 0.16
+            "weight": 0.12
           }
         ]
       },
       "Breadth": {
-        "weight": 0.18,
+        "weight": 0.14,
         "items": [
           {
             "key": "breadth",
             "score": 6,
             "read": "38% composto — abaixo do meio",
-            "weight": 0.12
+            "weight": 0.1
           },
           {
             "key": "mm200",
             "score": 5,
             "read": "39% > MM200 — abaixo da média",
-            "weight": 0.06
+            "weight": 0.04
           }
         ]
       },
@@ -98,81 +98,81 @@
     }
   },
   "sp_signal": {
-    "score": 3.23,
+    "score": 2.56,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
     "groups": {
       "Valuation": {
-        "weight": 0.52,
+        "weight": 0.6444,
         "items": [
           {
             "key": "erp",
             "score": 3,
             "read": "ERP real +1.0pp — cara vs juros",
-            "weight": 0.18
+            "weight": 0.2444
           },
           {
             "key": "pe",
             "score": 1,
             "read": "31.4x — muito caro",
-            "weight": 0.12
+            "weight": 0.0889
           },
           {
             "key": "cape",
             "score": 0.5,
             "read": "CAPE 41x — extremo (tipo 1999/2021)",
-            "weight": 0.16
+            "weight": 0.2444
           },
           {
             "key": "buf",
             "score": null,
             "read": "Buffett n/d",
-            "weight": 0.06
+            "weight": 0.0667
           }
         ]
       },
       "Drawdown": {
-        "weight": 0.22,
+        "weight": 0.2,
         "items": [
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-3.4% — no topo/ATH",
-            "weight": 0.22
+            "read": "-3.3% — no topo/ATH",
+            "weight": 0.2
           }
         ]
       },
       "Sentimento": {
-        "weight": 0.26,
+        "weight": 0.1556,
         "items": [
           {
             "key": "fg",
             "score": 8,
             "read": "25/100 — medo alto",
-            "weight": 0.26
+            "weight": 0.1556
           }
         ]
       }
     }
   },
   "decision": {
-    "tranche": 1800.0,
-    "piso": 0.10576296296296295,
+    "tranche": 0.0,
+    "piso": 0.11377314814814815,
     "cashpct": 0.2,
-    "gap": 0.09423703703703706,
-    "want": 42400.0,
-    "aloc_brasil": 1800.0,
+    "gap": 0.08622685185185186,
+    "want": 38800.0,
+    "aloc_brasil": 0.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.08929999999999999,
+    "base": 0.08862500000000001,
     "res_brasil": 0.0,
-    "res_sp": 0.016462962962962964,
-    "tgt_brasil": 0.6706777777777778,
-    "tgt_sp": 0.22355925925925926,
+    "res_sp": 0.02514814814814815,
+    "tgt_brasil": 0.6646701388888889,
+    "tgt_sp": 0.22155671296296298,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
-    "desc": "caixa-alvo 11% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
+    "desc": "caixa acima do alvo, mas nada barato E abaixo do alvo agora — segura munição"
   },
   "inputs": {
     "br_src": {
@@ -194,7 +194,8 @@
       "sp_dd": "yfinance ^GSPC + ATH persistido",
       "fg": "CNN",
       "fed": "FRED DFF",
-      "cpi": "multpl.com"
+      "cpi": "multpl.com",
+      "infl_exp": "FRED T10YIE"
     },
     "br": {
       "pl": null,
@@ -223,12 +224,13 @@
       "ey": 3.179650238473768,
       "dy": 1.07,
       "real_us": 2.18,
-      "sp_dd": -3.36,
+      "sp_dd": -3.32,
       "fg": 25,
       "fed": 3.63,
       "us_cpi": 4.25,
+      "infl_exp": 2.2,
       "carry": 10.620000000000001,
-      "sp_cur": 7354.02,
+      "sp_cur": 7357.49,
       "sp_ath": 7609.78
     }
   },
@@ -240,23 +242,23 @@
   },
   "weights": {
     "br": {
-      "erp": 0.19,
-      "pl": 0.1,
-      "dy": 0.06,
-      "buf": 0.05,
-      "ibov_dd": 0.16,
-      "fund_dd": 0.16,
-      "breadth": 0.12,
-      "mm200": 0.06,
+      "erp": 0.22,
+      "pl": 0.14,
+      "dy": 0.1,
+      "buf": 0.06,
+      "ibov_dd": 0.12,
+      "fund_dd": 0.12,
+      "breadth": 0.1,
+      "mm200": 0.04,
       "fg": 0.1
     },
     "us": {
-      "erp": 0.18,
-      "pe": 0.12,
-      "cape": 0.16,
-      "buf": 0.06,
-      "sp_dd": 0.22,
-      "fg": 0.26
+      "erp": 0.2444,
+      "pe": 0.0889,
+      "cape": 0.2444,
+      "buf": 0.0667,
+      "sp_dd": 0.2,
+      "fg": 0.1556
     }
   },
   "groups_map": {
