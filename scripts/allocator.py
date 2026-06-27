@@ -83,7 +83,7 @@ DEFAULT_CONFIG = {
     "buf_ratio_br_override": None, "buf_ratio_us_override": None,
     "pe_us_override": None, "dy_us_override": None, "real_us_override": None,
     "fg_us_override": None, "cape_us_override": None, "fed_override": None,
-    "us_cpi_override": None, "override_sinal": None,
+    "us_cpi_override": None, "infl_exp_override": None, "override_sinal": None,
 }
 CNPJ = {"Organon": "49.984.812/0001-08", "Artica": "18.302.338/0001-63"}
 
@@ -197,7 +197,8 @@ _US_SOURCES = {
     "dy":       ("s-p-500-dividend-yield",    None,       False),
     "real":     ("10-year-real-interest-rate", "DFII10",  False),
     "fed":      (None,                         "DFF",     False),  # Fed Funds não existe no multpl — FRED direto
-    "cpi":      ("inflation",                  "CPIAUCSL", True),  # multpl.com/inflation = YoY%
+    "cpi":      ("inflation",                  "CPIAUCSL", True),  # multpl.com/inflation = YoY% (display)
+    "infl_exp": (None,                          "T10YIE",  False),  # 10Y breakeven (nível %) — nominaliza o fwd
 }
 
 def _fetch_us(key, cfg_override=None):
@@ -484,8 +485,10 @@ def s_buf_br(r):
     return s, f"{round(r)}% TMC/PIB — {l}", r
 
 # Pesos e grupos — IDÊNTICOS ao alocador.html (Buffett entra na nota de VALUATION)
-WEIGHTS_BR = {"erp":.19,"pl":.10,"dy":.06,"buf":.05,"ibov_dd":.16,"fund_dd":.16,"breadth":.12,"mm200":.06,"fg":.10}
-WEIGHTS_US = {"erp":.18,"pe":.12,"cape":.16,"buf":.06,"sp_dd":.22,"fg":.26}
+WEIGHTS_BR = {"erp":.22,"pl":.14,"dy":.10,"buf":.06,"ibov_dd":.12,"fund_dd":.12,"breadth":.10,"mm200":.04,"fg":.10}
+# US sem breadth ainda (breadth_us pendente de validação) — pesos do relatório
+# (erp22 cape22 pe8 buf6 sp_dd18 fg14, breadth10 omitido) renormalizados p/ somar 1.
+WEIGHTS_US = {"erp":.2444,"pe":.0889,"cape":.2444,"buf":.0667,"sp_dd":.20,"fg":.1556}
 GROUPS_BR = {"Valuation":["erp","pl","dy","buf"],"Drawdown":["ibov_dd","fund_dd"],"Breadth":["breadth","mm200"],"Sentimento":["fg"]}
 GROUPS_US = {"Valuation":["erp","pe","cape","buf"],"Drawdown":["sp_dd"],"Sentimento":["fg"]}
 
@@ -631,6 +634,10 @@ def build():
     real_us, real_us_src = _fetch_us("real", cfg.get("real_us_override"))
     fed,     fed_src     = _fetch_us("fed",  cfg.get("fed_override"))
     us_cpi,  us_cpi_src  = _fetch_us("cpi",  cfg.get("us_cpi_override"))
+    # Inflação ESPERADA de 10 anos (breakeven TIPS, FRED T10YIE) — nominaliza o S&P fwd.
+    # Não é o CPI corrente: uma previsão de retorno a 10 anos exige inflação esperada
+    # de longo prazo, não a realizada nos últimos 12m.
+    infl_exp, infl_exp_src = _fetch_us("infl_exp", cfg.get("infl_exp_override"))
     fg_us_raw = cfg.get("fg_us_override")
     if fg_us_raw is not None:
         fg_us, fg_us_src = fg_us_raw, "manual (override)"
@@ -643,6 +650,7 @@ def build():
     src_us = {
         "pe": pe_src, "cape": cape_src, "dy": dy_us_src, "real_us": real_us_src,
         "sp_dd": sp_dd_src, "fg": fg_us_src, "fed": fed_src, "cpi": us_cpi_src,
+        "infl_exp": infl_exp_src,
     }
     buf_ratio_us = cfg.get("buf_ratio_us_override")
     scUS = {"erp": s_erp_us(ey_us, real_us), "pe": s_pe_us(pe), "cape": s_cape_us(cape),
@@ -682,7 +690,7 @@ def build():
                    "fg": cfg.get("fg_br"), "ibov": ibov_cur, "regime": bBR.get("regime"), "pl_src": pl_src,
                    "fund_dd_src": fdd_src, "fund_dd_detail": fdd_detail},
             "us": {"pe": pe, "cape": cape, "ey": ey_us, "dy": dy_us, "real_us": real_us, "sp_dd": sp_dd,
-                   "fg": fg_us, "fed": fed, "us_cpi": us_cpi, "carry": carry,
+                   "fg": fg_us, "fed": fed, "us_cpi": us_cpi, "infl_exp": infl_exp, "carry": carry,
                    "sp_cur": sp_cur, "sp_ath": sp_ath},
         },
         "carry": {"selic": selic, "fed": fed, "diff": carry,
