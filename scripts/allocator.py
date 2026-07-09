@@ -610,11 +610,7 @@ def decay_monitor(cfg):
                 flags.append(("medio", f"{k}: alfa vs CDI desde inception {a_inc:+.1f}pp — revisão."))
             elif a_inc is None:
                 flags.append(("baixo", f"{k}: sem dado de alfa vs CDI (60m nem inception) — monitor cego; verificar data.json."))
-    nucleo = cfg["brasil"]/max(1.0, cfg["carteira_total"])
-    if nucleo > 0.55:
-        flags.append(("medio", f"Brasil (Organon+Ártica) em {nucleo*100:.0f}% — concentração pessoa-chave; "
-                               f"direcione aportes ao S&P/caixa se passar do seu conforto."))
-    if not flags: flags.append(("ok", "Sem alertas de capacity/concentração."))
+    if not flags: flags.append(("ok", "Sem alertas de erosão de alfa."))
     return flags
 
 
