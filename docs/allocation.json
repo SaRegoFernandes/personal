@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-09T23:33:17.551055+00:00",
+  "generatedAt": "2026-07-09T23:33:58.647819+00:00",
   "asof": "2026-07-09",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -304,10 +304,6 @@
     {
       "level": "baixo",
       "msg": "Ártica: sem dado de alfa vs CDI (60m nem inception) — monitor cego; verificar data.json."
-    },
-    {
-      "level": "medio",
-      "msg": "Brasil (Organon+Ártica) em 67% — concentração pessoa-chave; direcione aportes ao S&P/caixa se passar do seu conforto."
     }
   ]
 }
