@@ -581,35 +581,53 @@ def signal_label(score):
     return "CRISE/RARO", "#6d28d9"
 
 
+# Benchmark de ESTILO por fundo — contra quem o skill é medido. Editável.
+# Organon: small/mid caps value → SMLL. Ártica: value all-cap → IBOV.
+# CDI NÃO mede skill: com Selic em ciclo de alta, toda a classe de ações BR
+# "underperforma" o CDI sem que isso diga nada sobre o gestor. O excesso vs
+# CDI aparece só como contexto na mensagem, rotulado como ciclo.
+DECAY_BENCH = {
+    "Organon": ("smll", "SMLL"),
+    "Ártica":  ("ibov", "IBOV"),
+}
+
 def decay_monitor(cfg):
     """Erosão de skill dos fundos-núcleo.
-    Sinal primário: alfa ROLANTE 60m vs CDI (fund.cagr60 − cdi.cagr60, ambos já
-    no data.json). O alfa de inception é inútil como detector: com 12 anos de
-    histórico ele leva anos de underperformance para virar negativo — e, pior,
-    o fetch_cdi antigo (84 meses) nem alcançava o inception do Organon (2014),
-    deixando alphaVsCdi=None e o monitor estruturalmente cego pro maior fundo.
-    Fallback: alfa de inception, se o 60m não existir. Se NENHUM existir, a
-    flag diz isso explicitamente em vez de silenciar."""
+    Sinal: alfa ROLANTE 60m vs BENCHMARK DE ESTILO (fund.cagr60 − bench.cagr60,
+    ambos no data.json). Fallback de benchmark: ibov → cdi (com rótulo explícito)
+    se o bloco de estilo estiver indisponível. Fallback de janela: alfa desde
+    inception vs CDI, último recurso. Se nada existir, a flag diz isso em vez
+    de silenciar."""
     flags = []
     d = rj("data.json") or {}
+    bench60 = {k: (d.get(k) or {}).get("cagr60") for k in ("ibov", "smll", "idiv")}
     cdi60 = (d.get("cdi") or {}).get("cagr60")
     al_inc = fund_alpha()
     for f in d.get("funds", []):
         nm = (f.get("name") or "").lower()
         k = "Organon" if "organon" in nm else "Ártica" if "artica" in nm or "ártica" in nm else None
         if not k: continue
-        a60 = (f.get("cagr60") - cdi60) if (f.get("cagr60") is not None and cdi60 is not None) else None
+        bkey, bname = DECAY_BENCH.get(k, ("ibov", "IBOV"))
+        b60 = bench60.get(bkey)
+        if b60 is None:                       # fallback de benchmark, com rótulo honesto
+            b60, bname = bench60.get("ibov"), "IBOV"
+        if b60 is None:
+            b60, bname = cdi60, "CDI (fallback — ler com ressalva de ciclo)"
+        a60 = (f.get("cagr60") - b60) if (f.get("cagr60") is not None and b60 is not None) else None
+        ctx = ""
+        if f.get("cagr60") is not None and cdi60 is not None and bname != "CDI (fallback — ler com ressalva de ciclo)":
+            ctx = f" (vs CDI {f['cagr60'] - cdi60:+.1f}pp — ciclo de juros, não skill)"
         if a60 is not None:
             if a60 < 0:
-                flags.append(("medio", f"{k}: alfa vs CDI 60m {a60:+.1f}pp NEGATIVO — janela de revisão (ciclo × erosão)."))
+                flags.append(("medio", f"{k}: alfa 60m vs {bname} {a60:+.1f}pp NEGATIVO — janela de revisão (ciclo × erosão).{ctx}"))
             elif a60 < 2.0:
-                flags.append(("baixo", f"{k}: alfa vs CDI 60m {a60:+.1f}pp — positivo mas fino; acompanhar."))
+                flags.append(("baixo", f"{k}: alfa 60m vs {bname} {a60:+.1f}pp — positivo mas fino; acompanhar.{ctx}"))
         else:
             a_inc = al_inc.get(k.replace("Á", "A").replace("á", "a"))
             if a_inc is not None and a_inc < 0:
-                flags.append(("medio", f"{k}: alfa vs CDI desde inception {a_inc:+.1f}pp — revisão."))
+                flags.append(("medio", f"{k}: alfa vs CDI desde inception {a_inc:+.1f}pp — revisão (fallback; ler com ressalva de ciclo)."))
             elif a_inc is None:
-                flags.append(("baixo", f"{k}: sem dado de alfa vs CDI (60m nem inception) — monitor cego; verificar data.json."))
+                flags.append(("baixo", f"{k}: sem dado de alfa 60m nem inception — monitor cego; verificar data.json."))
     if not flags: flags.append(("ok", "Sem alertas de erosão de alfa."))
     return flags
 
