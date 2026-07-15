@@ -2515,7 +2515,7 @@ def fetch_sp500_dolar(sp_usd_map: dict, anchor: datetime.date,
     """S&P 500 DOLARIZADO em BRL: converte para dólar na cotação do momento e
     carrega o câmbio junto — SEM hedge, SEM carry.
 
-        SP_dolar_BRL(t) = S&P_USD(t) × PTAX(t)
+        SP_dolar_BRL(t) = S&P_TR_USD(t) × PTAX(t)   (S&P com dividendos reinvestidos)
 
     É o retorno em reais de quem compra USD e o índice (na prática, IVVB11),
     ganhando e perdendo com a variação cambial. Complementa o sp500 hedgeado
@@ -2616,10 +2616,11 @@ def fetch_index_simple(label: str, tickers: list, anchor, a12, a36, a60,
 def fetch_sp500(anchor: datetime.date, a12: datetime.date, a36: datetime.date, a60: datetime.date,
                 cdi_price_map: dict | None = None,
                 fetch_from: datetime.date | None = None) -> tuple[dict, dict]:
-    """S&P 500 em BRL na lógica SPXR11 (HEDGEADO): retorno do índice em USD MAIS o
-    carry do diferencial de juros (CDI − Fed), SEM exposição cambial.
+    """S&P 500 em BRL na lógica SPXR11 (HEDGEADO): retorno TOTAL do índice em USD
+    (^SP500TR, dividendos reinvestidos) MAIS o carry do diferencial de juros
+    (CDI − Fed), SEM exposição cambial.
 
-        SPXR11_BRL(t) = S&P_USD(t) × CDI_acumulado(t) / Fed_acumulado(t)
+        SPXR11_BRL(t) = S&P_TR_USD(t) × CDI_acumulado(t) / Fed_acumulado(t)
 
     O câmbio NÃO entra. A Selic (via CDI, BCB série 12) e a Fed funds (FRED DFF)
     formam o carry. Isto corrige o cálculo antigo (S&P_USD × câmbio), que era o
@@ -2632,7 +2633,10 @@ def fetch_sp500(anchor: datetime.date, a12: datetime.date, a36: datetime.date, a
     """
     start = fetch_from or (a60 - datetime.timedelta(days=10))
     try:
-        sp_map = _yahoo_chart_map("%5EGSPC", start, anchor)
+        try:
+            sp_map = _yahoo_chart_map("%5ESP500TR", start, anchor)   # retorno total (dividendos reinvestidos)
+        except Exception:
+            sp_map = _yahoo_chart_map("%5EGSPC", start, anchor)      # fallback: preço puro
         if not cdi_price_map:
             raise ValueError("cdi_price_map ausente — necessário para o carry")
         fed_map = fetch_fed_dff(start, anchor)
@@ -2700,7 +2704,9 @@ def fetch_daily_index_returns(anchor: datetime.date, history_start_year: int) ->
 
     try:
         ibov_px   = _yahoo_prices("%5EBVSP")
-        sp_px     = _yahoo_prices("%5EGSPC")
+        sp_px     = _yahoo_prices("%5EGSPC")   # PREÇO de propósito: beta mede sensibilidade
+                                                # a movimentos diários; dividendos (^SP500TR) só
+                                                # adicionam ruído em datas ex-div sem melhorar o beta.
         fx_px     = _yahoo_prices("BRL%3DX")   # USD/BRL
 
         ibov_rets = prices_to_returns(ibov_px)
@@ -2947,7 +2953,7 @@ def main() -> None:
     sp500, sp_brl_map = fetch_sp500(anchor, a12, a36, a60, cdi_price_map, fetch_from=_idx_from)
 
     print(f"\n── S&P 500 (USD nominal)")
-    sp500_usd, sp_usd_map = fetch_index_simple("S&P 500 USD", ["%5EGSPC"], anchor, a12, a36, a60, datetime.date(2008, 1, 1))
+    sp500_usd, sp_usd_map = fetch_index_simple("S&P 500 USD (TR)", ["%5ESP500TR", "%5EGSPC"], anchor, a12, a36, a60, datetime.date(2008, 1, 1))
 
     print(f"\n── S&P 500 dolarizado (USD→BRL na PTAX, sem hedge)")
     sp500_dolar, sp_dolar_map = fetch_sp500_dolar(sp_usd_map, anchor, a12, a36, a60, datetime.date(2008, 1, 1))
