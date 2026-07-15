@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T18:43:12.786475+00:00",
+  "generatedAt": "2026-07-15T20:55:39.462379+00:00",
   "asof": "2026-07-15",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -149,7 +149,7 @@
           {
             "key": "fg",
             "score": 6,
-            "read": "47/100 — leve medo",
+            "read": "46/100 — leve medo",
             "weight": 0.1556
           }
         ]
@@ -204,12 +204,12 @@
       "selic": 14.25,
       "ipca": 4.64,
       "real_cdi": 9.325,
-      "ibov_dd": -11.380661139552096,
+      "ibov_dd": -11.39959326879999,
       "fund_dd": -8.199141933658023,
-      "breadth_pct": 50.56,
+      "breadth_pct": 50.82,
       "mm200_pct": 37.66,
       "fg": 10.8,
-      "ibov": 176048.52,
+      "ibov": 176010.91,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -223,21 +223,21 @@
       "cape": 42.0,
       "ey": 3.080714725816389,
       "dy": 1.04,
-      "real_us": 2.33,
-      "sp_dd": -0.54,
-      "fg": 47,
-      "fed": 3.62,
+      "real_us": 2.32,
+      "sp_dd": -0.49,
+      "fg": 46,
+      "fed": 3.63,
       "us_cpi": 4.25,
       "infl_exp": 2.25,
-      "carry": 10.629999999999999,
-      "sp_cur": 7568.59,
+      "carry": 10.620000000000001,
+      "sp_cur": 7572.4,
       "sp_ath": 7609.78
     }
   },
   "carry": {
     "selic": 14.25,
-    "fed": 3.62,
-    "diff": 10.629999999999999,
+    "fed": 3.63,
+    "diff": 10.620000000000001,
     "nota": "Carry do hedge do SPXR11 ≈ Selic − Fed. Em BRL, SPXR11 ≈ retorno do S&P (USD) + carry. Vs CDI o carry quase se anula (excesso ≈ S&P USD − Fed), por isso não entra no score — é exibido como contexto da posição."
   },
   "weights": {
