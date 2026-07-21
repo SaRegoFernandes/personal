@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T20:51:06.667793+00:00",
+  "generatedAt": "2026-07-21T22:34:14.740653+00:00",
   "asof": "2026-07-21",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -56,7 +56,7 @@
           {
             "key": "ibov_dd",
             "score": 4.5,
-            "read": "-12.7% — correção leve",
+            "read": "-12.8% — correção leve",
             "weight": 0.12
           },
           {
@@ -73,13 +73,13 @@
           {
             "key": "breadth",
             "score": 6,
-            "read": "37% composto — abaixo do meio",
+            "read": "38% composto — abaixo do meio",
             "weight": 0.1
           },
           {
             "key": "mm200",
             "score": 7,
-            "read": "30% > MM200 — fraqueza técnica",
+            "read": "29% > MM200 — fraqueza técnica",
             "weight": 0.04
           }
         ]
@@ -115,7 +115,7 @@
           {
             "key": "pe",
             "score": 1,
-            "read": "28.6x — muito caro",
+            "read": "28.9x — muito caro",
             "weight": 0.0889
           },
           {
@@ -204,12 +204,12 @@
       "selic": 14.25,
       "ipca": 4.64,
       "real_cdi": 9.325,
-      "ibov_dd": -12.746246042173192,
+      "ibov_dd": -12.751294945559433,
       "fund_dd": -11.541171055105831,
-      "breadth_pct": 37.31,
-      "mm200_pct": 29.87,
+      "breadth_pct": 37.75,
+      "mm200_pct": 28.57,
       "fg": 10.8,
-      "ibov": 173335.69,
+      "ibov": 173325.66,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -219,16 +219,16 @@
       }
     },
     "us": {
-      "pe": 28.64,
-      "cape": 40.64,
-      "ey": 3.4916201117318435,
-      "dy": 1.08,
-      "real_us": 2.35,
+      "pe": 28.89,
+      "cape": 40.98,
+      "ey": 3.461405330564209,
+      "dy": 1.07,
+      "real_us": 2.37,
       "sp_dd": -1.32,
       "fg": 41,
       "fed": 3.63,
       "us_cpi": 3.53,
-      "infl_exp": 2.25,
+      "infl_exp": 2.26,
       "carry": 10.620000000000001,
       "sp_cur": 7509.2,
       "sp_ath": 7609.78
