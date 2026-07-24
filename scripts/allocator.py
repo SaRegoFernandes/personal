@@ -381,10 +381,52 @@ def fund_alpha():
 
 
 # ── SCORERS (tier; 0=caro/ruim p/ comprar .. 10=barato/ótimo) ─────────────────
-def tier(x, t):
+def tier_step(x, t):
+    """Classificação em faixas — usada só para o RÓTULO (texto da faixa)."""
     for lim, s, lab in t:
         if x < lim: return s, lab
     return t[-1][1], t[-1][2]
+
+_ANCHOR_CACHE = {}
+
+def _tier_anchors(t):
+    """Cada faixa vira uma âncora no seu PONTO MÉDIO com a nota original."""
+    key = id(t)
+    hit = _ANCHOR_CACHE.get(key)
+    if hit is not None and hit[0] is t:
+        return hit[1]
+    n, pts = len(t), []
+    for i, (lim, s, _lab) in enumerate(t):
+        if i == 0:
+            hi = t[0][0]
+            span = (t[1][0] - hi) if n > 1 else 1.0
+            c = hi - span / 2.0
+        elif lim >= 1e9:
+            prev = t[i-1][0]
+            span = (prev - t[i-2][0]) if i >= 2 else 1.0
+            c = prev + span / 2.0
+        else:
+            c = (t[i-1][0] + lim) / 2.0
+        pts.append((c, s))
+    _ANCHOR_CACHE[key] = (t, pts)
+    return pts
+
+def tier(x, t):
+    """Nota CONTÍNUA (gradiente, sem degraus): interpolação linear entre as
+    âncoras (pontos médios das faixas), achatada fora dos extremos. As tabelas
+    permanecem idênticas; muda só a forma de ler entre elas. Monotônica e
+    sempre dentro do range original de notas."""
+    lab = tier_step(x, t)[1]
+    p = _tier_anchors(t)
+    if x <= p[0][0]:  return p[0][1], lab
+    if x >= p[-1][0]: return p[-1][1], lab
+    for i in range(len(p) - 1):
+        x0, s0 = p[i]; x1, s1 = p[i+1]
+        if x0 <= x <= x1:
+            if x1 == x0: return s1, lab
+            w = (x - x0) / (x1 - x0)
+            return round(s0 + w * (s1 - s0), 6), lab
+    return p[-1][1], lab
 
 def s_erp(ey, real):
     if ey is None or real is None: return None, "ERP n/d", None
