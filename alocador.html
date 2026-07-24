@@ -423,7 +423,38 @@ function toggleTheme(){
 
 /* ════════════════════ scorers — espelham allocator.py (INALTERADOS) ════════════════════ */
 const INF=1e9;
-function tier(x,t){ for(const r of t){ if(x<r[0]) return [r[1],r[2]]; } const l=t[t.length-1]; return [l[1],l[2]]; }
+/* tierStep — classificação em faixas: usada só para o RÓTULO (texto da faixa). */
+function tierStep(x,t){ for(const r of t){ if(x<r[0]) return [r[1],r[2]]; } const l=t[t.length-1]; return [l[1],l[2]]; }
+/* tier — nota CONTÍNUA (gradiente, sem degraus).
+   Cada faixa vira uma âncora no seu PONTO MÉDIO com a nota original; entre
+   âncoras a nota é interpolada linearmente, e fora das âncoras extremas fica
+   achatada (clamp). Assim as tabelas abaixo continuam iguais e cada ajuste
+   pequeno no input move a nota um pouco, em vez de saltar um degrau.
+   Monotônica e sempre dentro do range original de notas. */
+function tierAnchors(t){
+  if(t.__anchors) return t.__anchors;
+  const n=t.length, pts=[];
+  for(let i=0;i<n;i++){
+    const lim=t[i][0]; let c;
+    if(i===0){ const hi=t[0][0], span=(n>1?t[1][0]-hi:1); c=hi-span/2; }
+    else if(lim>=INF){ const prev=t[i-1][0], span=(i>=2?prev-t[i-2][0]:1); c=prev+span/2; }
+    else c=(t[i-1][0]+lim)/2;
+    pts.push([c,t[i][1]]);
+  }
+  try{ Object.defineProperty(t,'__anchors',{value:pts,enumerable:false}); }catch(e){}
+  return pts;
+}
+function tier(x,t){
+  const lab=tierStep(x,t)[1], p=tierAnchors(t);
+  if(x<=p[0][0]) return [p[0][1],lab];
+  if(x>=p[p.length-1][0]) return [p[p.length-1][1],lab];
+  for(let i=0;i<p.length-1;i++){
+    const [x0,s0]=p[i], [x1,s1]=p[i+1];
+    if(x>=x0&&x<=x1){ if(x1===x0) return [s1,lab];
+      const w=(x-x0)/(x1-x0); return [Math.round((s0+w*(s1-s0))*1e6)/1e6,lab]; }
+  }
+  return [p[p.length-1][1],lab];
+}
 function s_erp(ey,real){ if(ey==null||real==null) return [null,'ERP n/d']; const e=ey-real;
   const [s,l]=tier(e,[[-6,.5,'juro real muito superior'],[-4,2,'juro real bem superior'],[-2,3.5,'juro real claram. superior'],[0,5.5,'juro real levem. superior'],[2,7,'bolsa levem. acima'],[4,8,'bolsa acima do juro real'],[6,9,'bolsa claram. acima'],[INF,10,'bolsa supera muito']]);
   return [s,'ERP real '+(e>=0?'+':'')+e.toFixed(1)+'pp — '+l]; }
@@ -924,7 +955,7 @@ function classifySrc(s){ s=(s||'').toLowerCase();
 const SRC_LINKS={br_pl:'https://www.oceans14.com.br/acoes/historico-pl-bovespa',br_dy:'https://statusinvest.com.br/indices/ibovespa',
   br_selic:'https://investidor10.com.br/indices/selic/',br_ipca:'https://investidor10.com.br/indices/ipca/',
   br_ibov_dd:'https://www.b3.com.br/pt_br/para-voce',br_fund_dd:null,
-  br_breadth:'https://theotheo10.github.io/Ferramentas-Financeiras/breadth.html',br_mm200:'https://theotheo10.github.io/Ferramentas-Financeiras/breadth.html',
+  br_breadth:'breadth.html',br_mm200:'breadth.html',
   br_fg:'https://en.macromicro.me/charts/128837/brazil-mm-fear-and-greed-index-vs-bovespa-index',
   us_pe:'https://www.multpl.com/s-p-500-pe-ratio',us_cape:'https://www.multpl.com/shiller-pe',us_dy:'https://www.multpl.com/s-p-500-dividend-yield',
   us_real_us:'https://www.multpl.com/10-year-real-interest-rate',us_sp_dd:'https://finance.yahoo.com/quote/%5EGSPC/',us_fg:'https://edition.cnn.com/markets/fear-and-greed',
