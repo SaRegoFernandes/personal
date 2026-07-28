@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T21:03:48.086839+00:00",
+  "generatedAt": "2026-07-28T22:47:03.681890+00:00",
   "anchorDate": "2026-07-24",
   "ibov": {
     "cagr12": 32.19905016085962,
@@ -40,84 +40,84 @@
     "source": "DIVO11.SA"
   },
   "ntnb": {
-    "ntnb_rate_long": 7.7948,
-    "ntnb_rate_mid": 8.2572,
-    "ntnb_fetched_at": "2026-07-28T20:55:04.802784+00:00",
+    "ntnb_rate_long": 7.8375,
+    "ntnb_rate_mid": 8.2825,
+    "ntnb_fetched_at": "2026-07-28T22:38:38.722743+00:00",
     "ntnb_titles": [
       {
         "nome": "NTN-B",
         "vencimento": "2026-08-15",
-        "taxa": 13.1522
+        "taxa": 15.5971
       },
       {
         "nome": "NTN-B",
         "vencimento": "2027-05-15",
-        "taxa": 8.01
+        "taxa": 8.1391
       },
       {
         "nome": "NTN-B",
         "vencimento": "2028-08-15",
-        "taxa": 8.4533
+        "taxa": 8.49
       },
       {
         "nome": "NTN-B",
         "vencimento": "2029-05-15",
-        "taxa": 8.25
+        "taxa": 8.2619
       },
       {
         "nome": "NTN-B",
         "vencimento": "2030-08-15",
-        "taxa": 8.3108
+        "taxa": 8.32
       },
       {
         "nome": "NTN-B",
         "vencimento": "2031-05-15",
-        "taxa": 8.2572
+        "taxa": 8.2825
       },
       {
         "nome": "NTN-B",
         "vencimento": "2032-08-15",
-        "taxa": 8.2721
+        "taxa": 8.2807
       },
       {
         "nome": "NTN-B",
         "vencimento": "2033-05-15",
-        "taxa": 8.25
+        "taxa": 8.2731
       },
       {
         "nome": "NTN-B",
         "vencimento": "2035-05-15",
-        "taxa": 8.1624
+        "taxa": 8.2039
       },
       {
         "nome": "NTN-B",
         "vencimento": "2037-05-15",
-        "taxa": 8.0155
+        "taxa": 8.0491
       },
       {
         "nome": "NTN-B",
         "vencimento": "2040-08-15",
-        "taxa": 7.8618
+        "taxa": 7.9071
       },
       {
         "nome": "NTN-B",
         "vencimento": "2045-05-15",
-        "taxa": 7.6976
+        "taxa": 7.7404
       },
       {
         "nome": "NTN-B",
         "vencimento": "2050-08-15",
-        "taxa": 7.67
+        "taxa": 7.7149
       },
       {
         "nome": "NTN-B",
         "vencimento": "2055-05-15",
-        "taxa": 7.5853
+        "taxa": 7.6304
       },
       {
         "nome": "NTN-B",
         "vencimento": "2060-08-15",
-        "taxa": 7.5708
+        "taxa": 7.6167
       }
     ],
     "ntnb_source": "anbima"
