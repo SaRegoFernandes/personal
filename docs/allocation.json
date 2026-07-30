@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T21:05:19.293222+00:00",
+  "generatedAt": "2026-07-30T22:52:56.034603+00:00",
   "asof": "2026-07-30",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.51,
+    "score": 2.49,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -108,20 +108,20 @@
         "items": [
           {
             "key": "erp",
-            "score": 3.98028,
+            "score": 3.928148,
             "read": "ERP real +1.1pp — abaixo da média (richish)",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 1.531429,
-            "read": "28.1x — muito caro",
+            "score": 1.391429,
+            "read": "28.6x — muito caro",
             "weight": 0.0889
           },
           {
             "key": "cape",
             "score": 0.5,
-            "read": "CAPE 40x — extremo (tipo 1999/2021)",
+            "read": "CAPE 41x — extremo (tipo 1999/2021)",
             "weight": 0.2444
           },
           {
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 6600.0,
-    "piso": 0.09147129629629629,
+    "tranche": 6500.0,
+    "piso": 0.09173055555555554,
     "cashpct": 0.2,
-    "gap": 0.10852870370370372,
-    "want": 48800.0,
-    "aloc_brasil": 6600.0,
+    "gap": 0.10826944444444447,
+    "want": 48700.0,
+    "aloc_brasil": 6500.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.06567499999999998,
     "res_brasil": 0.0,
-    "res_sp": 0.0257962962962963,
-    "tgt_brasil": 0.6813965277777778,
-    "tgt_sp": 0.22713217592592594,
+    "res_sp": 0.02605555555555555,
+    "tgt_brasil": 0.6812020833333333,
+    "tgt_sp": 0.22706736111111112,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 9% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -219,10 +219,10 @@
       }
     },
     "us": {
-      "pe": 28.14,
-      "cape": 39.93,
-      "ey": 3.5536602700781805,
-      "dy": 1.1,
+      "pe": 28.63,
+      "cape": 40.62,
+      "ey": 3.4928396786587497,
+      "dy": 1.08,
       "real_us": 2.41,
       "sp_dd": -2.26,
       "fg": 39,
