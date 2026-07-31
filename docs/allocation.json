@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T22:52:56.034603+00:00",
+  "generatedAt": "2026-07-31T15:44:57.659210+00:00",
   "asof": "2026-07-30",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.97,
+    "score": 5.95,
     "conf": "ALTA",
     "label": "NEUTRO",
     "cor": "#b07d0a",
@@ -55,14 +55,14 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 3.607246,
+            "score": 3.607222,
             "read": "-10.8% — correção leve",
             "weight": 0.12
           },
           {
             "key": "fund_dd",
-            "score": 4.716772,
-            "read": "DD médio -11.6% — correção leve",
+            "score": 4.572609,
+            "read": "DD médio -10.9% — correção leve",
             "weight": 0.12
           }
         ]
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.49,
+    "score": 2.45,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -137,8 +137,8 @@
         "items": [
           {
             "key": "sp_dd",
-            "score": 1.0975,
-            "read": "-2.3% — no topo/ATH",
+            "score": 1.0825,
+            "read": "-2.2% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 6.6,
-            "read": "39/100 — medo moderado",
+            "score": 6.4,
+            "read": "41/100 — leve medo",
             "weight": 0.1556
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 6500.0,
-    "piso": 0.09173055555555554,
+    "tranche": 6200.0,
+    "piso": 0.09269907407407406,
     "cashpct": 0.2,
-    "gap": 0.10826944444444447,
-    "want": 48700.0,
-    "aloc_brasil": 6500.0,
+    "gap": 0.10730092592592595,
+    "want": 48300.0,
+    "aloc_brasil": 6200.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.06567499999999998,
+    "base": 0.06612499999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.02605555555555555,
-    "tgt_brasil": 0.6812020833333333,
-    "tgt_sp": 0.22706736111111112,
+    "res_sp": 0.02657407407407407,
+    "tgt_brasil": 0.6804756944444444,
+    "tgt_sp": 0.22682523148148148,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 9% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -193,9 +193,9 @@
       "real_us": "multpl.com",
       "sp_dd": "yfinance ^GSPC + ATH persistido",
       "fg": "CNN",
-      "fed": "FRED DFF",
+      "fed": "indisponível",
       "cpi": "multpl.com",
-      "infl_exp": "FRED T10YIE"
+      "infl_exp": "indisponível"
     },
     "br": {
       "pl": 11.15,
@@ -204,18 +204,18 @@
       "selic": 14.25,
       "ipca": 4.64,
       "real_cdi": 9.325,
-      "ibov_dd": -10.821737970471723,
-      "fund_dd": -11.583862203149064,
+      "ibov_dd": -10.821667497243991,
+      "fund_dd": -10.863043909981617,
       "breadth_pct": 42.17,
       "mm200_pct": 28.57,
       "fg": 10.8,
-      "ibov": 177158.86,
+      "ibov": 177159.0,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
       "fund_dd_detail": {
-        "organon": -14.844461025515464,
-        "artica": -8.323263380782663
+        "organon": -14.187206503763527,
+        "artica": -7.538881316199708
       }
     },
     "us": {
@@ -224,20 +224,20 @@
       "ey": 3.4928396786587497,
       "dy": 1.08,
       "real_us": 2.41,
-      "sp_dd": -2.26,
-      "fg": 39,
-      "fed": 3.63,
+      "sp_dd": -2.22,
+      "fg": 41,
+      "fed": null,
       "us_cpi": 3.53,
-      "infl_exp": 2.27,
-      "carry": 10.620000000000001,
-      "sp_cur": 7437.63,
+      "infl_exp": null,
+      "carry": null,
+      "sp_cur": 7440.77,
       "sp_ath": 7609.78
     }
   },
   "carry": {
     "selic": 14.25,
-    "fed": 3.63,
-    "diff": 10.620000000000001,
+    "fed": null,
+    "diff": null,
     "nota": "Carry do hedge do SPXR11 ≈ Selic − Fed. Em BRL, SPXR11 ≈ retorno do S&P (USD) + carry. Vs CDI o carry quase se anula (excesso ≈ S&P USD − Fed), por isso não entra no score — é exibido como contexto da posição."
   },
   "weights": {
