@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T17:47:16.714260+00:00",
+  "generatedAt": "2026-08-03T19:01:03.894799+00:00",
   "asof": "2026-08-03",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.35,
+    "score": 2.33,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 6.0,
-            "read": "45/100 — leve medo",
+            "score": 5.9,
+            "read": "46/100 — leve medo",
             "weight": 0.1556
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 5300.0,
-    "piso": 0.09534537037037037,
+    "tranche": 5200.0,
+    "piso": 0.09560462962962964,
     "cashpct": 0.2,
-    "gap": 0.10465462962962964,
-    "want": 47100.0,
-    "aloc_brasil": 5300.0,
+    "gap": 0.10439537037037037,
+    "want": 47000.0,
+    "aloc_brasil": 5200.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.06747500000000001,
     "res_brasil": 0.0,
-    "res_sp": 0.02787037037037037,
-    "tgt_brasil": 0.6784909722222222,
-    "tgt_sp": 0.2261636574074074,
+    "res_sp": 0.02812962962962963,
+    "tgt_brasil": 0.6782965277777778,
+    "tgt_sp": 0.22609884259259258,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -224,13 +224,13 @@
       "ey": 3.4674063800277395,
       "dy": 1.07,
       "real_us": 2.47,
-      "sp_dd": -0.14,
-      "fg": 45,
+      "sp_dd": -0.05,
+      "fg": 46,
       "fed": 3.63,
       "us_cpi": 3.53,
       "infl_exp": 2.28,
       "carry": 10.620000000000001,
-      "sp_cur": 7598.91,
+      "sp_cur": 7606.31,
       "sp_ath": 7609.78
     }
   },
