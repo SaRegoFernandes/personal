@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T16:08:58.331297+00:00",
+  "generatedAt": "2026-08-03T17:47:16.714260+00:00",
   "asof": "2026-08-03",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.91,
+    "score": 5.89,
     "conf": "ALTA",
     "label": "NEUTRO",
     "cor": "#b07d0a",
@@ -55,8 +55,8 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 3.58531,
-            "read": "-10.8% — correção leve",
+            "score": 3.55253,
+            "read": "-10.7% — correção leve",
             "weight": 0.12
           },
           {
@@ -72,8 +72,8 @@
         "items": [
           {
             "key": "breadth",
-            "score": 5.641333,
-            "read": "45% composto — abaixo do meio",
+            "score": 5.513333,
+            "read": "46% composto — abaixo do meio",
             "weight": 0.1
           },
           {
@@ -138,7 +138,7 @@
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-0.3% — no topo/ATH",
+            "read": "-0.1% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -157,22 +157,22 @@
     }
   },
   "decision": {
-    "tranche": 5500.0,
-    "piso": 0.09489537037037037,
+    "tranche": 5300.0,
+    "piso": 0.09534537037037037,
     "cashpct": 0.2,
-    "gap": 0.10510462962962965,
-    "want": 47300.0,
-    "aloc_brasil": 5500.0,
+    "gap": 0.10465462962962964,
+    "want": 47100.0,
+    "aloc_brasil": 5300.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.067025,
+    "base": 0.06747500000000001,
     "res_brasil": 0.0,
     "res_sp": 0.02787037037037037,
-    "tgt_brasil": 0.6788284722222222,
-    "tgt_sp": 0.22627615740740742,
+    "tgt_brasil": 0.6784909722222222,
+    "tgt_sp": 0.2261636574074074,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
-    "desc": "caixa-alvo 9% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
+    "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
   },
   "inputs": {
     "br_src": {
@@ -204,12 +204,12 @@
       "selic": 14.25,
       "ipca": 4.64,
       "real_cdi": 9.325,
-      "ibov_dd": -10.75593107718329,
+      "ibov_dd": -10.657590721696186,
       "fund_dd": -11.628561317686842,
-      "breadth_pct": 45.190000000000005,
+      "breadth_pct": 46.150000000000006,
       "mm200_pct": 32.05,
       "fg": 10.8,
-      "ibov": 177289.59,
+      "ibov": 177484.95,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -224,13 +224,13 @@
       "ey": 3.4674063800277395,
       "dy": 1.07,
       "real_us": 2.47,
-      "sp_dd": -0.35,
+      "sp_dd": -0.14,
       "fg": 45,
       "fed": 3.63,
       "us_cpi": 3.53,
       "infl_exp": 2.28,
       "carry": 10.620000000000001,
-      "sp_cur": 7583.46,
+      "sp_cur": 7598.91,
       "sp_ath": 7609.78
     }
   },
