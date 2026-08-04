@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T20:56:14.306489+00:00",
+  "generatedAt": "2026-08-04T22:36:47.793855+00:00",
   "asof": "2026-08-04",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.14,
+    "score": 2.11,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -108,14 +108,14 @@
         "items": [
           {
             "key": "erp",
-            "score": 3.872259,
-            "read": "ERP real +1.0pp — abaixo da média (richish)",
+            "score": 3.819175,
+            "read": "ERP real +1.0pp — cara vs juros",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 1.211429,
-            "read": "29.3x — muito caro",
+            "score": 1.057143,
+            "read": "29.8x — muito caro",
             "weight": 0.0889
           },
           {
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 3900.0,
-    "piso": 0.09941759259259259,
+    "tranche": 3800.0,
+    "piso": 0.09980648148148148,
     "cashpct": 0.2,
-    "gap": 0.10058240740740743,
-    "want": 45300.0,
-    "aloc_brasil": 3900.0,
+    "gap": 0.10019351851851853,
+    "want": 45100.0,
+    "aloc_brasil": 3800.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.068825,
     "res_brasil": 0.0,
-    "res_sp": 0.030592592592592588,
-    "tgt_brasil": 0.6754368055555555,
-    "tgt_sp": 0.22514560185185184,
+    "res_sp": 0.03098148148148148,
+    "tgt_brasil": 0.6751451388888889,
+    "tgt_sp": 0.22504837962962962,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -219,16 +219,16 @@
       }
     },
     "us": {
-      "pe": 29.26,
-      "cape": 41.51,
-      "ey": 3.4176349965823647,
-      "dy": 1.06,
+      "pe": 29.8,
+      "cape": 42.28,
+      "ey": 3.3557046979865772,
+      "dy": 1.04,
       "real_us": 2.4,
       "sp_dd": -0.2,
       "fg": 58,
       "fed": 3.63,
       "us_cpi": 3.53,
-      "infl_exp": 2.27,
+      "infl_exp": 2.23,
       "carry": 10.620000000000001,
       "sp_cur": 7736.52,
       "sp_ath": 7752.3
