@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T15:42:29.173189+00:00",
+  "generatedAt": "2026-08-05T17:13:51.228716+00:00",
   "asof": "2026-08-05",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.76,
+    "score": 5.8,
     "conf": "ALTA",
     "label": "NEUTRO",
     "cor": "#b07d0a",
@@ -55,8 +55,8 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 3.344523,
-            "read": "-10.0% — correção leve",
+            "score": 3.403765,
+            "read": "-10.2% — correção leve",
             "weight": 0.12
           },
           {
@@ -72,14 +72,14 @@
         "items": [
           {
             "key": "breadth",
-            "score": 5.06,
-            "read": "50% composto — abaixo do meio",
+            "score": 5.282667,
+            "read": "48% composto — abaixo do meio",
             "weight": 0.1
           },
           {
             "key": "mm200",
-            "score": 5.88,
-            "read": "36% > MM200 — abaixo da média",
+            "score": 6.050667,
+            "read": "35% > MM200 — fraqueza técnica",
             "weight": 0.04
           }
         ]
@@ -138,7 +138,7 @@
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-0.1% — no topo/ATH",
+            "read": "-0.2% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 3100.0,
-    "piso": 0.10190000000000002,
+    "tranche": 3400.0,
+    "piso": 0.101,
     "cashpct": 0.2,
-    "gap": 0.09809999999999999,
-    "want": 44100.0,
-    "aloc_brasil": 3100.0,
+    "gap": 0.099,
+    "want": 44600.0,
+    "aloc_brasil": 3400.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.07040000000000002,
+    "base": 0.0695,
     "res_brasil": 0.0,
     "res_sp": 0.0315,
-    "tgt_brasil": 0.673575,
-    "tgt_sp": 0.224525,
+    "tgt_brasil": 0.67425,
+    "tgt_sp": 0.22475,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -204,12 +204,12 @@
       "selic": 14.25,
       "ipca": 4.64,
       "real_cdi": 9.325,
-      "ibov_dd": -10.033570425406612,
+      "ibov_dd": -10.211293838123003,
       "fund_dd": -10.274080946513925,
-      "breadth_pct": 49.55,
-      "mm200_pct": 35.9,
+      "breadth_pct": 47.88,
+      "mm200_pct": 34.62,
       "fg": 10.8,
-      "ibov": 178724.61,
+      "ibov": 178371.55,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -224,13 +224,13 @@
       "ey": 3.3557046979865772,
       "dy": 1.04,
       "real_us": 2.4,
-      "sp_dd": -0.11,
+      "sp_dd": -0.18,
       "fg": 61,
       "fed": 3.63,
       "us_cpi": 3.53,
       "infl_exp": 2.23,
       "carry": 10.620000000000001,
-      "sp_cur": 7744.02,
+      "sp_cur": 7738.71,
       "sp_ath": 7752.3
     }
   },
