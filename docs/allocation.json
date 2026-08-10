@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T22:10:54.085498+00:00",
+  "generatedAt": "2026-08-10T14:27:05.015315+00:00",
   "asof": "2026-08-07",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 6.4,
+    "score": 6.42,
     "conf": "ALTA",
     "label": "NEUTRO",
     "cor": "#b07d0a",
@@ -61,8 +61,8 @@
           },
           {
             "key": "fund_dd",
-            "score": 4.797176,
-            "read": "DD médio -12.0% — correção leve",
+            "score": 4.946027,
+            "read": "DD médio -12.7% — correção leve",
             "weight": 0.12
           }
         ]
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.02,
+    "score": 1.99,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 4.1,
-            "read": "64/100 — leve ganância",
+            "score": 3.9,
+            "read": "66/100 — leve ganância",
             "weight": 0.1556
           }
         ]
@@ -158,18 +158,18 @@
   },
   "decision": {
     "tranche": 7800.0,
-    "piso": 0.08814814814814814,
+    "piso": 0.08808703703703702,
     "cashpct": 0.2,
-    "gap": 0.11185185185185187,
-    "want": 50300.0,
+    "gap": 0.11191296296296299,
+    "want": 50400.0,
     "aloc_brasil": 7800.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.055999999999999994,
+    "base": 0.05554999999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.03214814814814815,
-    "tgt_brasil": 0.6838888888888889,
-    "tgt_sp": 0.22796296296296298,
+    "res_sp": 0.03253703703703703,
+    "tgt_brasil": 0.6839347222222222,
+    "tgt_sp": 0.22797824074074072,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 9% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -205,7 +205,7 @@
       "ipca": 4.64,
       "real_cdi": 9.079999999999998,
       "ibov_dd": -13.16016047760713,
-      "fund_dd": -11.985881785479691,
+      "fund_dd": -12.73013559736399,
       "breadth_pct": 24.68,
       "mm200_pct": 25.64,
       "fg": 10.8,
@@ -214,8 +214,8 @@
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
       "fund_dd_detail": {
-        "organon": -15.337401916829418,
-        "artica": -8.634361654129963
+        "organon": -16.487597329895298,
+        "artica": -8.97267386483268
       }
     },
     "us": {
@@ -225,13 +225,13 @@
       "dy": 1.04,
       "real_us": 2.4,
       "sp_dd": 0.0,
-      "fg": 64,
+      "fg": 66,
       "fed": 3.63,
       "us_cpi": 3.53,
       "infl_exp": 2.25,
       "carry": 10.370000000000001,
-      "sp_cur": 7757.64,
-      "sp_ath": 7757.64
+      "sp_cur": 7765.31,
+      "sp_ath": 7765.31
     }
   },
   "carry": {
