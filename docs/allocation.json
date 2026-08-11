@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-10T22:23:01.292779+00:00",
-  "asof": "2026-08-10",
+  "generatedAt": "2026-08-11T14:32:04.228509+00:00",
+  "asof": "2026-08-11",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
   "brasil": 300000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 6.45,
+    "score": 6.47,
     "conf": "ALTA",
     "label": "NEUTRO",
     "cor": "#b07d0a",
@@ -26,8 +26,8 @@
         "items": [
           {
             "key": "erp",
-            "score": 6.166457,
-            "read": "ERP real -0.1pp — juro real levem. superior",
+            "score": 6.016457,
+            "read": "ERP real -0.3pp — juro real levem. superior",
             "weight": 0.22
           },
           {
@@ -55,14 +55,14 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 4.442676,
-            "read": "-13.3% — correção leve",
+            "score": 4.59913,
+            "read": "-14.0% — correção leve",
             "weight": 0.12
           },
           {
             "key": "fund_dd",
-            "score": 4.946027,
-            "read": "DD médio -12.7% — correção leve",
+            "score": 5.10633,
+            "read": "DD médio -13.5% — correção leve",
             "weight": 0.12
           }
         ]
@@ -72,14 +72,14 @@
         "items": [
           {
             "key": "breadth",
-            "score": 8.923,
-            "read": "23% composto — boa oportunidade",
+            "score": 9.083,
+            "read": "22% composto — boa oportunidade",
             "weight": 0.1
           },
           {
             "key": "mm200",
-            "score": 7.3768,
-            "read": "24% > MM200 — fraqueza técnica",
+            "score": 7.5304,
+            "read": "23% > MM200 — fraqueza técnica",
             "weight": 0.04
           }
         ]
@@ -138,7 +138,7 @@
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-0.2% — no topo/ATH",
+            "read": "-0.1% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 8100.0,
-    "piso": 0.08715277777777776,
+    "tranche": 8200.0,
+    "piso": 0.08670277777777775,
     "cashpct": 0.2,
-    "gap": 0.11284722222222225,
-    "want": 50800.0,
-    "aloc_brasil": 8100.0,
+    "gap": 0.11329722222222226,
+    "want": 51000.0,
+    "aloc_brasil": 8200.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.05487499999999998,
+    "base": 0.05442499999999997,
     "res_brasil": 0.0,
     "res_sp": 0.03227777777777778,
-    "tgt_brasil": 0.6846354166666667,
-    "tgt_sp": 0.22821180555555556,
+    "tgt_brasil": 0.6849729166666667,
+    "tgt_sp": 0.22832430555555555,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 9% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -202,20 +202,20 @@
       "ey": 8.968609865470851,
       "dy": 4.83,
       "selic": 14.0,
-      "ipca": 4.64,
-      "real_cdi": 9.079999999999998,
-      "ibov_dd": -13.328027706046097,
-      "fund_dd": -12.73013559736399,
-      "breadth_pct": 23.27,
-      "mm200_pct": 24.36,
+      "ipca": 4.44,
+      "real_cdi": 9.279999999999998,
+      "ibov_dd": -13.99565079508902,
+      "fund_dd": -13.531650219016601,
+      "breadth_pct": 21.67,
+      "mm200_pct": 23.080000000000002,
       "fg": 10.8,
-      "ibov": 172179.94,
+      "ibov": 170853.66,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
       "fund_dd_detail": {
-        "organon": -16.487597329895298,
-        "artica": -8.97267386483268
+        "organon": -17.185930259256722,
+        "artica": -9.877370178776479
       }
     },
     "us": {
@@ -224,13 +224,13 @@
       "ey": 3.3478406427854033,
       "dy": 1.04,
       "real_us": 2.43,
-      "sp_dd": -0.16,
+      "sp_dd": -0.09,
       "fg": 64,
       "fed": 3.63,
       "us_cpi": 3.53,
       "infl_exp": 2.29,
       "carry": 10.370000000000001,
-      "sp_cur": 7753.11,
+      "sp_cur": 7758.06,
       "sp_ath": 7765.31
     }
   },
