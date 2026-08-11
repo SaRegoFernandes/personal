@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T20:37:17.685177+00:00",
+  "generatedAt": "2026-08-11T22:28:35.194592+00:00",
   "asof": "2026-08-11",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -108,14 +108,14 @@
         "items": [
           {
             "key": "erp",
-            "score": 3.786721,
+            "score": 3.79636,
             "read": "ERP real +0.9pp — cara vs juros",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 1.037143,
-            "read": "29.9x — muito caro",
+            "score": 1.065714,
+            "read": "29.8x — muito caro",
             "weight": 0.0889
           },
           {
@@ -219,16 +219,16 @@
       }
     },
     "us": {
-      "pe": 29.87,
-      "cape": 42.37,
-      "ey": 3.3478406427854033,
+      "pe": 29.77,
+      "cape": 42.24,
+      "ey": 3.359086328518643,
       "dy": 1.04,
       "real_us": 2.43,
       "sp_dd": -0.48,
       "fg": 61,
       "fed": 3.63,
       "us_cpi": 3.53,
-      "infl_exp": 2.29,
+      "infl_exp": 2.27,
       "carry": 10.370000000000001,
       "sp_cur": 7728.2,
       "sp_ath": 7765.31
