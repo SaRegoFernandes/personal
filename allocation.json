@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T16:32:38.189006+00:00",
+  "generatedAt": "2026-08-12T18:25:40.129607+00:00",
   "asof": "2026-08-12",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -55,7 +55,7 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 4.909974,
+            "score": 4.89651,
             "read": "-15.5% — correção leve",
             "weight": 0.12
           },
@@ -72,7 +72,7 @@
         "items": [
           {
             "key": "breadth",
-            "score": 9.224,
+            "score": 9.25,
             "read": "20% composto — boa oportunidade",
             "weight": 0.1
           },
@@ -138,7 +138,7 @@
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-0.2% — no topo/ATH",
+            "read": "-0.1% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -204,12 +204,12 @@
       "selic": 14.0,
       "ipca": 4.44,
       "real_cdi": 9.279999999999998,
-      "ibov_dd": -15.549872393119802,
+      "ibov_dd": -15.482550325435307,
       "fund_dd": -15.428718318831063,
-      "breadth_pct": 20.26,
+      "breadth_pct": 20.0,
       "mm200_pct": 20.51,
       "fg": 10.8,
-      "ibov": 167766.09,
+      "ibov": 167899.83,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -224,13 +224,13 @@
       "ey": 3.359086328518643,
       "dy": 1.04,
       "real_us": 2.43,
-      "sp_dd": -0.25,
+      "sp_dd": -0.14,
       "fg": 62,
       "fed": 3.63,
       "us_cpi": 3.53,
       "infl_exp": 2.27,
       "carry": 10.370000000000001,
-      "sp_cur": 7746.04,
+      "sp_cur": 7754.27,
       "sp_ath": 7765.31
     }
   },
