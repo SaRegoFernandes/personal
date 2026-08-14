@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T14:39:38.153181+00:00",
+  "generatedAt": "2026-08-14T16:13:11.682876+00:00",
   "asof": "2026-08-14",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 1.96,
+    "score": 2.0,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -138,7 +138,7 @@
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-0.2% — no topo/ATH",
+            "read": "-0.3% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 3.8,
-            "read": "67/100 — leve ganância",
+            "score": 4.0,
+            "read": "65/100 — leve ganância",
             "weight": 0.1556
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 8900.0,
-    "piso": 0.0848759259259259,
+    "tranche": 9000.0,
+    "piso": 0.08435740740740738,
     "cashpct": 0.2,
-    "gap": 0.11512407407407411,
-    "want": 51800.0,
-    "aloc_brasil": 8900.0,
+    "gap": 0.11564259259259263,
+    "want": 52000.0,
+    "aloc_brasil": 9000.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.05194999999999997,
     "res_brasil": 0.0,
-    "res_sp": 0.03292592592592593,
-    "tgt_brasil": 0.6863430555555555,
-    "tgt_sp": 0.22878101851851854,
+    "res_sp": 0.03240740740740741,
+    "tgt_brasil": 0.6867319444444444,
+    "tgt_sp": 0.22891064814814815,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 8% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -224,13 +224,13 @@
       "ey": 3.32667997338656,
       "dy": 1.03,
       "real_us": 2.39,
-      "sp_dd": -0.21,
-      "fg": 67,
+      "sp_dd": -0.33,
+      "fg": 65,
       "fed": 3.63,
       "us_cpi": 3.53,
       "infl_exp": 2.24,
       "carry": 10.370000000000001,
-      "sp_cur": 7794.53,
+      "sp_cur": 7785.13,
       "sp_ath": 7810.94
     }
   },
