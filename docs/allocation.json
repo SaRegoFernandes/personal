@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T14:09:26.871860+00:00",
+  "generatedAt": "2026-08-17T16:05:20.245358+00:00",
   "asof": "2026-08-17",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -55,14 +55,14 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 5.017153,
+            "score": 5.014902,
             "read": "-16.1% — correção leve",
             "weight": 0.12
           },
           {
             "key": "fund_dd",
-            "score": 5.055747,
-            "read": "DD médio -13.3% — correção leve",
+            "score": 5.141687,
+            "read": "DD médio -13.7% — correção leve",
             "weight": 0.12
           }
         ]
@@ -72,8 +72,8 @@
         "items": [
           {
             "key": "breadth",
-            "score": 9.301,
-            "read": "19% composto — extrema oportunidade",
+            "score": 9.237,
+            "read": "20% composto — boa oportunidade",
             "weight": 0.1
           },
           {
@@ -204,18 +204,18 @@
       "selic": 14.0,
       "ipca": 4.44,
       "real_cdi": 9.279999999999998,
-      "ibov_dd": -16.085765918140314,
-      "fund_dd": -13.278737096149063,
-      "breadth_pct": 19.49,
+      "ibov_dd": -16.074510336912372,
+      "fund_dd": -13.708433572871503,
+      "breadth_pct": 20.13,
       "mm200_pct": 19.23,
       "fg": 10.8,
-      "ibov": 166701.5,
+      "ibov": 166723.86,
       "regime": "capitulation",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
       "fund_dd_detail": {
-        "organon": -17.22700866686622,
-        "artica": -9.330465525431908
+        "organon": -17.761027965789655,
+        "artica": -9.655839179953352
       }
     },
     "us": {
@@ -224,13 +224,13 @@
       "ey": 3.3333333333333335,
       "dy": 1.03,
       "real_us": 2.41,
-      "sp_dd": -0.46,
+      "sp_dd": -0.48,
       "fg": 63,
       "fed": 3.63,
       "us_cpi": 3.53,
       "infl_exp": 2.27,
       "carry": 10.370000000000001,
-      "sp_cur": 7775.29,
+      "sp_cur": 7773.37,
       "sp_ath": 7810.94
     }
   },
