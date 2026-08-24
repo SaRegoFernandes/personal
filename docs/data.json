@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T16:20:11.106076+00:00",
+  "generatedAt": "2026-08-24T18:06:06.017192+00:00",
   "anchorDate": "2026-08-20",
   "ibov": {
     "cagr12": 24.716812058738103,
@@ -42,7 +42,7 @@
   "ntnb": {
     "ntnb_rate_long": 7.5889,
     "ntnb_rate_mid": 7.99,
-    "ntnb_fetched_at": "2026-08-24T16:10:03.517237+00:00",
+    "ntnb_fetched_at": "2026-08-24T17:55:40.462152+00:00",
     "ntnb_titles": [
       {
         "nome": "NTN-B",
