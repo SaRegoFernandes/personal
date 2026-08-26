@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T19:37:00.050116+00:00",
+  "generatedAt": "2026-08-26T22:45:47.354013+00:00",
   "asof": "2026-08-26",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 6.07,
+    "score": 6.12,
     "conf": "ALTA",
     "label": "NEUTRO",
     "cor": "#b07d0a",
@@ -55,8 +55,8 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 4.014388,
-            "read": "-12.0% — correção leve",
+            "score": 4.03891,
+            "read": "-12.1% — correção leve",
             "weight": 0.12
           },
           {
@@ -72,14 +72,14 @@
         "items": [
           {
             "key": "breadth",
-            "score": 5.982667,
-            "read": "43% composto — abaixo do meio",
+            "score": 6.363333,
+            "read": "40% composto — abaixo do meio",
             "weight": 0.1
           },
           {
             "key": "mm200",
-            "score": 6.905333,
-            "read": "28% > MM200 — fraqueza técnica",
+            "score": 7.0696,
+            "read": "27% > MM200 — fraqueza técnica",
             "weight": 0.04
           }
         ]
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.17,
+    "score": 2.18,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -108,8 +108,8 @@
         "items": [
           {
             "key": "erp",
-            "score": 3.90816,
-            "read": "ERP real +1.1pp — abaixo da média (richish)",
+            "score": 3.891017,
+            "read": "ERP real +1.0pp — abaixo da média (richish)",
             "weight": 0.2444
           },
           {
@@ -138,7 +138,7 @@
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-1.6% — no topo/ATH",
+            "read": "-1.7% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 4.9,
-            "read": "56/100 — neutro",
+            "score": 5.0,
+            "read": "55/100 — neutro",
             "weight": 0.1556
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 5900.0,
-    "piso": 0.09362870370370369,
+    "tranche": 6300.0,
+    "piso": 0.09237407407407407,
     "cashpct": 0.2,
-    "gap": 0.10637129629629632,
-    "want": 47900.0,
-    "aloc_brasil": 5900.0,
+    "gap": 0.10762592592592594,
+    "want": 48400.0,
+    "aloc_brasil": 6300.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.06342499999999998,
+    "base": 0.062299999999999994,
     "res_brasil": 0.0,
-    "res_sp": 0.030203703703703705,
-    "tgt_brasil": 0.6797784722222222,
-    "tgt_sp": 0.22659282407407405,
+    "res_sp": 0.030074074074074073,
+    "tgt_brasil": 0.6807194444444444,
+    "tgt_sp": 0.2269064814814815,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 9% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -204,12 +204,12 @@
       "selic": 14.0,
       "ipca": 4.44,
       "real_cdi": 9.279999999999998,
-      "ibov_dd": -12.043164851981047,
+      "ibov_dd": -12.116728834121126,
       "fund_dd": -13.708433572871503,
-      "breadth_pct": 42.63,
-      "mm200_pct": 28.21,
+      "breadth_pct": 40.32,
+      "mm200_pct": 26.919999999999998,
       "fg": 10.8,
-      "ibov": 174732.41,
+      "ibov": 174586.27,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -220,17 +220,17 @@
     },
     "us": {
       "pe": 29.59,
-      "cape": 41.97,
+      "cape": 41.98,
       "ey": 3.3795201081446433,
       "dy": 1.05,
-      "real_us": 2.32,
-      "sp_dd": -1.62,
-      "fg": 56,
+      "real_us": 2.34,
+      "sp_dd": -1.73,
+      "fg": 55,
       "fed": 3.63,
       "us_cpi": 3.53,
       "infl_exp": 2.32,
       "carry": 10.370000000000001,
-      "sp_cur": 7684.5,
+      "sp_cur": 7675.7,
       "sp_ath": 7810.94
     }
   },
