@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T22:03:14.896304+00:00",
+  "generatedAt": "2026-09-04T23:26:04.483285+00:00",
   "asof": "2026-09-04",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.36,
+    "score": 2.54,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -108,20 +108,20 @@
         "items": [
           {
             "key": "erp",
-            "score": 3.797327,
-            "read": "ERP real +0.9pp — cara vs juros",
+            "score": 4.168823,
+            "read": "ERP real +1.4pp — abaixo da média (richish)",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 1.068571,
-            "read": "29.8x — muito caro",
+            "score": 2.07,
+            "read": "26.4x — caro",
             "weight": 0.0889
           },
           {
             "key": "cape",
             "score": 0.5,
-            "read": "CAPE 42x — extremo (tipo 1999/2021)",
+            "read": "CAPE 41x — extremo (tipo 1999/2021)",
             "weight": 0.2444
           },
           {
@@ -157,22 +157,22 @@
     }
   },
   "decision": {
-    "tranche": 1900.0,
-    "piso": 0.10534074074074073,
+    "tranche": 2700.0,
+    "piso": 0.1030074074074074,
     "cashpct": 0.2,
-    "gap": 0.09465925925925928,
-    "want": 42600.0,
-    "aloc_brasil": 1900.0,
+    "gap": 0.09699259259259262,
+    "want": 43600.0,
+    "aloc_brasil": 2700.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.07759999999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.027740740740740743,
-    "tgt_brasil": 0.6709944444444444,
-    "tgt_sp": 0.22366481481481482,
+    "res_sp": 0.025407407407407406,
+    "tgt_brasil": 0.6727444444444445,
+    "tgt_sp": 0.2242481481481481,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
-    "desc": "caixa-alvo 11% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
+    "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
   },
   "inputs": {
     "br_src": {
@@ -219,15 +219,15 @@
       }
     },
     "us": {
-      "pe": 29.76,
-      "cape": 42.21,
-      "ey": 3.3602150537634405,
-      "dy": 1.04,
+      "pe": 26.36,
+      "cape": 41.41,
+      "ey": 3.7936267071320184,
+      "dy": 1.05,
       "real_us": 2.43,
       "sp_dd": -1.18,
       "fg": 42,
       "fed": 3.63,
-      "us_cpi": 3.53,
+      "us_cpi": 3.36,
       "infl_exp": 2.35,
       "carry": 10.370000000000001,
       "sp_cur": 7718.6,
