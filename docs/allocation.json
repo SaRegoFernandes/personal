@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T19:57:16.694514+00:00",
+  "generatedAt": "2026-09-10T22:08:12.644162+00:00",
   "asof": "2026-09-10",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,11 +15,11 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.21,
+    "score": 5.24,
     "conf": "ALTA",
     "label": "CAUTELOSO",
     "cor": "#c2541f",
-    "regime": "bull",
+    "regime": "neutral",
     "groups": {
       "Valuation": {
         "weight": 0.52,
@@ -55,7 +55,7 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 1.805049,
+            "score": 1.818796,
             "read": "-5.2% — perto do topo",
             "weight": 0.12
           },
@@ -72,14 +72,14 @@
         "items": [
           {
             "key": "breadth",
-            "score": 1.71,
-            "read": "75% composto — momentum positivo",
+            "score": 1.91,
+            "read": "73% composto — momentum positivo",
             "weight": 0.1
           },
           {
             "key": "mm200",
-            "score": 2.617,
-            "read": "61% > MM200 — neutro",
+            "score": 2.883,
+            "read": "59% > MM200 — neutro",
             "weight": 0.04
           }
         ]
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.72,
+    "score": 2.75,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -108,14 +108,14 @@
         "items": [
           {
             "key": "erp",
-            "score": 4.17676,
-            "read": "ERP real +1.4pp — abaixo da média (richish)",
+            "score": 4.119889,
+            "read": "ERP real +1.3pp — abaixo da média (richish)",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 2.205,
-            "read": "26.1x — caro",
+            "score": 2.285,
+            "read": "25.9x — caro",
             "weight": 0.0889
           },
           {
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 7.0,
-            "read": "35/100 — medo moderado",
+            "score": 7.2,
+            "read": "33/100 — medo moderado",
             "weight": 0.1556
           }
         ]
@@ -157,22 +157,22 @@
     }
   },
   "decision": {
-    "tranche": 1800.0,
-    "piso": 0.10584907407407405,
+    "tranche": 2100.0,
+    "piso": 0.10478518518518518,
     "cashpct": 0.2,
-    "gap": 0.09415092592592596,
-    "want": 42400.0,
-    "aloc_brasil": 1800.0,
+    "gap": 0.09521481481481484,
+    "want": 42800.0,
+    "aloc_brasil": 2100.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.08277499999999999,
+    "base": 0.08209999999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.02307407407407407,
-    "tgt_brasil": 0.6706131944444444,
-    "tgt_sp": 0.22353773148148148,
+    "res_sp": 0.022685185185185187,
+    "tgt_brasil": 0.6714111111111111,
+    "tgt_sp": 0.22380370370370373,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
-    "desc": "caixa-alvo 11% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
+    "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
   },
   "inputs": {
     "br_src": {
@@ -204,13 +204,13 @@
       "selic": 14.0,
       "ipca": 4.44,
       "real_cdi": 9.279999999999998,
-      "ibov_dd": -5.183497183587793,
+      "ibov_dd": -5.229319883014439,
       "fund_dd": -13.708433572871503,
-      "breadth_pct": 75.4,
-      "mm200_pct": 61.33,
+      "breadth_pct": 73.4,
+      "mm200_pct": 58.67,
       "fg": 10.8,
-      "ibov": 188359.62,
-      "regime": "bull",
+      "ibov": 188268.59,
+      "regime": "neutral",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
       "fund_dd_detail": {
@@ -219,18 +219,18 @@
       }
     },
     "us": {
-      "pe": 26.09,
-      "cape": 40.98,
-      "ey": 3.8328861632809508,
-      "dy": 1.06,
-      "real_us": 2.46,
+      "pe": 25.93,
+      "cape": 40.73,
+      "ey": 3.8565368299267258,
+      "dy": 1.07,
+      "real_us": 2.55,
       "sp_dd": -2.81,
-      "fg": 35,
+      "fg": 33,
       "fed": 3.63,
       "us_cpi": 3.36,
-      "infl_exp": 2.37,
+      "infl_exp": 2.4,
       "carry": 10.370000000000001,
-      "sp_cur": 7591.76,
+      "sp_cur": 7591.7,
       "sp_ath": 7810.94
     }
   },
