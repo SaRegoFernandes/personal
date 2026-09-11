@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T23:19:48.867522+00:00",
+  "generatedAt": "2026-09-11T15:10:01.662303+00:00",
   "asof": "2026-09-10",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.24,
+    "score": 5.2,
     "conf": "ALTA",
     "label": "CAUTELOSO",
     "cor": "#c2541f",
@@ -26,8 +26,8 @@
         "items": [
           {
             "key": "erp",
-            "score": 6.016457,
-            "read": "ERP real -0.3pp — juro real levem. superior",
+            "score": 5.851457,
+            "read": "ERP real -0.5pp — juro real levem. superior",
             "weight": 0.22
           },
           {
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.75,
+    "score": 2.67,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -137,8 +137,8 @@
         "items": [
           {
             "key": "sp_dd",
-            "score": 1.30375,
-            "read": "-2.8% — no topo/ATH",
+            "score": 1,
+            "read": "-1.9% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 7.2,
-            "read": "33/100 — medo moderado",
+            "score": 7.1,
+            "read": "34/100 — medo moderado",
             "weight": 0.1556
           }
         ]
@@ -157,22 +157,22 @@
     }
   },
   "decision": {
-    "tranche": 2100.0,
-    "piso": 0.10478518518518518,
+    "tranche": 1500.0,
+    "piso": 0.10672222222222222,
     "cashpct": 0.2,
-    "gap": 0.09521481481481484,
-    "want": 42800.0,
-    "aloc_brasil": 2100.0,
+    "gap": 0.09327777777777779,
+    "want": 42000.0,
+    "aloc_brasil": 1500.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.08209999999999999,
+    "base": 0.08299999999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.022685185185185187,
-    "tgt_brasil": 0.6714111111111111,
-    "tgt_sp": 0.22380370370370373,
+    "res_sp": 0.023722222222222224,
+    "tgt_brasil": 0.6699583333333333,
+    "tgt_sp": 0.22331944444444443,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
-    "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
+    "desc": "caixa-alvo 11% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
   },
   "inputs": {
     "br_src": {
@@ -202,8 +202,8 @@
       "ey": 8.968609865470851,
       "dy": 4.83,
       "selic": 14.0,
-      "ipca": 4.44,
-      "real_cdi": 9.279999999999998,
+      "ipca": 4.22,
+      "real_cdi": 9.5,
       "ibov_dd": -5.229319883014439,
       "fund_dd": -13.708433572871503,
       "breadth_pct": 73.4,
@@ -224,13 +224,13 @@
       "ey": 3.8565368299267258,
       "dy": 1.07,
       "real_us": 2.55,
-      "sp_dd": -2.81,
-      "fg": 33,
+      "sp_dd": -1.9,
+      "fg": 34,
       "fed": 3.63,
       "us_cpi": 3.36,
       "infl_exp": 2.4,
       "carry": 10.370000000000001,
-      "sp_cur": 7591.7,
+      "sp_cur": 7662.83,
       "sp_ath": 7810.94
     }
   },
