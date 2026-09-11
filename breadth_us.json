@@ -3,10 +3,10 @@
     "date": "2026-09-11",
     "breadth_20": 0.2525,
     "breadth_50": 0.3897,
-    "breadth_200": 0.5908,
+    "breadth_200": 0.5928,
     "n_constituents": 503,
     "source": "calculo_proprio",
-    "composite": 0.4697,
+    "composite": 0.4707,
     "regime": "neutral"
   },
   "count": 1
