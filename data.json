@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T19:10:48.119608+00:00",
+  "generatedAt": "2026-09-11T19:59:39.515974+00:00",
   "anchorDate": "2026-09-09",
   "ibov": {
     "cagr12": 31.101562129982273,
@@ -42,7 +42,7 @@
   "ntnb": {
     "ntnb_rate_long": 7.4086,
     "ntnb_rate_mid": 7.648,
-    "ntnb_fetched_at": "2026-09-11T18:58:04.051343+00:00",
+    "ntnb_fetched_at": "2026-09-11T19:50:32.989382+00:00",
     "ntnb_titles": [
       {
         "nome": "NTN-B",
@@ -347,12 +347,12 @@
     "15.334.585/0001-53": -3.2781,
     "47.511.351/0001-20": 7.319,
     "52.116.227/0001-09": 1.3811,
-    "47.612.105/0001-65": 7.7579,
+    "47.612.105/0001-65": 8.1729,
     "29.726.133/0001-21": 1.0024,
     "35.828.684/0001-07": 0.8748,
     "16.876.874/0001-47": -1.6986,
     "52.239.457/0001-57": 0.6498,
-    "51.253.495/0001-00": 1.0895,
+    "51.253.495/0001-00": 1.1321,
     "52.969.671/0001-69": 0.3372,
     "07.013.315/0001-12": -1.93,
     "14.812.722/0001-55": -0.9908,
@@ -1504,7 +1504,7 @@
       "delayDays": 0,
       "maxQuota": 2.18127271,
       "maxQuotaDate": "2026-08-27",
-      "inceptionDate": "2022-12-01",
+      "inceptionDate": "2022-11-30",
       "anchorDate": "2026-09-09",
       "anchor12m": "2025-09-09",
       "anchor36m": "2023-09-09",
@@ -1512,11 +1512,11 @@
       "cagr12": 21.186030324885973,
       "cagr36": 23.689657007939235,
       "cagr60": null,
-      "cagrInception": 21.832872785036894,
-      "ibovCagrInception": 14.6226,
-      "cdiCagrInception": 13.0445,
-      "alphaVsCdi": 8.7883,
-      "alphaVsIbov": 7.2103,
+      "cagrInception": 22.247868803588467,
+      "ibovCagrInception": 14.1881,
+      "cdiCagrInception": 13.0497,
+      "alphaVsCdi": 9.1982,
+      "alphaVsIbov": 8.0598,
       "error": false,
       "alphas": {
         "ibov": {
@@ -1819,7 +1819,7 @@
       "delayDays": 0,
       "maxQuota": 1.50404032,
       "maxQuotaDate": "2026-09-09",
-      "inceptionDate": "2023-09-01",
+      "inceptionDate": "2023-08-01",
       "anchorDate": "2026-09-09",
       "anchor12m": "2025-09-09",
       "anchor36m": "2023-09-09",
@@ -1827,11 +1827,11 @@
       "cagr12": 15.073165065299232,
       "cagr36": 14.011934876416987,
       "cagr60": null,
-      "cagrInception": 13.993676484601947,
-      "ibovCagrInception": 16.2059,
-      "cdiCagrInception": 12.891,
-      "alphaVsCdi": 1.1027,
-      "alphaVsIbov": -2.2122,
+      "cagrInception": 14.036319878785285,
+      "ibovCagrInception": 14.6898,
+      "cdiCagrInception": 12.9274,
+      "alphaVsCdi": 1.1089,
+      "alphaVsIbov": -0.6535,
       "error": false,
       "alphas": {
         "ibov": {
