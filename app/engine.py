@@ -198,11 +198,31 @@ def backfill_missing_tickers(prices: pd.DataFrame) -> int:
 
 # ── Historical backfill of composition tickers missing from prices.parquet ───
 
+def _has_truncated_history(prices: pd.DataFrame, ticker: str) -> bool:
+    """
+    True quando o ticker existe no parquet mas só com dados recentes demais
+    para calcular MA200.
+
+    Caso típico: um ticker entra na carteira e o incremental_update() cria a
+    coluna com a janela curta do fetch diário (5 dias). Como a coluna passa a
+    existir e tem dados, nem backfill_missing_tickers() (que só olha colunas
+    ausentes) nem o teste antigo de `notna().sum() == 0` voltavam a tocar-lhe
+    — e o ativo ficava fora do breadth para sempre.
+    """
+    if ticker not in prices.columns:
+        return True
+    serie = prices[ticker].dropna()
+    if serie.empty:
+        return True
+    return len(serie) < MA200_WARMUP_DAYS
+
+
 def historical_backfill() -> int:
     """
-    One-shot backfill for composition tickers that are entirely absent from
-    prices.parquet (or have zero valid rows). Fetches full history from
-    2013-07-01 so MA200 warm-up is available for the earliest IBOV windows.
+    One-shot backfill for composition tickers that are absent from
+    prices.parquet, have zero valid rows, or carry a history too short for
+    MA200. Fetches full history from 2013-07-01 so MA200 warm-up is available
+    for the earliest IBOV windows.
 
     Called by fetch_breadth.py on every run; exits quickly when nothing is
     missing (all-tickers check is cheap). Triggers a full breadth recompute
@@ -214,11 +234,8 @@ def historical_backfill() -> int:
 
     all_comp_tickers = get_all_historical_tickers(IBOV_COMPOSITION_HISTORY)
 
-    # Tickers that are absent OR have zero valid rows
-    need_fetch = [
-        t for t in all_comp_tickers
-        if t not in prices.columns or prices[t].notna().sum() == 0
-    ]
+    # Tickers ausentes, sem linhas válidas, ou com histórico curto demais
+    need_fetch = [t for t in all_comp_tickers if _has_truncated_history(prices, t)]
 
     if not need_fetch:
         logger.info("Historical backfill: nada a fazer — todos os tickers presentes.")
@@ -244,12 +261,25 @@ def historical_backfill() -> int:
         if n_valid == 0:
             logger.warning(f"  {col}: sem dados no Yahoo Finance — mantendo ausente.")
             continue
-        if col in prices.columns:
-            prices[col] = new_prices[col].combine_first(prices[col])
-        else:
-            prices[col] = new_prices[col]
-        n_success += 1
-        logger.info(f"  {col}: {n_valid} linhas adicionadas.")
+
+        antes  = int(prices[col].notna().sum()) if col in prices.columns else 0
+        merged = (
+            new_prices[col].combine_first(prices[col])
+            if col in prices.columns
+            else new_prices[col]
+        )
+        depois = int(merged.notna().sum())
+
+        if depois <= antes:
+            # O Yahoo não tem histórico mais antigo — caso normal de ticker
+            # renomeado (EMBJ3, MOTV3). Não conta como sucesso, senão o
+            # breadth seria recomputado do zero em todas as execuções.
+            logger.info(f"  {col}: sem histórico adicional no Yahoo ({antes} linhas).")
+            continue
+
+        prices[col] = merged
+        n_success  += 1
+        logger.info(f"  {col}: {antes} → {depois} linhas.")
 
     if n_success > 0:
         full_index = prices.index.union(new_prices.index)
