@@ -210,6 +210,27 @@ def fetch_ibov_composition_from_b3() -> list[str] | None:
     return sorted(tickers)
 
 
+def _carteira_end_date(start: pd.Timestamp) -> str:
+    """
+    Último dia de validade de uma carteira que passa a vigorar em `start`.
+
+    As carteiras do Ibovespa são quadrimestrais e valem até o último dia do
+    mês anterior à próxima virada (janeiro, maio e setembro). Ex.: a carteira
+    que entrou em vigor em 08/09/2026 vale até 31/12/2026.
+
+    Isto substitui o antigo `start + 121 dias`, que produzia datas de fim
+    arbitrárias (ex.: 03/01/2027) e desalinhava o histórico da B3.
+    """
+    for mes_virada in (1, 5, 9):
+        if mes_virada > start.month:
+            proxima = pd.Timestamp(year=start.year, month=mes_virada, day=1)
+            break
+    else:
+        proxima = pd.Timestamp(year=start.year + 1, month=1, day=1)
+
+    return (proxima - pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+
+
 def check_ibov_rebalance() -> bool:
     """
     Verifica se houve rebalanceamento do IBOV e actualiza ibov_composition.py.
@@ -253,9 +274,15 @@ def check_ibov_rebalance() -> bool:
     if removed:
         logger.info(f"  Saídas: {sorted(removed)}")
 
-    # Novo período: começa no dia seguinte ao fim do anterior, termina em ~4 meses
-    new_start = (last_end + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
-    new_end   = (last_end + pd.Timedelta(days=121)).strftime("%Y-%m-%d")
+    # Novo período: começa HOJE — a API da B3 devolve a carteira em vigor no
+    # dia, logo é hoje que ela passa a valer para efeito de cálculo. Usar
+    # `last_end + 1 dia` punha a carteira nova a valer em fins de semana e
+    # feriados (ex.: 05/09/2026, um sábado, quando a virada foi só a 08/09).
+    # O intervalo que sobra entre os períodos é sempre não-útil e o engine
+    # simplesmente ignora essas datas.
+    new_start_ts = max(pd.Timestamp.today().normalize(), last_end + pd.Timedelta(days=1))
+    new_start    = new_start_ts.strftime("%Y-%m-%d")
+    new_end      = _carteira_end_date(new_start_ts)
 
     ticker_lines = ",\n            ".join(f'"{t}"' for t in sorted(new_tickers))
     new_entry = (
