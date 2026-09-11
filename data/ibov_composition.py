@@ -17,6 +17,17 @@ Normalization applied:
   - VIVA3 excluded pre-2019-11, ASAI3 pre-2021-03, AMOB3 pre-2022-01.
   - All other tickers kept as-is (NaN data = engine excludes from MA,
     but n_constituents remains historically accurate).
+
+Periods:
+  - Normally one period per quadrimestral rebalance (Jan / May / Sep).
+  - A quadrimestre is split into sub-periods when B3 removes an asset
+    mid-cycle (recuperação judicial/extrajudicial, share-class conversion,
+    delisting). Keeping the removal date exact matters: an excluded ticker
+    that is usually in free fall would otherwise keep dragging breadth down
+    as if it were still a constituent.
+  - Gaps of a few days between periods are expected and harmless — they only
+    cover weekends/holidays between the end of one carteira and the first
+    trading day of the next. The engine simply skips dates with no period.
 """
 
 IBOV_COMPOSITION_HISTORY = [
@@ -3564,10 +3575,12 @@ IBOV_COMPOSITION_HISTORY = [
         ],
     },
     {
-        # Carteira vigente de 05/05/2026 a 03/09/2026
-        # Saídas vs. jan-abr/2026: AXIA7, CYRE4, IRBR3, PCAR3, RAIZ4, RENT4 (85 → 79 ativos)
-        # Sem novas entradas. Fonte: B3 / Broadcast 04/05/2026
-        "start": "2026-05-04", "end": "2026-09-04",
+        # Carteira quadrimestral vigente de 05/05/2026 a 04/09/2026 (79 ativos).
+        # Saídas vs. jan-abr/2026: AXIA7, CYRE4, IRBR3, PCAR3, RAIZ4, RENT4 (85 → 79).
+        # Sem novas entradas. Fonte: B3 / Broadcast 04/05/2026.
+        # Fatiada em três blocos por causa de duas exclusões extraordinárias
+        # ocorridas no meio do quadrimestre (ver blocos seguintes).
+        "start": "2026-05-04", "end": "2026-06-05",
         "tickers": [
             "ABEV3.SA",
             "ALOS3.SA",
@@ -3647,11 +3660,189 @@ IBOV_COMPOSITION_HISTORY = [
             "VIVA3.SA",
             "VIVT3.SA",
             "WEGE3.SA",
-            "YDUQ3.SA",
+            "YDUQ3.SA"
         ],
     },
     {
-        "start": "2026-09-05", "end": "2027-01-03",
+        # Exclusão extraordinária: AXIA5/AXIA6 (PNA1/PNB1 da Axia Energia) foram
+        # convertidas em AXIA3 na razão 1,1:1 com a migração ao Novo Mercado;
+        # deixaram de ser negociadas a partir de 08/06/2026.
+        # Fonte: B3, Ofício Circular 035/2026-VNC. 79 → 78 ativos.
+        "start": "2026-06-08", "end": "2026-08-25",
+        "tickers": [
+            "ABEV3.SA",
+            "ALOS3.SA",
+            "ASAI3.SA",
+            "AURE3.SA",
+            "AXIA3.SA",
+            "AZZA3.SA",
+            "B3SA3.SA",
+            "BBAS3.SA",
+            "BBDC3.SA",
+            "BBDC4.SA",
+            "BBSE3.SA",
+            "BEEF3.SA",
+            "BPAC11.SA",
+            "BRAP4.SA",
+            "BRAV3.SA",
+            "BRKM5.SA",
+            "CEAB3.SA",
+            "CMIG4.SA",
+            "CMIN3.SA",
+            "COGN3.SA",
+            "CPFE3.SA",
+            "CPLE3.SA",
+            "CSAN3.SA",
+            "CSMG3.SA",
+            "CSNA3.SA",
+            "CURY3.SA",
+            "CXSE3.SA",
+            "CYRE3.SA",
+            "DIRR3.SA",
+            "EGIE3.SA",
+            "EMBJ3.SA",
+            "ENEV3.SA",
+            "ENGI11.SA",
+            "EQTL3.SA",
+            "FLRY3.SA",
+            "GGBR4.SA",
+            "GOAU4.SA",
+            "HAPV3.SA",
+            "HYPE3.SA",
+            "IGTI11.SA",
+            "ISAE4.SA",
+            "ITSA4.SA",
+            "ITUB4.SA",
+            "KLBN11.SA",
+            "LREN3.SA",
+            "MBRF3.SA",
+            "MGLU3.SA",
+            "MOTV3.SA",
+            "MRVE3.SA",
+            "MULT3.SA",
+            "NATU3.SA",
+            "PETR3.SA",
+            "PETR4.SA",
+            "POMO4.SA",
+            "PRIO3.SA",
+            "PSSA3.SA",
+            "RADL3.SA",
+            "RAIL3.SA",
+            "RDOR3.SA",
+            "RECV3.SA",
+            "RENT3.SA",
+            "SANB11.SA",
+            "SBSP3.SA",
+            "SLCE3.SA",
+            "SMFT3.SA",
+            "SUZB3.SA",
+            "TAEE11.SA",
+            "TIMS3.SA",
+            "TOTS3.SA",
+            "UGPA3.SA",
+            "USIM5.SA",
+            "VALE3.SA",
+            "VAMO3.SA",
+            "VBBR3.SA",
+            "VIVA3.SA",
+            "VIVT3.SA",
+            "WEGE3.SA",
+            "YDUQ3.SA"
+        ],
+    },
+    {
+        # Exclusão extraordinária: BRKM3/BRKM5 (Braskem) saíram do Ibovespa e de
+        # mais 17 índices após o pedido de recuperação extrajudicial — exclusão
+        # pelo fechamento do pregão de 25/08/2026, valendo a partir de 26/08.
+        # Fonte: comunicado B3 de 24/08/2026. 78 → 77 ativos.
+        "start": "2026-08-26", "end": "2026-09-04",
+        "tickers": [
+            "ABEV3.SA",
+            "ALOS3.SA",
+            "ASAI3.SA",
+            "AURE3.SA",
+            "AXIA3.SA",
+            "AZZA3.SA",
+            "B3SA3.SA",
+            "BBAS3.SA",
+            "BBDC3.SA",
+            "BBDC4.SA",
+            "BBSE3.SA",
+            "BEEF3.SA",
+            "BPAC11.SA",
+            "BRAP4.SA",
+            "BRAV3.SA",
+            "CEAB3.SA",
+            "CMIG4.SA",
+            "CMIN3.SA",
+            "COGN3.SA",
+            "CPFE3.SA",
+            "CPLE3.SA",
+            "CSAN3.SA",
+            "CSMG3.SA",
+            "CSNA3.SA",
+            "CURY3.SA",
+            "CXSE3.SA",
+            "CYRE3.SA",
+            "DIRR3.SA",
+            "EGIE3.SA",
+            "EMBJ3.SA",
+            "ENEV3.SA",
+            "ENGI11.SA",
+            "EQTL3.SA",
+            "FLRY3.SA",
+            "GGBR4.SA",
+            "GOAU4.SA",
+            "HAPV3.SA",
+            "HYPE3.SA",
+            "IGTI11.SA",
+            "ISAE4.SA",
+            "ITSA4.SA",
+            "ITUB4.SA",
+            "KLBN11.SA",
+            "LREN3.SA",
+            "MBRF3.SA",
+            "MGLU3.SA",
+            "MOTV3.SA",
+            "MRVE3.SA",
+            "MULT3.SA",
+            "NATU3.SA",
+            "PETR3.SA",
+            "PETR4.SA",
+            "POMO4.SA",
+            "PRIO3.SA",
+            "PSSA3.SA",
+            "RADL3.SA",
+            "RAIL3.SA",
+            "RDOR3.SA",
+            "RECV3.SA",
+            "RENT3.SA",
+            "SANB11.SA",
+            "SBSP3.SA",
+            "SLCE3.SA",
+            "SMFT3.SA",
+            "SUZB3.SA",
+            "TAEE11.SA",
+            "TIMS3.SA",
+            "TOTS3.SA",
+            "UGPA3.SA",
+            "USIM5.SA",
+            "VALE3.SA",
+            "VAMO3.SA",
+            "VBBR3.SA",
+            "VIVA3.SA",
+            "VIVT3.SA",
+            "WEGE3.SA",
+            "YDUQ3.SA"
+        ],
+    },
+    {
+        # Carteira definitiva de setembro/2026: válida de 08/09/2026 a 31/12/2026,
+        # 76 ativos de 74 empresas. Entra TEND3; saem RECV3 e SLCE3 (77 → 76).
+        # Base: fechamento de 30/04/2026. Fonte: planilha oficial da B3
+        # ("Virada do IBOVESPA para setembro de 2026", pregão base 04/09/2026).
+        # Não há pregão entre 05/09 e 07/09 (fim de semana + feriado de 07/09).
+        "start": "2026-09-08", "end": "2026-12-31",
         "tickers": [
             "ABEV3.SA",
             "ALOS3.SA",
