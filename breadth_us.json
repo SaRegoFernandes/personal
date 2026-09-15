@@ -1,12 +1,12 @@
 {
   "latest": {
     "date": "2026-09-15",
-    "breadth_20": 0.2649,
-    "breadth_50": 0.3526,
-    "breadth_200": 0.566,
+    "breadth_20": 0.251,
+    "breadth_50": 0.3486,
+    "breadth_200": 0.562,
     "n_constituents": 503,
     "source": "calculo_proprio",
-    "composite": 0.4461,
+    "composite": 0.4407,
     "regime": "neutral"
   },
   "count": 1
