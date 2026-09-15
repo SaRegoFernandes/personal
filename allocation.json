@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T20:31:04.697669+00:00",
+  "generatedAt": "2026-09-15T22:44:57.878020+00:00",
   "asof": "2026-09-15",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.79,
+    "score": 2.8,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -108,14 +108,14 @@
         "items": [
           {
             "key": "erp",
-            "score": 4.045925,
+            "score": 4.061164,
             "read": "ERP real +1.2pp — abaixo da média (richish)",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 2.23,
-            "read": "26.0x — caro",
+            "score": 2.29,
+            "read": "25.9x — caro",
             "weight": 0.0889
           },
           {
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 4400.0,
-    "piso": 0.09796666666666669,
+    "tranche": 4500.0,
+    "piso": 0.09783703703703706,
     "cashpct": 0.2,
-    "gap": 0.10203333333333332,
-    "want": 45900.0,
-    "aloc_brasil": 4400.0,
+    "gap": 0.10216296296296296,
+    "want": 46000.0,
+    "aloc_brasil": 4500.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.07580000000000002,
     "res_brasil": 0.0,
-    "res_sp": 0.022166666666666668,
-    "tgt_brasil": 0.676525,
-    "tgt_sp": 0.22550833333333334,
+    "res_sp": 0.02203703703703704,
+    "tgt_brasil": 0.6766222222222222,
+    "tgt_sp": 0.22554074074074074,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -219,16 +219,16 @@
       }
     },
     "us": {
-      "pe": 26.04,
-      "cape": 40.9,
-      "ey": 3.8402457757296466,
-      "dy": 1.06,
+      "pe": 25.92,
+      "cape": 40.71,
+      "ey": 3.8580246913580245,
+      "dy": 1.07,
       "real_us": 2.62,
       "sp_dd": -2.88,
       "fg": 29,
       "fed": 3.63,
       "us_cpi": 3.36,
-      "infl_exp": 2.37,
+      "infl_exp": 2.38,
       "carry": 10.370000000000001,
       "sp_cur": 7585.73,
       "sp_ath": 7810.94
