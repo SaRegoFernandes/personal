@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T17:42:45.903925+00:00",
+  "generatedAt": "2026-09-16T19:19:12.806018+00:00",
   "asof": "2026-09-16",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,10 +15,10 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.36,
+    "score": 5.56,
     "conf": "ALTA",
-    "label": "CAUTELOSO",
-    "cor": "#c2541f",
+    "label": "NEUTRO",
+    "cor": "#b07d0a",
     "regime": "neutral",
     "groups": {
       "Valuation": {
@@ -26,8 +26,8 @@
         "items": [
           {
             "key": "erp",
-            "score": null,
-            "read": "ERP n/d",
+            "score": 5.851457,
+            "read": "ERP real -0.5pp — juro real levem. superior",
             "weight": 0.22
           },
           {
@@ -55,8 +55,8 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 2.176541,
-            "read": "-6.4% — perto do topo",
+            "score": 2.28082,
+            "read": "-6.8% — perto do topo",
             "weight": 0.12
           },
           {
@@ -72,14 +72,14 @@
         "items": [
           {
             "key": "breadth",
-            "score": 3.429333,
-            "read": "62% composto — neutro",
+            "score": 3.956,
+            "read": "58% composto — neutro",
             "weight": 0.1
           },
           {
             "key": "mm200",
-            "score": 4.701333,
-            "read": "45% > MM200 — abaixo da média",
+            "score": 5.228,
+            "read": "41% > MM200 — abaixo da média",
             "weight": 0.04
           }
         ]
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.8,
+    "score": 2.91,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -137,8 +137,8 @@
         "items": [
           {
             "key": "sp_dd",
-            "score": 1.23625,
-            "read": "-2.6% — no topo/ATH",
+            "score": 1.645,
+            "read": "-3.7% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 7.7,
-            "read": "28/100 — medo alto",
+            "score": 7.9,
+            "read": "26/100 — medo alto",
             "weight": 0.1556
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 3300.0,
-    "piso": 0.10143703703703702,
+    "tranche": 5300.0,
+    "piso": 0.09551111111111113,
     "cashpct": 0.2,
-    "gap": 0.09856296296296299,
-    "want": 44400.0,
-    "aloc_brasil": 3300.0,
+    "gap": 0.10448888888888888,
+    "want": 47000.0,
+    "aloc_brasil": 5300.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.07939999999999998,
+    "base": 0.07490000000000002,
     "res_brasil": 0.0,
-    "res_sp": 0.02203703703703704,
-    "tgt_brasil": 0.6739222222222222,
-    "tgt_sp": 0.22464074074074075,
+    "res_sp": 0.020611111111111108,
+    "tgt_brasil": 0.6783666666666667,
+    "tgt_sp": 0.22612222222222222,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -178,8 +178,8 @@
     "br_src": {
       "pl": "manual (override)",
       "dy": "manual (override)",
-      "selic": "indisponível",
-      "ipca": "data.json (Focus)",
+      "selic": "BCB SGS 432",
+      "ipca": "BCB SGS 13522",
       "ibov_dd": "ibov_price.json",
       "fund_dd": "planilha",
       "breadth": "breadth.json",
@@ -201,15 +201,15 @@
       "pl": 11.15,
       "ey": 8.968609865470851,
       "dy": 4.83,
-      "selic": null,
-      "ipca": 4.9,
-      "real_cdi": null,
-      "ibov_dd": -6.421802403137056,
+      "selic": 14.0,
+      "ipca": 4.22,
+      "real_cdi": 9.5,
+      "ibov_dd": -6.76940153128257,
       "fund_dd": -13.708433572871503,
-      "breadth_pct": 61.78,
-      "mm200_pct": 44.74,
+      "breadth_pct": 57.830000000000005,
+      "mm200_pct": 40.79,
       "fg": 10.8,
-      "ibov": 185899.64,
+      "ibov": 185209.11,
       "regime": "neutral",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -224,20 +224,20 @@
       "ey": 3.8580246913580245,
       "dy": 1.07,
       "real_us": 2.62,
-      "sp_dd": -2.63,
-      "fg": 28,
+      "sp_dd": -3.72,
+      "fg": 26,
       "fed": 3.63,
       "us_cpi": 3.36,
       "infl_exp": 2.38,
-      "carry": null,
-      "sp_cur": 7605.72,
+      "carry": 10.370000000000001,
+      "sp_cur": 7520.54,
       "sp_ath": 7810.94
     }
   },
   "carry": {
-    "selic": null,
+    "selic": 14.0,
     "fed": 3.63,
-    "diff": null,
+    "diff": 10.370000000000001,
     "nota": "Carry do hedge do SPXR11 ≈ Selic − Fed. Em BRL, SPXR11 ≈ retorno do S&P (USD) + carry. Vs CDI o carry quase se anula (excesso ≈ S&P USD − Fed), por isso não entra no score — é exibido como contexto da posição."
   },
   "weights": {
