@@ -1,13 +1,13 @@
 {
   "latest": {
-    "date": "2026-09-22",
-    "breadth_20": 0.2922,
-    "breadth_50": 0.3141,
-    "breadth_200": 0.511,
+    "date": "2026-09-23",
+    "breadth_20": null,
+    "breadth_50": null,
+    "breadth_200": null,
     "n_constituents": 503,
     "source": "calculo_proprio",
-    "composite": 0.4093,
-    "regime": "neutral"
+    "composite": 0.0,
+    "regime": "unknown"
   },
   "count": 1
 }
