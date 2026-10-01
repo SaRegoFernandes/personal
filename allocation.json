@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-30T23:29:09.831915+00:00",
+  "generatedAt": "2026-10-01T00:58:24.968719+00:00",
   "asof": "2026-09-30",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.72,
+    "score": 5.59,
     "conf": "ALTA",
     "label": "NEUTRO",
     "cor": "#b07d0a",
@@ -26,8 +26,8 @@
         "items": [
           {
             "key": "erp",
-            "score": 6.612707,
-            "read": "ERP real +0.5pp — bolsa levem. acima",
+            "score": 6.035207,
+            "read": "ERP real -0.3pp — juro real levem. superior",
             "weight": 0.22
           },
           {
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 5300.0,
-    "piso": 0.09554074074074075,
+    "tranche": 4300.0,
+    "piso": 0.09846574074074076,
     "cashpct": 0.2,
-    "gap": 0.10445925925925927,
-    "want": 47000.0,
-    "aloc_brasil": 5300.0,
+    "gap": 0.10153425925925925,
+    "want": 45700.0,
+    "aloc_brasil": 4300.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.0713,
+    "base": 0.07422500000000001,
     "res_brasil": 0.0,
     "res_sp": 0.024240740740740743,
-    "tgt_brasil": 0.6783444444444444,
-    "tgt_sp": 0.22611481481481482,
+    "tgt_brasil": 0.6761506944444444,
+    "tgt_sp": 0.22538356481481478,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 10% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -179,7 +179,7 @@
       "pl": "manual (override)",
       "dy": "manual (override)",
       "selic": "BCB SGS 432",
-      "ipca": "data.json (Focus)",
+      "ipca": "BCB SGS 13522",
       "ibov_dd": "ibov_price.json",
       "fund_dd": "planilha",
       "breadth": "breadth.json",
@@ -202,8 +202,8 @@
       "ey": 8.968609865470851,
       "dy": 4.83,
       "selic": 13.75,
-      "ipca": 4.99,
-      "real_cdi": 8.485,
+      "ipca": 4.22,
+      "real_cdi": 9.254999999999999,
       "ibov_dd": -6.199907378043557,
       "fund_dd": -13.708433572871503,
       "breadth_pct": 54.339999999999996,
