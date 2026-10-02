@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T23:28:12.256011+00:00",
+  "generatedAt": "2026-10-02T01:14:02.263933+00:00",
   "anchorDate": "2026-09-29",
   "ibov": {
     "cagr12": 25.63925784637999,
@@ -12,9 +12,9 @@
     "cagr60": 12.627191416297778
   },
   "sp500": {
-    "cagr12": null,
-    "cagr36": null,
-    "cagr60": null
+    "cagr12": 28.375210849039977,
+    "cagr36": 32.691902180655205,
+    "cagr60": 23.106776922127793
   },
   "sp500_usd": {
     "cagr12": 16.51887991118446,
@@ -42,7 +42,7 @@
   "ntnb": {
     "ntnb_rate_long": 7.3337,
     "ntnb_rate_mid": 7.6195,
-    "ntnb_fetched_at": "2026-10-01T23:28:11.552071+00:00",
+    "ntnb_fetched_at": "2026-10-02T01:04:52.207788+00:00",
     "ntnb_titles": [
       {
         "nome": "NTN-B",
@@ -380,8 +380,8 @@
       "cagr60": 17.297587623043253,
       "cagrInception": 26.55951045985143,
       "ibovCagrInception": 14.7071,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.6774,
+      "alphaVsCdi": 16.8822,
       "alphaVsIbov": 11.8525,
       "error": false,
       "alphas": {
@@ -401,13 +401,13 @@
           "a12": -9.9805,
           "a36": -12.4024,
           "a60": 4.5585,
-          "inc": -2.0794
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -24.0821,
+          "a36": -20.3941,
+          "a60": -5.8092,
+          "inc": -3.5591
         },
         "smll": {
           "a12": 4.7021,
@@ -443,8 +443,8 @@
       "cagr60": 17.271985014681967,
       "cagrInception": 27.54515402904174,
       "ibovCagrInception": 10.7017,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 10.0399,
+      "alphaVsCdi": 17.5052,
       "alphaVsIbov": 16.8435,
       "error": false,
       "alphas": {
@@ -464,13 +464,13 @@
           "a12": -2.1499,
           "a36": -14.0048,
           "a60": 4.5329,
-          "inc": 1.9176
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -16.2515,
+          "a36": -21.9965,
+          "a60": -5.8348,
+          "inc": 1.3723
         },
         "smll": {
           "a12": 12.5327,
@@ -506,8 +506,8 @@
       "cagr60": 12.361967949316455,
       "cagrInception": 12.959343954612578,
       "ibovCagrInception": 6.7212,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 10.0614,
+      "alphaVsCdi": 2.898,
       "alphaVsIbov": 6.2382,
       "error": false,
       "alphas": {
@@ -527,13 +527,13 @@
           "a12": -3.3678,
           "a36": -3.342,
           "a60": -0.3771,
-          "inc": 5.3673
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -17.4694,
+          "a36": -11.3337,
+          "a60": -10.7448,
+          "inc": 4.0812
         },
         "smll": {
           "a12": 11.3148,
@@ -569,8 +569,8 @@
       "cagr60": 14.233452400227486,
       "cagrInception": 16.019812378861143,
       "ibovCagrInception": 8.3793,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 11.9694,
+      "alphaVsCdi": 4.0504,
       "alphaVsIbov": 7.6405,
       "error": false,
       "alphas": {
@@ -590,13 +590,13 @@
           "a12": -7.5345,
           "a36": -4.0168,
           "a60": 1.4944,
-          "inc": 3.2727
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -21.6361,
+          "a36": -12.0085,
+          "a60": -8.8733,
+          "inc": -6.603
         },
         "smll": {
           "a12": 7.1481,
@@ -632,8 +632,8 @@
       "cagr60": null,
       "cagrInception": 20.090221409738042,
       "ibovCagrInception": 12.2707,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 13.1013,
+      "alphaVsCdi": 6.9889,
       "alphaVsIbov": 7.8195,
       "error": false,
       "alphas": {
@@ -653,13 +653,13 @@
           "a12": 8.4741,
           "a36": -3.3071,
           "a60": null,
-          "inc": 0.3819
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
+          "a12": -5.6275,
+          "a36": -11.2987,
           "a60": null,
-          "inc": null
+          "inc": -6.7287
         },
         "smll": {
           "a12": 23.1567,
@@ -695,8 +695,8 @@
       "cagr60": 18.869611605489347,
       "cagrInception": 18.3756889839372,
       "ibovCagrInception": 12.2634,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.2396,
+      "alphaVsCdi": 9.1361,
       "alphaVsIbov": 6.1123,
       "error": false,
       "alphas": {
@@ -716,13 +716,13 @@
           "a12": 15.1939,
           "a36": -7.257,
           "a60": 6.1306,
-          "inc": 3.7387
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": 1.0923,
+          "a36": -15.2486,
+          "a60": -4.2372,
+          "inc": 1.1489
         },
         "smll": {
           "a12": 29.8765,
@@ -758,8 +758,8 @@
       "cagr60": 14.674893331269567,
       "cagrInception": 16.52461820994151,
       "ibovCagrInception": 10.3246,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.1637,
+      "alphaVsCdi": 7.3609,
       "alphaVsIbov": 6.2,
       "error": false,
       "alphas": {
@@ -779,13 +779,13 @@
           "a12": 24.9588,
           "a36": 4.3288,
           "a60": 1.9358,
-          "inc": -4.2043
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": 10.8572,
+          "a36": -3.6628,
+          "a60": -8.4319,
+          "inc": -5.25
         },
         "smll": {
           "a12": 39.6414,
@@ -821,8 +821,8 @@
       "cagr60": 12.475146606975951,
       "cagrInception": 13.967570539610819,
       "ibovCagrInception": 8.1629,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.8963,
+      "alphaVsCdi": 4.0713,
       "alphaVsIbov": 5.8047,
       "error": false,
       "alphas": {
@@ -842,13 +842,13 @@
           "a12": -6.3685,
           "a36": -11.5245,
           "a60": -0.2639,
-          "inc": -9.0147
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -20.4701,
+          "a36": -19.5162,
+          "a60": -10.6316,
+          "inc": -8.9254
         },
         "smll": {
           "a12": 8.3141,
@@ -884,8 +884,8 @@
       "cagr60": 20.78563398352673,
       "cagrInception": 18.171060144088425,
       "ibovCagrInception": 7.9506,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 11.4034,
+      "alphaVsCdi": 6.7677,
       "alphaVsIbov": 10.2205,
       "error": false,
       "alphas": {
@@ -905,13 +905,13 @@
           "a12": 8.6635,
           "a36": 5.6064,
           "a60": 8.0466,
-          "inc": -2.1631
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -5.4381,
+          "a36": -2.3853,
+          "a60": -2.3211,
+          "inc": -10.7506
         },
         "smll": {
           "a12": 23.3461,
@@ -947,8 +947,8 @@
       "cagr60": 12.367248719577017,
       "cagrInception": 14.565021810086144,
       "ibovCagrInception": 7.9506,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 11.4034,
+      "alphaVsCdi": 3.1617,
       "alphaVsIbov": 6.6144,
       "error": false,
       "alphas": {
@@ -968,13 +968,13 @@
           "a12": -2.7147,
           "a36": -2.7811,
           "a60": -0.3718,
-          "inc": 3.1873
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -16.8163,
+          "a36": -10.7728,
+          "a60": -10.7395,
+          "inc": -7.638
         },
         "smll": {
           "a12": 11.9679,
@@ -1010,8 +1010,8 @@
       "cagr60": 16.4886378373712,
       "cagrInception": 19.753169136773074,
       "ibovCagrInception": 9.5082,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.5225,
+      "alphaVsCdi": 10.2307,
       "alphaVsIbov": 10.245,
       "error": false,
       "alphas": {
@@ -1031,13 +1031,13 @@
           "a12": -0.1655,
           "a36": -8.5665,
           "a60": 3.7496,
-          "inc": -1.4686
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -14.2671,
+          "a36": -16.5582,
+          "a60": -6.6181,
+          "inc": -4.7242
         },
         "smll": {
           "a12": 14.5171,
@@ -1073,8 +1073,8 @@
       "cagr60": 13.492809770663472,
       "cagrInception": 22.6867438720034,
       "ibovCagrInception": 14.7071,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.6774,
+      "alphaVsCdi": 13.0094,
       "alphaVsIbov": 7.9797,
       "error": false,
       "alphas": {
@@ -1094,13 +1094,13 @@
           "a12": -0.4509,
           "a36": 2.9317,
           "a60": 0.7537,
-          "inc": 2.1537
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -14.5524,
+          "a36": -5.06,
+          "a60": -9.614,
+          "inc": -1.4508
         },
         "smll": {
           "a12": 14.2318,
@@ -1136,8 +1136,8 @@
       "cagr60": 13.337538289586659,
       "cagrInception": 20.519679345278696,
       "ibovCagrInception": 12.0164,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.973,
+      "alphaVsCdi": 10.5466,
       "alphaVsIbov": 8.5033,
       "error": false,
       "alphas": {
@@ -1157,13 +1157,13 @@
           "a12": -0.5211,
           "a36": -19.1871,
           "a60": 0.5985,
-          "inc": -4.7962
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -14.6227,
+          "a36": -27.1788,
+          "a60": -9.7692,
+          "inc": -5.1779
         },
         "smll": {
           "a12": 14.1615,
@@ -1199,8 +1199,8 @@
       "cagr60": 21.35842265067922,
       "cagrInception": 16.827023560272302,
       "ibovCagrInception": 10.7017,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 10.0399,
+      "alphaVsCdi": 6.7871,
       "alphaVsIbov": 6.1254,
       "error": false,
       "alphas": {
@@ -1220,13 +1220,13 @@
           "a12": 9.8302,
           "a36": 1.0497,
           "a60": 8.6194,
-          "inc": -6.8114
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -4.2714,
+          "a36": -6.9419,
+          "a60": -1.7484,
+          "inc": -7.8444
         },
         "smll": {
           "a12": 24.5128,
@@ -1262,8 +1262,8 @@
       "cagr60": null,
       "cagrInception": 30.598283990154673,
       "ibovCagrInception": 16.5832,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 13.0412,
+      "alphaVsCdi": 17.5571,
       "alphaVsIbov": 14.0151,
       "error": false,
       "alphas": {
@@ -1283,13 +1283,13 @@
           "a12": 7.483,
           "a36": 6.394,
           "a60": null,
-          "inc": 9.3568
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
+          "a12": -6.6186,
+          "a36": -1.5977,
           "a60": null,
-          "inc": null
+          "inc": -0.6562
         },
         "smll": {
           "a12": 22.1656,
@@ -1325,8 +1325,8 @@
       "cagr60": 15.932013062213324,
       "cagrInception": 13.645655438971005,
       "ibovCagrInception": 8.1629,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.8963,
+      "alphaVsCdi": 3.7494,
       "alphaVsIbov": 5.4828,
       "error": false,
       "alphas": {
@@ -1346,13 +1346,13 @@
           "a12": 8.6124,
           "a36": -2.3186,
           "a60": 3.193,
-          "inc": -7.9286
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -5.4892,
+          "a36": -10.3103,
+          "a60": -7.1748,
+          "inc": -8.8597
         },
         "smll": {
           "a12": 23.295,
@@ -1388,8 +1388,8 @@
       "cagr60": null,
       "cagrInception": 21.508504288690023,
       "ibovCagrInception": 13.5356,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 13.0732,
+      "alphaVsCdi": 8.4353,
       "alphaVsIbov": 7.9729,
       "error": false,
       "alphas": {
@@ -1409,13 +1409,13 @@
           "a12": -5.4941,
           "a36": -3.5754,
           "a60": null,
-          "inc": 1.9768
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
+          "a12": -19.5957,
+          "a36": -11.5671,
           "a60": null,
-          "inc": null
+          "inc": -7.5592
         },
         "smll": {
           "a12": 9.1885,
@@ -1451,8 +1451,8 @@
       "cagr60": null,
       "cagrInception": 14.494515847057432,
       "ibovCagrInception": 16.3946,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 12.9142,
+      "alphaVsCdi": 1.5803,
       "alphaVsIbov": -1.9001,
       "error": false,
       "alphas": {
@@ -1472,13 +1472,13 @@
           "a12": -4.802,
           "a36": -10.2057,
           "a60": null,
-          "inc": -10.2057
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
+          "a12": -18.9036,
+          "a36": -18.1974,
           "a60": null,
-          "inc": null
+          "inc": -18.1974
         },
         "smll": {
           "a12": 9.8806,
@@ -1514,8 +1514,8 @@
       "cagr60": null,
       "cagrInception": 21.33013363489571,
       "ibovCagrInception": 13.682,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 13.0625,
+      "alphaVsCdi": 8.2676,
       "alphaVsIbov": 7.6481,
       "error": false,
       "alphas": {
@@ -1535,13 +1535,13 @@
           "a12": 1.3141,
           "a36": -0.5577,
           "a60": null,
-          "inc": 2.2077
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
+          "a12": -12.7875,
+          "a36": -8.5494,
           "a60": null,
-          "inc": null
+          "inc": -7.7793
         },
         "smll": {
           "a12": 15.9967,
@@ -1577,8 +1577,8 @@
       "cagr60": 15.189654172284639,
       "cagrInception": 14.533943912914339,
       "ibovCagrInception": 9.5082,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.5225,
+      "alphaVsCdi": 5.0114,
       "alphaVsIbov": 5.0258,
       "error": false,
       "alphas": {
@@ -1598,13 +1598,13 @@
           "a12": -2.8401,
           "a36": -10.1558,
           "a60": 2.4506,
-          "inc": -6.3328
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -16.9417,
+          "a36": -18.1474,
+          "a60": -7.9171,
+          "inc": -8.7167
         },
         "smll": {
           "a12": 11.8426,
@@ -1640,8 +1640,8 @@
       "cagr60": 15.210352109699631,
       "cagrInception": 14.152771551326303,
       "ibovCagrInception": 7.9506,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 11.4034,
+      "alphaVsCdi": 2.7494,
       "alphaVsIbov": 6.2022,
       "error": false,
       "alphas": {
@@ -1661,13 +1661,13 @@
           "a12": 2.1098,
           "a36": -11.0965,
           "a60": 2.4713,
-          "inc": -2.907
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -11.9918,
+          "a36": -19.0881,
+          "a60": -7.8964,
+          "inc": -12.2552
         },
         "smll": {
           "a12": 16.7924,
@@ -1703,8 +1703,8 @@
       "cagr60": 19.03865569120402,
       "cagrInception": 14.248967799012991,
       "ibovCagrInception": 9.5082,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.5225,
+      "alphaVsCdi": 4.7265,
       "alphaVsIbov": 4.7408,
       "error": false,
       "alphas": {
@@ -1724,13 +1724,13 @@
           "a12": 7.5892,
           "a36": -6.6798,
           "a60": 6.2996,
-          "inc": 6.4077
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -6.5124,
+          "a36": -14.6715,
+          "a60": -4.0681,
+          "inc": 3.4684
         },
         "smll": {
           "a12": 22.2718,
@@ -1766,8 +1766,8 @@
       "cagr60": null,
       "cagrInception": 13.603501017343621,
       "ibovCagrInception": 16.3946,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 12.9142,
+      "alphaVsCdi": 0.6893,
       "alphaVsIbov": -2.7911,
       "error": false,
       "alphas": {
@@ -1787,13 +1787,13 @@
           "a12": -2.5633,
           "a36": -11.0967,
           "a60": null,
-          "inc": -11.0967
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
+          "a12": -16.6649,
+          "a36": -19.0884,
           "a60": null,
-          "inc": null
+          "inc": -19.0884
         },
         "smll": {
           "a12": 12.1193,
@@ -1829,8 +1829,8 @@
       "cagr60": null,
       "cagrInception": 14.03966269456074,
       "ibovCagrInception": 14.0657,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 12.9451,
+      "alphaVsCdi": 1.0946,
       "alphaVsIbov": -0.0261,
       "error": false,
       "alphas": {
@@ -1850,13 +1850,13 @@
           "a12": 0.676,
           "a36": -10.7222,
           "a60": null,
-          "inc": -8.6891
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
+          "a12": -13.4255,
+          "a36": -18.7138,
           "a60": null,
-          "inc": null
+          "inc": -14.6964
         },
         "smll": {
           "a12": 15.3587,
@@ -1892,8 +1892,8 @@
       "cagr60": null,
       "cagrInception": 12.675892927102561,
       "ibovCagrInception": 13.8502,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 12.9769,
+      "alphaVsCdi": -0.301,
       "alphaVsIbov": -1.1743,
       "error": false,
       "alphas": {
@@ -1913,13 +1913,13 @@
           "a12": -6.1019,
           "a36": null,
           "a60": null,
-          "inc": -11.4018
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
+          "a12": -20.2035,
           "a36": null,
           "a60": null,
-          "inc": null
+          "inc": -18.6864
         },
         "smll": {
           "a12": 8.5807,
@@ -1979,9 +1979,9 @@
           "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
+          "a12": -18.2257,
+          "a36": -16.6857,
+          "a60": -11.246,
           "inc": null
         },
         "smll": {
@@ -2018,8 +2018,8 @@
       "cagr60": 15.304111478569805,
       "cagrInception": 12.06993031114363,
       "ibovCagrInception": 7.6375,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 9.7863,
+      "alphaVsCdi": 2.2837,
       "alphaVsIbov": 4.4324,
       "error": false,
       "alphas": {
@@ -2039,13 +2039,13 @@
           "a12": 2.6887,
           "a36": -7.9012,
           "a60": 2.5651,
-          "inc": -11.6159
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
-          "a60": null,
-          "inc": null
+          "a12": -11.4129,
+          "a36": -15.8929,
+          "a60": -7.8027,
+          "inc": -11.8285
         },
         "smll": {
           "a12": 17.3714,
@@ -2081,8 +2081,8 @@
       "cagr60": null,
       "cagrInception": 16.387710474381855,
       "ibovCagrInception": 16.657,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 12.9194,
+      "alphaVsCdi": 3.4683,
       "alphaVsIbov": -0.2693,
       "error": false,
       "alphas": {
@@ -2102,13 +2102,13 @@
           "a12": -0.5791,
           "a36": -8.2934,
           "a60": null,
-          "inc": -7.8475
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
-          "a36": null,
+          "a12": -14.6807,
+          "a36": -16.2851,
           "a60": null,
-          "inc": null
+          "inc": -16.1664
         },
         "smll": {
           "a12": 14.1036,
@@ -2144,8 +2144,8 @@
       "cagr60": null,
       "cagrInception": 22.351051006460953,
       "ibovCagrInception": 18.129,
-      "cdiCagrInception": null,
-      "alphaVsCdi": null,
+      "cdiCagrInception": 12.9419,
+      "alphaVsCdi": 9.4092,
       "alphaVsIbov": 4.222,
       "error": false,
       "alphas": {
@@ -2165,13 +2165,13 @@
           "a12": 1.9169,
           "a36": null,
           "a60": null,
-          "inc": -3.6692
+          "inc": null
         },
         "sp_brl": {
-          "a12": null,
+          "a12": -12.1847,
           "a36": null,
           "a60": null,
-          "inc": null
+          "inc": -12.2021
         },
         "smll": {
           "a12": 16.5995,
