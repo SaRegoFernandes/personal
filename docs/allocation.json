@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-05T21:13:52.849773+00:00",
+  "generatedAt": "2026-10-05T22:24:41.169119+00:00",
   "asof": "2026-10-05",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.42,
+    "score": 2.4,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -108,20 +108,20 @@
         "items": [
           {
             "key": "erp",
-            "score": 3.725578,
+            "score": 3.702272,
             "read": "ERP real +0.8pp — cara vs juros",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 2.08,
-            "read": "26.3x — caro",
+            "score": 1.991429,
+            "read": "26.5x — caro",
             "weight": 0.0889
           },
           {
             "key": "cape",
             "score": 0.5,
-            "read": "CAPE 41x — extremo (tipo 1999/2021)",
+            "read": "CAPE 42x — extremo (tipo 1999/2021)",
             "weight": 0.2444
           },
           {
@@ -158,18 +158,18 @@
   },
   "decision": {
     "tranche": 0.0,
-    "piso": 0.11356296296296296,
+    "piso": 0.11382222222222221,
     "cashpct": 0.2,
-    "gap": 0.08643703703703705,
-    "want": 38900.0,
+    "gap": 0.0861777777777778,
+    "want": 38800.0,
     "aloc_brasil": 0.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.0866,
     "res_brasil": 0.0,
-    "res_sp": 0.026962962962962966,
-    "tgt_brasil": 0.6648277777777778,
-    "tgt_sp": 0.22160925925925928,
+    "res_sp": 0.027222222222222224,
+    "tgt_brasil": 0.6646333333333333,
+    "tgt_sp": 0.22154444444444443,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa acima do alvo, mas nada barato E abaixo do alvo agora — segura munição"
@@ -219,10 +219,10 @@
       }
     },
     "us": {
-      "pe": 26.34,
-      "cape": 41.38,
-      "ey": 3.7965072133637054,
-      "dy": 1.05,
+      "pe": 26.53,
+      "cape": 41.67,
+      "ey": 3.769317753486619,
+      "dy": 1.04,
       "real_us": 2.95,
       "sp_dd": -0.47,
       "fg": 43,
