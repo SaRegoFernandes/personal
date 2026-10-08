@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T00:00:34.292112+00:00",
+  "generatedAt": "2026-10-08T01:20:08.554141+00:00",
   "asof": "2026-10-07",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.14,
+    "score": 5.01,
     "conf": "ALTA",
     "label": "CAUTELOSO",
     "cor": "#c2541f",
@@ -26,8 +26,8 @@
         "items": [
           {
             "key": "erp",
-            "score": 6.627707,
-            "read": "ERP real +0.5pp — bolsa levem. acima",
+            "score": 6.035207,
+            "read": "ERP real -0.3pp — juro real levem. superior",
             "weight": 0.22
           },
           {
@@ -158,18 +158,18 @@
   },
   "decision": {
     "tranche": 0.0,
-    "piso": 0.11196111111111111,
+    "piso": 0.1148861111111111,
     "cashpct": 0.2,
-    "gap": 0.0880388888888889,
-    "want": 39600.0,
+    "gap": 0.0851138888888889,
+    "want": 38300.0,
     "aloc_brasil": 0.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.08435,
+    "base": 0.08727499999999999,
     "res_brasil": 0.0,
     "res_sp": 0.02761111111111111,
-    "tgt_brasil": 0.6660291666666667,
-    "tgt_sp": 0.22200972222222223,
+    "tgt_brasil": 0.6638354166666667,
+    "tgt_sp": 0.22127847222222222,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa acima do alvo, mas nada barato E abaixo do alvo agora — segura munição"
@@ -179,7 +179,7 @@
       "pl": "manual (override)",
       "dy": "manual (override)",
       "selic": "BCB SGS 432",
-      "ipca": "data.json (Focus)",
+      "ipca": "BCB SGS 13522",
       "ibov_dd": "ibov_price.json",
       "fund_dd": "planilha",
       "breadth": "breadth.json",
@@ -202,8 +202,8 @@
       "ey": 8.968609865470851,
       "dy": 4.83,
       "selic": 13.75,
-      "ipca": 5.01,
-      "real_cdi": 8.465,
+      "ipca": 4.22,
+      "real_cdi": 9.254999999999999,
       "ibov_dd": -1.2612463269409235,
       "fund_dd": -13.708433572871503,
       "breadth_pct": 80.92,
