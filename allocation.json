@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-08T01:20:08.554141+00:00",
-  "asof": "2026-10-07",
+  "generatedAt": "2026-10-08T19:29:57.039828+00:00",
+  "asof": "2026-10-08",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
   "brasil": 300000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.01,
+    "score": 5.03,
     "conf": "ALTA",
     "label": "CAUTELOSO",
     "cor": "#c2541f",
@@ -56,7 +56,7 @@
           {
             "key": "ibov_dd",
             "score": 1,
-            "read": "-1.3% — próx. ATH",
+            "read": "-0.1% — próx. ATH",
             "weight": 0.12
           },
           {
@@ -72,8 +72,8 @@
         "items": [
           {
             "key": "breadth",
-            "score": 1.158,
-            "read": "81% composto — esticado",
+            "score": 1.309,
+            "read": "79% composto — momentum positivo",
             "weight": 0.1
           },
           {
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.37,
+    "score": 2.48,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -138,7 +138,7 @@
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-0.3% — no topo/ATH",
+            "read": "-0.9% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 6.0,
-            "read": "45/100 — leve medo",
+            "score": 6.7,
+            "read": "38/100 — medo moderado",
             "weight": 0.1556
           }
         ]
@@ -158,18 +158,18 @@
   },
   "decision": {
     "tranche": 0.0,
-    "piso": 0.1148861111111111,
+    "piso": 0.11301018518518519,
     "cashpct": 0.2,
-    "gap": 0.0851138888888889,
-    "want": 38300.0,
+    "gap": 0.08698981481481483,
+    "want": 39100.0,
     "aloc_brasil": 0.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.08727499999999999,
+    "base": 0.086825,
     "res_brasil": 0.0,
-    "res_sp": 0.02761111111111111,
-    "tgt_brasil": 0.6638354166666667,
-    "tgt_sp": 0.22127847222222222,
+    "res_sp": 0.026185185185185186,
+    "tgt_brasil": 0.6652423611111111,
+    "tgt_sp": 0.2217474537037037,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa acima do alvo, mas nada barato E abaixo do alvo agora — segura munição"
@@ -204,12 +204,12 @@
       "selic": 13.75,
       "ipca": 4.22,
       "real_cdi": 9.254999999999999,
-      "ibov_dd": -1.2612463269409235,
+      "ibov_dd": -0.09658212186822723,
       "fund_dd": -13.708433572871503,
-      "breadth_pct": 80.92,
+      "breadth_pct": 79.41,
       "mm200_pct": 73.68,
       "fg": 10.8,
-      "ibov": 204302.33,
+      "ibov": 206712.16,
       "regime": "bull",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -224,13 +224,13 @@
       "ey": 3.757985719654265,
       "dy": 1.04,
       "real_us": 2.92,
-      "sp_dd": -0.35,
-      "fg": 45,
+      "sp_dd": -0.87,
+      "fg": 38,
       "fed": 3.88,
       "us_cpi": 3.36,
       "infl_exp": 2.36,
       "carry": 9.870000000000001,
-      "sp_cur": 7801.77,
+      "sp_cur": 7760.85,
       "sp_ath": 7829.1
     }
   },
@@ -298,8 +298,8 @@
   },
   "decay_flags": [
     {
-      "level": "medio",
-      "msg": "Ártica: alfa 60m vs IBOV -0.1pp NEGATIVO — janela de revisão (ciclo × erosão). (vs CDI +0.6pp — ciclo de juros, não skill)"
+      "level": "baixo",
+      "msg": "Ártica: alfa 60m vs IBOV +0.4pp — positivo mas fino; acompanhar. (vs CDI +1.0pp — ciclo de juros, não skill)"
     }
   ]
 }
