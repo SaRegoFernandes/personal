@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T01:17:25.004704+00:00",
+  "generatedAt": "2026-10-12T22:44:13.905803+00:00",
   "asof": "2026-10-09",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.37,
+    "score": 2.36,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -108,14 +108,14 @@
         "items": [
           {
             "key": "erp",
-            "score": 3.720804,
+            "score": 3.723218,
             "read": "ERP real +0.8pp — cara vs juros",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 1.954286,
-            "read": "26.7x — caro",
+            "score": 1.96,
+            "read": "26.6x — caro",
             "weight": 0.0889
           },
           {
@@ -138,7 +138,7 @@
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-0.2% — no topo/ATH",
+            "read": "-0.3% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 6.0,
-            "read": "45/100 — leve medo",
+            "score": 5.9,
+            "read": "46/100 — leve medo",
             "weight": 0.1556
           }
         ]
@@ -158,18 +158,18 @@
   },
   "decision": {
     "tranche": 0.0,
-    "piso": 0.11421111111111111,
+    "piso": 0.11434074074074074,
     "cashpct": 0.2,
-    "gap": 0.0857888888888889,
-    "want": 38600.0,
+    "gap": 0.08565925925925927,
+    "want": 38500.0,
     "aloc_brasil": 0.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.0866,
     "res_brasil": 0.0,
-    "res_sp": 0.02761111111111111,
-    "tgt_brasil": 0.6643416666666667,
-    "tgt_sp": 0.2214472222222222,
+    "res_sp": 0.027740740740740743,
+    "tgt_brasil": 0.6642444444444444,
+    "tgt_sp": 0.22141481481481481,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa acima do alvo, mas nada barato E abaixo do alvo agora — segura munição"
@@ -209,7 +209,7 @@
       "breadth_pct": 82.69999999999999,
       "mm200_pct": 78.95,
       "fg": 10.8,
-      "ibov": 209066.91,
+      "ibov": 209067.0,
       "regime": "bull",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -219,18 +219,18 @@
       }
     },
     "us": {
-      "pe": 26.66,
-      "cape": 41.87,
-      "ey": 3.7509377344336086,
+      "pe": 26.64,
+      "cape": 41.85,
+      "ey": 3.7537537537537538,
       "dy": 1.04,
       "real_us": 2.91,
-      "sp_dd": -0.22,
-      "fg": 45,
+      "sp_dd": -0.28,
+      "fg": 46,
       "fed": 3.88,
       "us_cpi": 3.36,
       "infl_exp": 2.33,
       "carry": 9.870000000000001,
-      "sp_cur": 7811.54,
+      "sp_cur": 7807.24,
       "sp_ath": 7829.1
     }
   },
@@ -299,7 +299,7 @@
   "decay_flags": [
     {
       "level": "baixo",
-      "msg": "Ártica: alfa 60m vs IBOV +0.8pp — positivo mas fino; acompanhar. (vs CDI +1.2pp — ciclo de juros, não skill)"
+      "msg": "Ártica: alfa 60m vs IBOV +1.1pp — positivo mas fino; acompanhar. (vs CDI +1.2pp — ciclo de juros, não skill)"
     }
   ]
 }
