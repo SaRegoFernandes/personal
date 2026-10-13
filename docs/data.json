@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T02:50:55.317955+00:00",
+  "generatedAt": "2026-10-13T20:04:14.818157+00:00",
   "anchorDate": "2026-10-08",
   "ibov": {
     "cagr12": 45.11418901055861,
@@ -42,7 +42,7 @@
   "ntnb": {
     "ntnb_rate_long": 6.6205,
     "ntnb_rate_mid": 6.679,
-    "ntnb_fetched_at": "2026-10-13T02:43:25.896328+00:00",
+    "ntnb_fetched_at": "2026-10-13T19:55:29.000836+00:00",
     "ntnb_titles": [
       {
         "nome": "NTN-B",
@@ -118,9 +118,9 @@
     "ntnb_source": "anbima"
   },
   "ipca_focus": {
-    "ipca_12m": 5.01,
+    "ipca_12m": 5.22,
     "ipca_longo_prazo": 3.5,
-    "ipca_fetched_at": "2026-10-02",
+    "ipca_fetched_at": "2026-10-09",
     "ipca_source": "focus"
   },
   "fund_betas": {
