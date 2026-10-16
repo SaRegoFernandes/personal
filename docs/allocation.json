@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T17:35:30.040853+00:00",
+  "generatedAt": "2026-10-16T19:07:09.294155+00:00",
   "asof": "2026-10-16",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.12,
+    "score": 4.77,
     "conf": "ALTA",
     "label": "CAUTELOSO",
     "cor": "#c2541f",
@@ -26,8 +26,8 @@
         "items": [
           {
             "key": "erp",
-            "score": 6.305207,
-            "read": "ERP real +0.1pp — bolsa levem. acima",
+            "score": null,
+            "read": "ERP n/d",
             "weight": 0.22
           },
           {
@@ -56,7 +56,7 @@
           {
             "key": "ibov_dd",
             "score": 1,
-            "read": "-2.2% — próx. ATH",
+            "read": "-1.8% — próx. ATH",
             "weight": 0.12
           },
           {
@@ -72,7 +72,7 @@
         "items": [
           {
             "key": "breadth",
-            "score": 1.592,
+            "score": 1.507,
             "read": "77% composto — momentum positivo",
             "weight": 0.1
           },
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.83,
+    "score": 2.87,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -137,8 +137,8 @@
         "items": [
           {
             "key": "sp_dd",
-            "score": 1,
-            "read": "-2.0% — no topo/ATH",
+            "score": 1.18375,
+            "read": "-2.5% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -157,28 +157,28 @@
     }
   },
   "decision": {
-    "tranche": 1600.0,
-    "piso": 0.10644814814814814,
+    "tranche": 0.0,
+    "piso": 0.11380462962962962,
     "cashpct": 0.2,
-    "gap": 0.09355185185185187,
-    "want": 42100.0,
-    "aloc_brasil": 1600.0,
+    "gap": 0.0861953703703704,
+    "want": 38800.0,
+    "aloc_brasil": 0.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.08479999999999999,
+    "base": 0.092675,
     "res_brasil": 0.0,
-    "res_sp": 0.02164814814814815,
-    "tgt_brasil": 0.6701638888888889,
-    "tgt_sp": 0.22338796296296295,
+    "res_sp": 0.02112962962962963,
+    "tgt_brasil": 0.6646465277777778,
+    "tgt_sp": 0.2215488425925926,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
-    "desc": "caixa-alvo 11% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
+    "desc": "caixa acima do alvo, mas nada barato E abaixo do alvo agora — segura munição"
   },
   "inputs": {
     "br_src": {
       "pl": "manual (override)",
       "dy": "manual (override)",
-      "selic": "BCB SGS 432",
+      "selic": "indisponível",
       "ipca": "BCB SGS 13522",
       "ibov_dd": "ibov_price.json",
       "fund_dd": "planilha",
@@ -201,15 +201,15 @@
       "pl": 11.15,
       "ey": 8.968609865470851,
       "dy": 4.83,
-      "selic": 13.75,
+      "selic": null,
       "ipca": 4.58,
-      "real_cdi": 8.895,
-      "ibov_dd": -2.200572065414441,
+      "real_cdi": null,
+      "ibov_dd": -1.8395586103976291,
       "fund_dd": -13.708433572871503,
-      "breadth_pct": 76.58,
+      "breadth_pct": 77.42999999999999,
       "mm200_pct": 72.37,
       "fg": 10.8,
-      "ibov": 204466.33,
+      "ibov": 205221.09,
       "regime": "bull",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -224,20 +224,20 @@
       "ey": 3.7850113550340647,
       "dy": 1.05,
       "real_us": 2.78,
-      "sp_dd": -1.96,
+      "sp_dd": -2.49,
       "fg": 18,
       "fed": 3.88,
       "us_cpi": 3.74,
       "infl_exp": 2.32,
-      "carry": 9.870000000000001,
-      "sp_cur": 7676.01,
+      "carry": null,
+      "sp_cur": 7633.78,
       "sp_ath": 7829.1
     }
   },
   "carry": {
-    "selic": 13.75,
+    "selic": null,
     "fed": 3.88,
-    "diff": 9.870000000000001,
+    "diff": null,
     "nota": "Carry do hedge do SPXR11 ≈ Selic − Fed. Em BRL, SPXR11 ≈ retorno do S&P (USD) + carry. Vs CDI o carry quase se anula (excesso ≈ S&P USD − Fed), por isso não entra no score — é exibido como contexto da posição."
   },
   "weights": {
