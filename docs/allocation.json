@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-22T00:07:38.047538+00:00",
-  "asof": "2026-10-21",
+  "generatedAt": "2026-10-22T18:01:23.524938+00:00",
+  "asof": "2026-10-22",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
   "brasil": 300000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 5.08,
+    "score": 5.12,
     "conf": "ALTA",
     "label": "CAUTELOSO",
     "cor": "#c2541f",
@@ -56,7 +56,7 @@
           {
             "key": "ibov_dd",
             "score": 1,
-            "read": "-1.2% — próx. ATH",
+            "read": "-2.4% — próx. ATH",
             "weight": 0.12
           },
           {
@@ -72,14 +72,14 @@
         "items": [
           {
             "key": "breadth",
-            "score": 1.289,
-            "read": "80% composto — momentum positivo",
+            "score": 1.553,
+            "read": "77% composto — momentum positivo",
             "weight": 0.1
           },
           {
             "key": "mm200",
-            "score": 1.333333,
-            "read": "75% > MM200 — positivo",
+            "score": 1.513,
+            "read": "72% > MM200 — positivo",
             "weight": 0.04
           }
         ]
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.63,
+    "score": 2.83,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -137,8 +137,8 @@
         "items": [
           {
             "key": "sp_dd",
-            "score": 1,
-            "read": "-0.9% — no topo/ATH",
+            "score": 1.12,
+            "read": "-2.3% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 7.4,
-            "read": "31/100 — medo moderado",
+            "score": 8.5,
+            "read": "20/100 — medo alto",
             "weight": 0.1556
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 400.0,
-    "piso": 0.10994074074074074,
+    "tranche": 1600.0,
+    "piso": 0.10644814814814814,
     "cashpct": 0.2,
-    "gap": 0.09005925925925927,
-    "want": 40500.0,
-    "aloc_brasil": 400.0,
+    "gap": 0.09355185185185187,
+    "want": 42100.0,
+    "aloc_brasil": 1600.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.0857,
+    "base": 0.08479999999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.024240740740740743,
-    "tgt_brasil": 0.6675444444444445,
-    "tgt_sp": 0.2225148148148148,
+    "res_sp": 0.02164814814814815,
+    "tgt_brasil": 0.6701638888888889,
+    "tgt_sp": 0.22338796296296295,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 11% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -193,9 +193,9 @@
       "real_us": "multpl.com",
       "sp_dd": "yfinance ^GSPC + ATH persistido",
       "fg": "CNN",
-      "fed": "indisponível",
+      "fed": "FRED DFF",
       "cpi": "multpl.com",
-      "infl_exp": "indisponível"
+      "infl_exp": "FRED T10YIE"
     },
     "br": {
       "pl": 11.15,
@@ -204,12 +204,12 @@
       "selic": 13.75,
       "ipca": 4.58,
       "real_cdi": 8.895,
-      "ibov_dd": -1.2301176177971551,
+      "ibov_dd": -2.375047233661942,
       "fund_dd": -13.708433572871503,
-      "breadth_pct": 79.61,
-      "mm200_pct": 75.0,
+      "breadth_pct": 76.97,
+      "mm200_pct": 72.37,
       "fg": 10.8,
-      "ibov": 206495.23,
+      "ibov": 204101.56,
       "regime": "bull",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -224,20 +224,20 @@
       "ey": 3.7778617302606725,
       "dy": 1.05,
       "real_us": 2.76,
-      "sp_dd": -0.92,
-      "fg": 31,
-      "fed": null,
+      "sp_dd": -2.32,
+      "fg": 20,
+      "fed": 3.88,
       "us_cpi": 3.74,
-      "infl_exp": null,
-      "carry": null,
-      "sp_cur": 7757.17,
+      "infl_exp": 2.37,
+      "carry": 9.870000000000001,
+      "sp_cur": 7647.19,
       "sp_ath": 7829.1
     }
   },
   "carry": {
     "selic": 13.75,
-    "fed": null,
-    "diff": null,
+    "fed": 3.88,
+    "diff": 9.870000000000001,
     "nota": "Carry do hedge do SPXR11 ≈ Selic − Fed. Em BRL, SPXR11 ≈ retorno do S&P (USD) + carry. Vs CDI o carry quase se anula (excesso ≈ S&P USD − Fed), por isso não entra no score — é exibido como contexto da posição."
   },
   "weights": {
@@ -299,7 +299,7 @@
   "decay_flags": [
     {
       "level": "baixo",
-      "msg": "Ártica: alfa 60m vs IBOV +0.2pp — positivo mas fino; acompanhar. (vs CDI +0.7pp — ciclo de juros, não skill)"
+      "msg": "Ártica: alfa 60m vs IBOV +0.3pp — positivo mas fino; acompanhar. (vs CDI +1.1pp — ciclo de juros, não skill)"
     }
   ]
 }
