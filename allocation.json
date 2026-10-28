@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T20:29:23.937567+00:00",
+  "generatedAt": "2026-10-28T21:53:32.574350+00:00",
   "asof": "2026-10-28",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 6.76,
+    "score": 6.89,
     "conf": "ALTA",
     "label": "BOM",
     "cor": "#1a7a52",
@@ -26,8 +26,8 @@
         "items": [
           {
             "key": "erp",
-            "score": 6.305207,
-            "read": "ERP real +0.1pp — bolsa levem. acima",
+            "score": null,
+            "read": "ERP n/d",
             "weight": 0.22
           },
           {
@@ -108,13 +108,13 @@
         "items": [
           {
             "key": "erp",
-            "score": 3.964343,
+            "score": 3.95327,
             "read": "ERP real +1.1pp — abaixo da média (richish)",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 2.075,
+            "score": 2.03,
             "read": "26.4x — caro",
             "weight": 0.0889
           },
@@ -178,7 +178,7 @@
     "br_src": {
       "pl": "manual (override)",
       "dy": "manual (override)",
-      "selic": "BCB SGS 432",
+      "selic": "indisponível",
       "ipca": "BCB SGS 13522",
       "ibov_dd": "ibov_price.json",
       "fund_dd": "planilha",
@@ -201,9 +201,9 @@
       "pl": 11.15,
       "ey": 8.968609865470851,
       "dy": 4.83,
-      "selic": 13.75,
+      "selic": null,
       "ipca": 4.58,
-      "real_cdi": 8.895,
+      "real_cdi": null,
       "ibov_dd": -18.205125629582863,
       "fund_dd": -13.708433572871503,
       "breadth_pct": 13.03,
@@ -219,25 +219,25 @@
       }
     },
     "us": {
-      "pe": 26.35,
-      "cape": 40.89,
-      "ey": 3.795066413662239,
+      "pe": 26.44,
+      "cape": 41.04,
+      "ey": 3.7821482602118,
       "dy": 1.05,
       "real_us": 2.67,
       "sp_dd": -1.09,
       "fg": 36,
       "fed": 3.88,
       "us_cpi": 3.74,
-      "infl_exp": 2.35,
-      "carry": 9.870000000000001,
+      "infl_exp": 2.38,
+      "carry": null,
       "sp_cur": 7743.98,
       "sp_ath": 7829.1
     }
   },
   "carry": {
-    "selic": 13.75,
+    "selic": null,
     "fed": 3.88,
-    "diff": 9.870000000000001,
+    "diff": null,
     "nota": "Carry do hedge do SPXR11 ≈ Selic − Fed. Em BRL, SPXR11 ≈ retorno do S&P (USD) + carry. Vs CDI o carry quase se anula (excesso ≈ S&P USD − Fed), por isso não entra no score — é exibido como contexto da posição."
   },
   "weights": {
