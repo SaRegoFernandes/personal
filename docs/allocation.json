@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-28T00:50:12.894503+00:00",
-  "asof": "2026-10-27",
+  "generatedAt": "2026-10-28T18:53:34.801809+00:00",
+  "asof": "2026-10-28",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
   "brasil": 300000.0,
@@ -15,11 +15,11 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 6.65,
+    "score": 6.76,
     "conf": "ALTA",
     "label": "BOM",
     "cor": "#1a7a52",
-    "regime": "bear",
+    "regime": "capitulation",
     "groups": {
       "Valuation": {
         "weight": 0.52,
@@ -55,8 +55,8 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 4.99103,
-            "read": "-16.0% — correção leve",
+            "score": 5.428586,
+            "read": "-18.1% — correção relevante",
             "weight": 0.12
           },
           {
@@ -72,14 +72,14 @@
         "items": [
           {
             "key": "breadth",
-            "score": 9.599,
-            "read": "17% composto — extrema oportunidade",
+            "score": 9.947,
+            "read": "13% composto — extrema oportunidade",
             "weight": 0.1
           },
           {
             "key": "mm200",
-            "score": 7.774,
-            "read": "21% > MM200 — fraqueza técnica",
+            "score": 8.4052,
+            "read": "16% > MM200 — oversold",
             "weight": 0.04
           }
         ]
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 2.62,
+    "score": 2.59,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -138,7 +138,7 @@
           {
             "key": "sp_dd",
             "score": 1,
-            "read": "-1.4% — no topo/ATH",
+            "read": "-1.2% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 7.1,
-            "read": "34/100 — medo moderado",
+            "score": 6.9,
+            "read": "36/100 — medo moderado",
             "weight": 0.1556
           }
         ]
@@ -158,18 +158,18 @@
   },
   "decision": {
     "tranche": 12300.0,
-    "piso": 0.07474537037037035,
+    "piso": 0.07475925925925925,
     "cashpct": 0.2,
-    "gap": 0.12525462962962966,
+    "gap": 0.12524074074074076,
     "want": 56400.0,
     "aloc_brasil": 12300.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
-    "base": 0.050374999999999975,
+    "base": 0.04999999999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.02437037037037037,
-    "tgt_brasil": 0.6939409722222222,
-    "tgt_sp": 0.23131365740740742,
+    "res_sp": 0.024759259259259262,
+    "tgt_brasil": 0.6939305555555556,
+    "tgt_sp": 0.2313101851851852,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 7% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -204,13 +204,13 @@
       "selic": 13.75,
       "ipca": 4.58,
       "real_cdi": 8.895,
-      "ibov_dd": -15.955148349572157,
+      "ibov_dd": -18.14293025680763,
       "fund_dd": -13.708433572871503,
-      "breadth_pct": 16.509999999999998,
-      "mm200_pct": 21.05,
+      "breadth_pct": 13.03,
+      "mm200_pct": 15.790000000000001,
       "fg": 10.8,
-      "ibov": 175710.05,
-      "regime": "bear",
+      "ibov": 171136.12,
+      "regime": "capitulation",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
       "fund_dd_detail": {
@@ -224,13 +224,13 @@
       "ey": 3.795066413662239,
       "dy": 1.05,
       "real_us": 2.64,
-      "sp_dd": -1.36,
-      "fg": 34,
+      "sp_dd": -1.22,
+      "fg": 36,
       "fed": 3.88,
       "us_cpi": 3.74,
       "infl_exp": 2.35,
       "carry": 9.870000000000001,
-      "sp_cur": 7722.6,
+      "sp_cur": 7733.58,
       "sp_ath": 7829.1
     }
   },
@@ -298,8 +298,8 @@
   },
   "decay_flags": [
     {
-      "level": "medio",
-      "msg": "Ártica: alfa 60m vs IBOV -0.0pp NEGATIVO — janela de revisão (ciclo × erosão). (vs CDI +1.3pp — ciclo de juros, não skill)"
+      "level": "baixo",
+      "msg": "Ártica: alfa 60m vs IBOV +1.0pp — positivo mas fino; acompanhar. (vs CDI -1.1pp — ciclo de juros, não skill)"
     }
   ]
 }
