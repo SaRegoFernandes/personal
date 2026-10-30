@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T20:11:36.665267+00:00",
+  "generatedAt": "2026-10-30T21:42:35.081940+00:00",
   "asof": "2026-10-30",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -55,7 +55,7 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 5.734416,
+            "score": 5.736078,
             "read": "-19.7% — correção relevante",
             "weight": 0.12
           },
@@ -108,20 +108,20 @@
         "items": [
           {
             "key": "erp",
-            "score": 4.026814,
-            "read": "ERP real +1.2pp — abaixo da média (richish)",
+            "score": 4.085979,
+            "read": "ERP real +1.3pp — abaixo da média (richish)",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 2.085,
-            "read": "26.3x — caro",
+            "score": 2.32,
+            "read": "25.9x — caro",
             "weight": 0.0889
           },
           {
             "key": "cape",
             "score": 0.5,
-            "read": "CAPE 41x — extremo (tipo 1999/2021)",
+            "read": "CAPE 40x — extremo (tipo 1999/2021)",
             "weight": 0.2444
           },
           {
@@ -137,7 +137,7 @@
         "items": [
           {
             "key": "sp_dd",
-            "score": 1.45,
+            "score": 1.4425,
             "read": "-3.2% — no topo/ATH",
             "weight": 0.2
           }
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 8.1,
-            "read": "24/100 — medo alto",
+            "score": 7.9,
+            "read": "26/100 — medo alto",
             "weight": 0.1556
           }
         ]
@@ -204,12 +204,12 @@
       "selic": 13.75,
       "ipca": 4.58,
       "real_cdi": 8.895,
-      "ibov_dd": -19.672081198850123,
+      "ibov_dd": -19.680389540195254,
       "fund_dd": -13.708433572871503,
       "breadth_pct": 14.14,
       "mm200_pct": 17.11,
       "fg": 10.8,
-      "ibov": 167939.17,
+      "ibov": 167921.8,
       "regime": "capitulation",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -219,18 +219,18 @@
       }
     },
     "us": {
-      "pe": 26.33,
-      "cape": 40.88,
-      "ey": 3.79794910748196,
-      "dy": 1.05,
+      "pe": 25.86,
+      "cape": 40.13,
+      "ey": 3.8669760247486464,
+      "dy": 1.07,
       "real_us": 2.6,
-      "sp_dd": -3.2,
-      "fg": 24,
+      "sp_dd": -3.18,
+      "fg": 26,
       "fed": 3.88,
       "us_cpi": 3.74,
-      "infl_exp": 2.35,
+      "infl_exp": 2.34,
       "carry": 9.870000000000001,
-      "sp_cur": 7578.48,
+      "sp_cur": 7580.07,
       "sp_ath": 7829.1
     }
   },
