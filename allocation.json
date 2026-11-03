@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-03T00:07:11.151952+00:00",
-  "asof": "2026-10-30",
+  "generatedAt": "2026-11-03T02:01:21.199534+00:00",
+  "asof": "2026-11-02",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
   "brasil": 300000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 6.78,
+    "score": 6.79,
     "conf": "ALTA",
     "label": "BOM",
     "cor": "#1a7a52",
@@ -72,7 +72,7 @@
         "items": [
           {
             "key": "breadth",
-            "score": 9.836,
+            "score": 9.882,
             "read": "14% composto — extrema oportunidade",
             "weight": 0.1
           },
@@ -206,7 +206,7 @@
       "real_cdi": 8.895,
       "ibov_dd": -19.680293877082466,
       "fund_dd": -13.708433572871503,
-      "breadth_pct": 14.14,
+      "breadth_pct": 13.68,
       "mm200_pct": 17.11,
       "fg": 10.8,
       "ibov": 167922.0,
