@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-07T01:12:34.352820+00:00",
-  "asof": "2026-11-06",
+  "generatedAt": "2026-11-09T23:11:17.326137+00:00",
+  "asof": "2026-11-09",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
   "brasil": 300000.0,
@@ -15,7 +15,7 @@
     "alvo_sp": 0.25
   },
   "brasil_signal": {
-    "score": 6.8,
+    "score": 6.72,
     "conf": "ALTA",
     "label": "BOM",
     "cor": "#1a7a52",
@@ -55,8 +55,8 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 5.680914,
-            "read": "-19.4% — correção relevante",
+            "score": 5.323363,
+            "read": "-17.6% — correção relevante",
             "weight": 0.12
           },
           {
@@ -72,14 +72,14 @@
         "items": [
           {
             "key": "breadth",
-            "score": 10,
-            "read": "10% composto — extrema oportunidade",
+            "score": 9.789,
+            "read": "15% composto — extrema oportunidade",
             "weight": 0.1
           },
           {
             "key": "mm200",
-            "score": 8.5795,
-            "read": "14% > MM200 — oversold",
+            "score": 8.0896,
+            "read": "18% > MM200 — oversold",
             "weight": 0.04
           }
         ]
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 3.18,
+    "score": 2.81,
     "conf": "ALTA",
     "label": "HOLD",
     "cor": "#b4322a",
@@ -108,20 +108,20 @@
         "items": [
           {
             "key": "erp",
-            "score": 4.155193,
-            "read": "ERP real +1.3pp — abaixo da média (richish)",
+            "score": 4.04871,
+            "read": "ERP real +1.2pp — abaixo da média (richish)",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 2.68,
-            "read": "25.1x — caro",
+            "score": 2.375,
+            "read": "25.8x — caro",
             "weight": 0.0889
           },
           {
             "key": "cape",
             "score": 0.5,
-            "read": "CAPE 39x — extremo (tipo 1999/2021)",
+            "read": "CAPE 40x — extremo (tipo 1999/2021)",
             "weight": 0.2444
           },
           {
@@ -137,8 +137,8 @@
         "items": [
           {
             "key": "sp_dd",
-            "score": 2.4175,
-            "read": "-5.8% — recuo pequeno",
+            "score": 1.58875,
+            "read": "-3.6% — no topo/ATH",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 8.3,
-            "read": "22/100 — medo alto",
+            "score": 7.3,
+            "read": "32/100 — medo moderado",
             "weight": 0.1556
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 14800.0,
-    "piso": 0.0671111111111111,
+    "tranche": 13200.0,
+    "piso": 0.07190740740740739,
     "cashpct": 0.2,
-    "gap": 0.13288888888888892,
-    "want": 59800.0,
-    "aloc_brasil": 14800.0,
+    "gap": 0.12809259259259262,
+    "want": 57600.0,
+    "aloc_brasil": 13200.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.04999999999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.017111111111111108,
-    "tgt_brasil": 0.6996666666666667,
-    "tgt_sp": 0.23322222222222222,
+    "res_sp": 0.021907407407407407,
+    "tgt_brasil": 0.6960694444444444,
+    "tgt_sp": 0.23202314814814817,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 7% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -204,12 +204,12 @@
       "selic": 13.75,
       "ipca": 4.58,
       "real_cdi": 8.895,
-      "ibov_dd": -19.40456887026646,
+      "ibov_dd": -17.616816618595955,
       "fund_dd": -13.708433572871503,
-      "breadth_pct": 10.459999999999999,
-      "mm200_pct": 14.469999999999999,
+      "breadth_pct": 14.610000000000001,
+      "mm200_pct": 18.42,
       "fg": 10.8,
-      "ibov": 168498.45,
+      "ibov": 172236.05,
       "regime": "capitulation",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -219,18 +219,18 @@
       }
     },
     "us": {
-      "pe": 25.14,
-      "cape": 38.91,
-      "ey": 3.977724741447892,
-      "dy": 1.1,
-      "real_us": 2.63,
-      "sp_dd": -5.78,
-      "fg": 22,
+      "pe": 25.75,
+      "cape": 39.85,
+      "ey": 3.883495145631068,
+      "dy": 1.07,
+      "real_us": 2.66,
+      "sp_dd": -3.57,
+      "fg": 32,
       "fed": 3.88,
       "us_cpi": 3.74,
-      "infl_exp": 2.23,
+      "infl_exp": 2.22,
       "carry": 9.870000000000001,
-      "sp_cur": 7376.86,
+      "sp_cur": 7549.94,
       "sp_ath": 7829.1
     }
   },
@@ -299,7 +299,7 @@
   "decay_flags": [
     {
       "level": "baixo",
-      "msg": "Ártica: alfa 60m vs IBOV +1.3pp — positivo mas fino; acompanhar. (vs CDI -1.3pp — ciclo de juros, não skill)"
+      "msg": "Ártica: alfa 60m vs IBOV +1.5pp — positivo mas fino; acompanhar. (vs CDI -1.6pp — ciclo de juros, não skill)"
     }
   ]
 }
