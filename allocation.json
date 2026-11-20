@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T21:15:31.963290+00:00",
+  "generatedAt": "2026-11-20T22:29:35.684012+00:00",
   "asof": "2026-11-19",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -98,7 +98,7 @@
     }
   },
   "sp_signal": {
-    "score": 3.81,
+    "score": 3.96,
     "conf": "ALTA",
     "label": "CAUTELOSO",
     "cor": "#c2541f",
@@ -108,20 +108,20 @@
         "items": [
           {
             "key": "erp",
-            "score": 4.035692,
-            "read": "ERP real +1.2pp — abaixo da média (richish)",
+            "score": 4.265387,
+            "read": "ERP real +1.5pp — abaixo da média (richish)",
             "weight": 0.2444
           },
           {
             "key": "pe",
-            "score": 3.02,
-            "read": "24.5x — acima da média",
+            "score": 3.475,
+            "read": "23.6x — acima da média",
             "weight": 0.0889
           },
           {
             "key": "cape",
-            "score": 0.5,
-            "read": "CAPE 38x — extremo (tipo 1999/2021)",
+            "score": 0.712,
+            "read": "CAPE 36x — extremo (tipo 1999/2021)",
             "weight": 0.2444
           },
           {
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 17600.0,
-    "piso": 0.05894444444444443,
+    "tranche": 18300.0,
+    "piso": 0.05699999999999999,
     "cashpct": 0.2,
-    "gap": 0.14105555555555557,
-    "want": 63500.0,
-    "aloc_brasil": 17600.0,
+    "gap": 0.14300000000000002,
+    "want": 64400.0,
+    "aloc_brasil": 18300.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.04999999999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.008944444444444444,
-    "tgt_brasil": 0.7057916666666667,
-    "tgt_sp": 0.23526388888888888,
+    "res_sp": 0.007000000000000001,
+    "tgt_brasil": 0.70725,
+    "tgt_sp": 0.23575,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 6% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -219,16 +219,16 @@
       }
     },
     "us": {
-      "pe": 24.46,
-      "cape": 37.86,
-      "ey": 4.088307440719542,
-      "dy": 1.13,
-      "real_us": 2.88,
+      "pe": 23.55,
+      "cape": 36.44,
+      "ey": 4.246284501061571,
+      "dy": 1.17,
+      "real_us": 2.77,
       "sp_dd": -11.73,
       "fg": 10,
       "fed": 3.88,
       "us_cpi": 3.74,
-      "infl_exp": 2.16,
+      "infl_exp": 2.15,
       "carry": 9.870000000000001,
       "sp_cur": 6910.39,
       "sp_ath": 7829.1
