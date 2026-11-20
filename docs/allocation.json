@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T02:37:20.447566+00:00",
+  "generatedAt": "2026-11-20T21:15:31.963290+00:00",
   "asof": "2026-11-19",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -55,7 +55,7 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 5.883912,
+            "score": 5.883954,
             "read": "-20.4% — correção relevante",
             "weight": 0.12
           },
@@ -98,10 +98,10 @@
     }
   },
   "sp_signal": {
-    "score": 3.42,
+    "score": 3.81,
     "conf": "ALTA",
-    "label": "HOLD",
-    "cor": "#b4322a",
+    "label": "CAUTELOSO",
+    "cor": "#c2541f",
     "groups": {
       "Valuation": {
         "weight": 0.6444,
@@ -137,8 +137,8 @@
         "items": [
           {
             "key": "sp_dd",
-            "score": 3.3775,
-            "read": "-8.3% — pullback",
+            "score": 4.629091,
+            "read": "-11.7% — pullback",
             "weight": 0.2
           }
         ]
@@ -148,8 +148,8 @@
         "items": [
           {
             "key": "fg",
-            "score": 8.6,
-            "read": "19/100 — medo muito alto",
+            "score": 9.5,
+            "read": "10/100 — medo muito alto",
             "weight": 0.1556
           }
         ]
@@ -157,19 +157,19 @@
     }
   },
   "decision": {
-    "tranche": 15900.0,
-    "piso": 0.06399999999999999,
+    "tranche": 17600.0,
+    "piso": 0.05894444444444443,
     "cashpct": 0.2,
-    "gap": 0.136,
-    "want": 61200.0,
-    "aloc_brasil": 15900.0,
+    "gap": 0.14105555555555557,
+    "want": 63500.0,
+    "aloc_brasil": 17600.0,
     "aloc_sp": 0.0,
     "rodadas": 1,
     "base": 0.04999999999999999,
     "res_brasil": 0.0,
-    "res_sp": 0.014000000000000002,
-    "tgt_brasil": 0.702,
-    "tgt_sp": 0.234,
+    "res_sp": 0.008944444444444444,
+    "tgt_brasil": 0.7057916666666667,
+    "tgt_sp": 0.23526388888888888,
     "cur_brasil": 0.6666666666666666,
     "cur_sp": 0.13333333333333333,
     "desc": "caixa-alvo 6% · deploy roteado p/ o mercado barato e abaixo do alvo (mercado caro é vetado mesmo se sub-alocado)"
@@ -204,12 +204,12 @@
       "selic": 13.75,
       "ipca": 4.63,
       "real_cdi": 8.844999999999999,
-      "ibov_dd": -20.41955928003941,
+      "ibov_dd": -20.41976973888754,
       "fund_dd": -13.708433572871503,
       "breadth_pct": 22.24,
       "mm200_pct": 21.05,
       "fg": 10.8,
-      "ibov": 166376.44,
+      "ibov": 166376.0,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
@@ -224,13 +224,13 @@
       "ey": 4.088307440719542,
       "dy": 1.13,
       "real_us": 2.88,
-      "sp_dd": -8.34,
-      "fg": 19,
+      "sp_dd": -11.73,
+      "fg": 10,
       "fed": 3.88,
       "us_cpi": 3.74,
       "infl_exp": 2.16,
       "carry": 9.870000000000001,
-      "sp_cur": 7175.83,
+      "sp_cur": 6910.39,
       "sp_ath": 7829.1
     }
   },
@@ -298,8 +298,8 @@
   },
   "decay_flags": [
     {
-      "level": "baixo",
-      "msg": "Ártica: alfa 60m vs IBOV +1.9pp — positivo mas fino; acompanhar. (vs CDI -0.3pp — ciclo de juros, não skill)"
+      "level": "ok",
+      "msg": "Sem alertas de erosão de alfa."
     }
   ]
 }
