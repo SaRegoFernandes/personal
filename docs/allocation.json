@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T04:38:07.858430+00:00",
+  "generatedAt": "2026-11-24T05:37:29.473655+00:00",
   "asof": "2026-11-23",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -298,8 +298,8 @@
   },
   "decay_flags": [
     {
-      "level": "ok",
-      "msg": "Sem alertas de erosão de alfa."
+      "level": "baixo",
+      "msg": "Ártica: alfa 60m vs IBOV +1.9pp — positivo mas fino; acompanhar. (vs CDI -0.9pp — ciclo de juros, não skill)"
     }
   ]
 }
