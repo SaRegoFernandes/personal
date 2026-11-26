@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T02:37:36.754684+00:00",
+  "generatedAt": "2026-11-26T03:43:22.664785+00:00",
   "asof": "2026-11-25",
   "carteira_total": 450000.0,
   "caixa": 90000.0,
@@ -55,7 +55,7 @@
         "items": [
           {
             "key": "ibov_dd",
-            "score": 5.854431,
+            "score": 5.854394,
             "read": "-20.3% — correção relevante",
             "weight": 0.12
           },
@@ -204,12 +204,12 @@
       "selic": 13.75,
       "ipca": 4.63,
       "real_cdi": 8.844999999999999,
-      "ibov_dd": -20.272156772709238,
+      "ibov_dd": -20.2719702296393,
       "fund_dd": -13.708433572871503,
       "breadth_pct": 25.39,
       "mm200_pct": 21.05,
       "fg": 10.8,
-      "ibov": 166684.61,
+      "ibov": 166685.0,
       "regime": "bear",
       "pl_src": "manual (override)",
       "fund_dd_src": "planilha",
